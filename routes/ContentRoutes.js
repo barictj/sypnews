@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express'
+const express = require('express');
 const { Model } = require("mongoose");
 const Content = require('../models/Content');
 const ContentRoutes = express.Router()
