@@ -1,7 +1,8 @@
 import { createServer } from 'http'
 import { parse } from 'url'
 import next from 'next'
-import express, { Request, Response } from 'express' 
+
+import { Request, Response } from 'express' 
 console.log( __dirname );
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
@@ -34,14 +35,13 @@ server.prepare().then(() => {
   app.use(express.urlencoded({ extended: true })) // Uses URL encoded query strings
   // All your routes will be listed under `/api/*`
   app.use('/api/content-routes', ContentRoutes)
-  app.all('*', (req: Request, res: Response) => {
+  app.all('*', (req,res) => {
    return handle(req, res)   
   })
   // listen on the port specified
-  app.listen(port, (err?: any) => {
+  app.listen(port, (err) => {
    if (err) throw err
    console.log(`> Ready on localhost:${port} - env
            ${process.env.NODE_ENV}`)
    })
 })
-
