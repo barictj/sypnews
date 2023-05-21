@@ -19,3 +19,4 @@ const Content = mongoose.model("Content", ContentSchema);
 
 // Export the model.
 module.exports = Content;
+export{}
