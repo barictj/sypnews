@@ -24,6 +24,5 @@ ContentRoutes.post('/post-content', async (req, res) => {
         res.status(400).json({message: error.message})
     }
 })
-
-export default ContentRoutes
 module.exports = ContentRoutes ;
+// export default ContentRoutes
