@@ -2,6 +2,7 @@ import { createServer } from 'http'
 import { parse } from 'url'
 import next from 'next'
 import express, { Request, Response } from 'express' 
+console.log( __dirname );
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
 const express = require('express');
@@ -19,7 +20,7 @@ const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser')
 
 
-console.log( __dirname );
+
 
 // write a function to connect to the mongodb database using mongoose and check for errors
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
