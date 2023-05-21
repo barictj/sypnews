@@ -1,7 +1,6 @@
 import { createServer } from 'http'
 import { parse } from 'url'
 import next from 'next'
-import express, { Request, Response } from 'express' 
 console.log( __dirname );
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
