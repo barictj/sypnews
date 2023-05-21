@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 const { Model } = require("mongoose");
 const Content = require('../models/Content');
 const ContentRoutes = express.Router()
-
+console.log(__dirname)
 ContentRoutes.get('/', async (req, res) => {
     try{
         const data = await Content.find().sort({date: -1});
