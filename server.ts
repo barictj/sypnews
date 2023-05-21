@@ -16,7 +16,7 @@ const numCPUs = require('os').cpus().length;
 const server = next({ dev })
 const handle = server.getRequestHandler()
 //impooort the routes
-const ContentRoutes = require('./routes/ContentRoutes.ts');
+const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser')
 
 
