@@ -10,9 +10,10 @@ type Content = {
 export const getStaticProps: GetStaticProps<{
   content: [Content];
 }> = async () => {
-  const res = await fetch('http://localhost:3000/api/content-routes');
-  const content = await res.json();
-  return { props: { content } };
+  // const res = await fetch('http://localhost:3000/api/content-routes');
+  // const content = await res.json();
+  // return { props: { content } };
+  return { text:'here we are'}
 };
  
 export default function Page({
