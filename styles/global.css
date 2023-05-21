@@ -1,0 +1,13 @@
+
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#__next {
+  display: flex;
+  min-height: 100vh;
+}
