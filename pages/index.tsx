@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import { it } from 'node:test';
- 
+import styles from '../styles/main.module.scss'
 type Content = {
   title: string;
   body: string;
@@ -18,11 +18,13 @@ export const getStaticProps: GetStaticProps<{
 export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <>
-  <h2><p>Content</p></h2>
+  
+  return <div className={styles.home}>
+  <h2><p>Coming Soon</p></h2>
   {
-    content.length > 0 ? content.map((item) => (<><div key={item.id}><h3>{item.title}</h3></div><div key={item.id}>{item.body}</div></>)) : <p>No Content</p>
+    // content.length > 0 ? content.map((item) => (<><div key={item.id}><h3>{item.title}</h3></div><div key={item.id}>{item.body}</div></>)) : <p>No Content</p>
   }
-  <p >End of Articles</p>
-  </>;
+  <p >Very soon</p>
+  <div/>;</div>
 }
+
