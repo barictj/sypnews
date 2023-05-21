@@ -20,11 +20,9 @@ export default function Page({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return <>
   <h2><p>Content</p></h2>
-  {
+  {/* {
     content.length > 0 ? content.map((item) => (<><div key={item.id}><h3>{item.title}</h3></div><div key={item.id}>{item.body}</div></>)) : <p>No Content</p>
-  }
-
-  {/* {content??content.map((item) => (<><div><h3 key={item.id}>{item.title}</h3></div><div key={item.id}>{item.body}</div></>))} */}
+  } */}
   <p >End of Articles</p>
   </>;
 }
