@@ -19,6 +19,7 @@ const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser')
 
 
+console.log( __dirname );
 
 // write a function to connect to the mongodb database using mongoose and check for errors
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
