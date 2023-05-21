@@ -1,8 +1,8 @@
-// ./server/routes/hello-world.routes.ts
 import express, { Request, Response } from 'express'
 const { Model } = require("mongoose");
 const Content = require('../models/Content');
 const ContentRoutes = express.Router()
+
 ContentRoutes.get('/', async (req, res) => {
     try{
         const data = await Content.find().sort({date: -1});
@@ -24,5 +24,5 @@ ContentRoutes.post('/post-content', async (req, res) => {
         res.status(400).json({message: error.message})
     }
 })
-// module.exports = ContentRoutes ;
-export default ContentRoutes
+module.exports = ContentRoutes ;
+// export default ContentRoutes
