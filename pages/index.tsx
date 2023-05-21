@@ -25,6 +25,6 @@ export default function Page({
     // content.length > 0 ? content.map((item) => (<><div key={item.id}><h3>{item.title}</h3></div><div key={item.id}>{item.body}</div></>)) : <p>No Content</p>
   }
   <p >Very soon</p>
-  <div/>;</div>
+  <div/>Maybe</div>
 }
 
