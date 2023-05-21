@@ -10,10 +10,9 @@ type Content = {
 export const getStaticProps: GetStaticProps<{
   content: [Content];
 }> = async () => {
-  // const res = await fetch('http://localhost:3000/api/content-routes');
-  // const content = await res.json();
-  // return { props: { content } };
-  return { text:'here we are'}
+  const res = await fetch('http://content-base.herokuapp.com/api/content-routes');
+  const content = await res.json();
+  return { props: { content } };
 };
  
 export default function Page({
