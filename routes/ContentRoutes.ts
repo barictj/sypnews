@@ -26,7 +26,8 @@ ContentRoutes.post('/post-content', async (req, res) => {
 })
 //create route to get a single content and delete by id
 //create route to get a single content and delete by id
-ContentRoutes.get('/:id', async (req, res) => {
+ContentRoutes.get('/getone/:id', async (req, res) => {
+    console.log('get single content')
     try{
         const data = await Content.findById(req.params.id);
         res.json(data)
@@ -36,6 +37,7 @@ ContentRoutes.get('/:id', async (req, res) => {
     }
 })
 ContentRoutes.delete('/delete/:id', async (req, res) => {
+    console.log('delete')
     try{
         const data = await Content.findById(req.params.id);
         const dataToDelete = await data.remove();
