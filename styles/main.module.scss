@@ -1,13 +1,19 @@
 .home{
     background-color: rgb(2, 2, 20);
     color: white;
-    font: 1.2em 'Courier New', Courier, monospace;
+    font: 1.1em 'Courier New', Courier, monospace;
     font-family: 'Courier New', Courier, monospace;
     padding: 1em;
     width: 100vw;
     height: 100vh;
 }
 .title{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 1em;
+}
+.logofont{
     font-size: 1.3em;
     font-weight: bold;
     text-align: center;
