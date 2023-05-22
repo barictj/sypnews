@@ -20,11 +20,10 @@ export default function Page({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   
   return <div className={styles.home}>
-  <div className={styles.title}>Coming Soon</div>
+  
   {
-    // content.length > 0 ? content.map((item) => (<><div key={item.id}><h3>{item.title}</h3></div><div key={item.id}>{item.body}</div></>)) : <p>No Content</p>
+    content.length > 0 ? content.map((item) => (<><div key={item.id}><h3>{item.title}</h3></div><div key={item.id}>{item.body}</div></>)) : <p>No Content</p>
   }
-  <p >Very soon</p>
-  <div/>Maybe</div>
+  </div>;
 }
 
