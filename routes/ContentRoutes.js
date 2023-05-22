@@ -1,31 +1,53 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
+import express, { Request, Response } from 'express'
 const { Model } = require("mongoose");
 const Content = require('../models/Content');
-const ContentRoutes = express_1.default.Router();
+const ContentRoutes = express.Router()
+console.log(__dirname)
 ContentRoutes.get('/', async (req, res) => {
-    try {
-        const data = await Content.find().sort({ date: -1 });
-        res.json(data);
+    console.log('get all content')
+    try{
+        const data = await Content.find().sort({date: -1});
+        res.json(data)
     }
-    catch (error) {
-        res.status(500).json({ message: error.message });
+    catch(error){
+        res.status(500).json({message: error.message})
     }
-});
+})
 ContentRoutes.post('/post-content', async (req, res) => {
-    console.log('postContent');
-    const data = new Content(req.body);
+    console.log('postContent')
+    const data = new Content(req.body)
+    
     try {
         const dataToSave = await data.save();
-        res.status(200).json(dataToSave);
+        res.status(200).json(dataToSave)
     }
     catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).json({message: error.message})
     }
-});
-module.exports = ContentRoutes;
+})
+//create route to get a single content and delete by id
+//create route to get a single content and delete by id
+ContentRoutes.get('/getone/:id', async (req, res) => {
+    console.log('get single content')
+    try{
+        const data = await Content.findById(req.params.id);
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
+ContentRoutes.delete('/delete/:id', async (req, res) => {
+    console.log('delete')
+    try{
+        const data = await Content.findById(req.params.id);
+        const dataToDelete = await data.remove();
+        res.json(dataToDelete)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
+
+module.exports = ContentRoutes ;
 // export default ContentRoutes
