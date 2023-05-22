@@ -9,7 +9,7 @@ const Schema = mongoose.Schema;
 const ContentSchema = new Schema({
     title: String,
     description: String,
-    url: String,
+    url: {String, unique: true },
     date: { type: Date, default: Date.now},
     body: String,
     image: String
