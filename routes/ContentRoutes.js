@@ -2,7 +2,6 @@ import express, { Request, Response } from 'express'
 const { Model } = require("mongoose");
 const Content = require('../models/Content');
 const ContentRoutes = express.Router()
-console.log(__dirname)
 ContentRoutes.get('/', async (req, res) => {
     console.log('get all content')
     try{
@@ -27,27 +26,28 @@ ContentRoutes.post('/post-content', async (req, res) => {
 })
 //create route to get a single content and delete by id
 //create route to get a single content and delete by id
-// ContentRoutes.get('/getone/:id', async (req, res) => {
-//     console.log('get single content')
-//     try{
-//         const data = await Content.findById(req.params.id);
-//         res.json(data)
-//     }
-//     catch(error){
-//         res.status(500).json({message: error.message})
-//     }
-// })
-// ContentRoutes.delete('/delete/:id', async (req, res) => {
-//     console.log('delete')
-//     try{
-//         const data = await Content.findById(req.params.id);
-//         const dataToDelete = await data.remove();
-//         res.json(dataToDelete)
-//     }
-//     catch(error){
-//         res.status(500).json({message: error.message})
-//     }
-// })
+ContentRoutes.get('/getone/:id', async (req, res) => {
+    console.log('get single content')
+    try{
+        const data = await Content.findById(req.params.id);
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
+// DELETE Content
+
+ContentRoutes.get('/delete/:id', async (req, res) => {
+    console.log('get single content')
+    try{
+        const data = await Content.findByIdAndRemove(req.params.id);
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
 
 module.exports = ContentRoutes ;
 // export default ContentRoutes

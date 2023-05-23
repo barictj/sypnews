@@ -41,7 +41,7 @@ ContentRoutes.delete('/delete/:id', async (req, res) => {
     console.log('delete')
     try{
         const data = await Content.findById(req.params.id);
-        const dataToDelete = await data.remove();
+        const dataToDelete = await data.delete();
         res.json(dataToDelete)
     }
     catch(error){

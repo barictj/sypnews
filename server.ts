@@ -32,6 +32,7 @@ server.prepare().then(() => {
   app.use(express.json())   
   app.use(express.urlencoded({ extended: true })) // Uses URL encoded query strings
   // All your routes will be listed under `/api/*`
+  console.log('server is running')
   app.use('/api/content-routes', ContentRoutes)
   app.all('*', (req: Request, res: Response) => {
    return handle(req, res)   
