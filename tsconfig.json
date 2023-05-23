@@ -16,6 +16,6 @@
     "incremental": true,
     "baseUrl": "./",  
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "models/Content.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "models/Content.js", "routes/ContentRoutes.js"],
   "exclude": ["node_modules"]
 }
