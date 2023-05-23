@@ -17,7 +17,9 @@ export const getStaticProps: GetStaticProps<{
   console.log(res)
   // const res = await fetch('http://localhost:3000/api/content-routes');
   const content = await res.json();
-  return { props: { content } };
+  return { props: { content } ,
+  revalidate: 10, // In seconds
+}
 };
  
 export default function Page({
