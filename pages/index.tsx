@@ -27,7 +27,7 @@ export default function Page({
   return <div className={styles.home}>
   <div className={styles.logofont}>SYP Politics</div>
   {
-    content.length > 0 ? content.map((item) => (<><div key={item.id}><img src={item.url}></img><div className={styles.title}><Link href={item.url}>{item.title}</Link></div></div><div key={item.id}>{item.body}</div></>)) : <p>No Content</p>
+    content.length > 0 ? content.map((item) => (<><div key={item.id}><img src={item.image}></img><div className={styles.title}><Link href={item.url}>{item.title}</Link></div></div><div key={item.id}>{item.body}</div></>)) : <p>No Content</p>
   }
   </div>;
 }
