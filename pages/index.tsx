@@ -20,7 +20,6 @@ export const getStaticProps: GetStaticProps<{
   const res = await fetch('http://content-base.herokuapp.com/api/content-routes');
   // const res = await fetch('http://localhost:3000/api/content-routes');
   const content = await res.json();
-  
   return { props: { content } ,
   revalidate: 10, // In seconds
 }
@@ -31,7 +30,6 @@ export const getStaticProps: GetStaticProps<{
 export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  // sort content by date_published
   
   return (<div className={styles.home}>
   <div className={styles.logofont}>SYP Politics</div>
