@@ -3,7 +3,7 @@ import styles from '../styles/main.module.scss'
 // create react component with typescript and props from parent component called data
 export default function ArticleList({ data }) {
     // sort data by date_published
-    let sortedData = data.sort((a, b) => new Date(b.date_published) - new Date(a.date_published));
+    let sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf());
     sortedData.map((article) => ( console.log(article.date_published) ))
 
   
