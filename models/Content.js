@@ -12,7 +12,9 @@ const ContentSchema = new Schema({
     url: String,
     date: { type: Date, default: Date.now},
     body: String,
-    image: String
+    image: String,
+    site: String,
+    date_published: String,
 });
 
 // Create a model using the schema.
