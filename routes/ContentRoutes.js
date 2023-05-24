@@ -6,7 +6,7 @@ ContentRoutes.get('/', async (req, res) => {
     console.log('get all content')
     try{
         const data = await Content.find().sort({date: -1});
-        res.setHeader('Cache-Control', 'must-validate, max-age=5');
+        res.setHeader('Cache-Control', 'no-cache, max-age=5');
         res.json(data)
     }
     catch(error){
