@@ -15,6 +15,7 @@ const ContentSchema = new Schema({
     image: String,
     site: String,
     date_published: String,
+    source: String,
 });
 
 // Create a model using the schema.
