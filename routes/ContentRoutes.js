@@ -6,7 +6,8 @@ ContentRoutes.get('/', async (req, res) => {
     console.log('get all content')
     try{
         const data = await Content.find().sort({date: -1});
-        res.json(data)
+        
+        res.json(data.date_published.sort({date: -1}))
     }
     catch(error){
         res.status(500).json({message: error.message})
