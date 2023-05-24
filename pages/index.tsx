@@ -8,6 +8,7 @@ type Content = {
   id: string;
   url: string;
   image: string;
+  date_published: string;
 };
  
 export const getStaticProps: GetStaticProps<{
