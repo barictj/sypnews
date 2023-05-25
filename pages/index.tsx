@@ -3,7 +3,8 @@ import { it } from 'node:test';
 import styles from '../styles/main.module.scss'
 import Link from 'next/link'
 import ArticleList from 'components/articlelist';
-
+import Layout from '../components/layout'
+import { NextPageWithLayout } from './_app'
 
 type Content = {
   title: string;
@@ -29,13 +30,18 @@ export const getStaticProps: GetStaticProps<{
 
 export default function Page({
   content,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>)  {
   
-  return (<div className={styles.home}>
-  <div>
-    <div className={styles.logo_font}>SYP Politics</div>
-  </div>
-  <ArticleList data={content} />
-  </div>
+  return (<div >
+            <ArticleList data={content} />
+          </div>
+  )
+}
+
+Page.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
   )
 }
