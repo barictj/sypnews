@@ -30,6 +30,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 server.prepare().then(() => {
   const app = express()
+  app.disable('view cache');
   app.use(nocache());
   app.set('etag', false);
   app.use(express.json())   
