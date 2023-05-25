@@ -7,10 +7,13 @@ export default function ArticleList({ data }) {
   return (
     <div>
         {sortedData.map((article) => (
+          
           <div key={article.id} >
-            <Link href={article.url}>
-              <a><p>{article.title}</p></a>
-            </Link>
+              <Link href={article.url}>
+                <div className={styles.title_div}>
+                  <a className={styles.title}>{article.title}</a>
+                </div>
+              </Link>
             <Link href={article.url}>
               <div><img src={article.image} className={styles.img}/></div> 
             </Link>

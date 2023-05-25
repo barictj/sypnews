@@ -32,7 +32,9 @@ export default function Page({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   
   return (<div className={styles.home}>
-  <div className={styles.logofont}>SYP Politics</div>
+  <div className={styles.content_container}>
+    <div className={styles.logo_font}>SYP Politics</div>
+  </div>
   <ArticleList data={content} />
   </div>
   )
