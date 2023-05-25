@@ -12,7 +12,7 @@ $large: 5000px;
         color: white;
         font: 1.1em "Times New Roman", Times, serif;
         font-family: "Times New Roman", Times, serif;
-        // padding: 0em;
+        padding: 0em;
         // width: 95%;
         // height: 100%;
       }
@@ -81,6 +81,8 @@ $large: 5000px;
 
     @media screen and (max-width: $small) {
 
+        padding: 0em;
+
         // padding: 0em;
         
         // height: 100%;
@@ -97,7 +99,7 @@ $large: 5000px;
       }
 }
 .img {
-    width: 75%;
+    width: 90%;
     height: auto;
   }
   .title_div{
