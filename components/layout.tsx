@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
-        <title>Layouts Example</title>
+        <title>SYP Politics</title>
       </Head>
       
       <main className={styles.home}>
