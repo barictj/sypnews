@@ -17,6 +17,7 @@ const handle = server.getRequestHandler()
 //impooort the routes
 const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser')
+const nocache = require('nocache');
 
 
 
@@ -29,6 +30,8 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 server.prepare().then(() => {
   const app = express()
+  app.use(nocache());
+  app.set('etag', false);
   app.use(express.json())   
   app.use(express.urlencoded({ extended: true })) // Uses URL encoded query strings
   // All your routes will be listed under `/api/*`
