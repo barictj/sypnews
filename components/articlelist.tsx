@@ -10,12 +10,12 @@ export default function ArticleList({ data }) {
           
           <div key={article.id} >
              <Link href={article.url}>
-                <div><img src={article.image} className={styles.img}/></div> 
+                <img src={article.image} className={styles.img}/>
             </Link>
               <Link href={article.url}>
-                <div className={styles.title_div}>
-                  <a className={styles.title}>{article.title}</a>
-                </div>
+                
+                  <a className={styles.title}><div className={styles.title_div}>{article.title}</div></a>
+                
               </Link>
           </div>
         ))}
