@@ -60,6 +60,10 @@ ContentRoutes.get('/find/:text', async (req, res) => {
                     console.log(content.title)
                     dataFound.push(content)
                 }
+                if (content.body.toLowerCase().includes(text.toLowerCase())) {
+                    console.log(content.body)
+                    dataFound.push(content)
+                }
             }) 
         res.json(dataFound)       
     }
