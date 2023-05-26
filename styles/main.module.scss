@@ -33,19 +33,6 @@ $large: 501px;
       }
 
 }
-
-//right side of logo
-.logo_right{
-    align-self: flex-end;
-    margin-right: .1em;
-    font-size: .9em;
-    font-weight: bold;
-    text-align: right;
-    padding-right: .5em;
-    padding-top: .5em;
-    width: 40%
-}
-
 //both sides of logo 100 percent of screen
 .logo_div{
     display: flex;
@@ -57,16 +44,16 @@ $large: 501px;
     position: fixed;
 
     @media screen and (max-width: $small) {
-        height: 40px;
+        height: 50px;
     }   
     @media screen and (min-width: $large) {
         
     }   
 }
-.logo_font{
+.logo_left{
     width: auto;
-    margin-left: .23em;
-    align-self: flex-end;
+    margin-left: .4em;
+    padding-bottom: .2em;
 
     @media screen and (max-width: $small) {
         font-size: 1.4em;
@@ -77,6 +64,7 @@ $large: 501px;
         color: white;
         text-decoration: none;
         font-family: "Courier, Times, serif";  
+        align-self: flex-end;
     }   
     @media screen and (min-width: $large) {
         font-size: 1.75em;
@@ -91,6 +79,19 @@ $large: 501px;
     }   
 
 }
+
+//right side of logo
+.logo_right{
+    align-self: flex-end;
+    margin-right: .1em;
+    font-size: .9em;
+    font-weight: bold;
+    text-align: right;
+    padding-right: .5em;
+    padding-top: .5em;
+    width: 40%
+}
+
 .title{
     @media screen and (max-width: $small) {
         font-size: .9em;
@@ -122,13 +123,14 @@ $large: 501px;
     @media screen and (max-width: $small) {
 
         padding: .2em;
+        margin-top: 75px;
 
         // padding: 0em;
         
         // height: 100%;60
       }
       @media screen and (min-width: $large) {
-        margin-top: 0;
+        margin-top: 75px;
         margin-right: auto;
         margin-bottom: 0;
         margin-left: auto;

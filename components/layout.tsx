@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
       
       <main className={styles.home}>
           <div className={styles.logo_div}>
-            < div className={styles.logo_font}>
+            < div className={styles.logo_left}>
                 SYP Politics
             </div>
             <div className={styles.logo_right}>
