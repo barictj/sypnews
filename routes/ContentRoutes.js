@@ -48,6 +48,19 @@ ContentRoutes.get('/delete/:id', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
+ContentRoutes.get('/find/:text', async (req, res) => {
+    console.log('find by')
+    console.log(req.params.text)
+    const text = req.params.text
+    try{
+        const data = await Content
+        const dataFound = data.filter(({ data }) => data.toLowerCase().includes(text.toLowerCase()))
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
 
 module.exports = ContentRoutes ;
 // export default ContentRoutes
