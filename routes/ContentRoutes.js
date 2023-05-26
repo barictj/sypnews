@@ -58,7 +58,7 @@ ContentRoutes.get('/find/:text', async (req, res) => {
         data.filter(content => {
                 if (content.title.toLowerCase().includes(text.toLowerCase())) {
                     console.log(content.title)
-                    dataFound.push(dataFound)
+                    dataFound.push(content)
                 }
             }) 
         res.json(dataFound)       
