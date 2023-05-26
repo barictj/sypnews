@@ -52,13 +52,15 @@ ContentRoutes.get('/find/:text', async (req, res) => {
     console.log('find by')
     console.log(req.params.text)
     const text = req.params.text
+    const dataFound = []
     try{
         const data = await Content.find()
-        const dataFound = filter(({ content }) => content.toLowerCase().includes(text.toLowerCase()))
-        console.log(dataFound)
-        // const dataFound = data.
-        res.json(dataFound)
-        
+        data.filter(dataFound => {
+                if (content.title.toLowerCase().includes(text.title.toLowerCase())) {
+                    console.log(content.title)
+                    dataFound.push(dataFound)
+                }
+            })        
     }
     catch(error){
         res.status(500).json({message: error.message})
