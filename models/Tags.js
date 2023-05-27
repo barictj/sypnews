@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const TagsSchema = new Schema({
     name: {
-        tag_name: {String, required: true, unique: true},
+        tag_name: {
+            type: String,
+            required: true,
+            unique: true,
+        },
         count: Number,
     },
 }
