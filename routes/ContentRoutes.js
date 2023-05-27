@@ -17,6 +17,7 @@ ContentRoutes.post('/post-content', async (req, res) => {
     console.log('postContent')
     const tagsData = await Tags.find()
     const data = new Content(req.body)
+    console.log(tagsData)
     //checking to see if tag is in the title or 
     tagsData.filter(tag => {
         if (data.title.includes(tag.tag_name) || data.body.includes(tag_name) ) {
