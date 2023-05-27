@@ -1,5 +1,5 @@
 const ContentRoutes = require('./ContentRoutes')
-// const TagsRoutes = require('./TagsRoutes')
+const TagsRoutes = require('./TagsRoutes')
 
-module.exports = ContentRoutes
+module.exports = {ContentRoutes, TagRoutes}
 
