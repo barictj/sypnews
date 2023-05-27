@@ -15,15 +15,16 @@ ContentRoutes.get('/', async (req, res) => {
 })
 ContentRoutes.post('/post-content', async (req, res) => {
     console.log('postContent')
-    const Tags = await Tags.find()
     const data = new Content(req.body)
-    //checking to see if tag is in the title or body
-    Tags.filter(tag => {
-        if (data.title.includes(tag.tag_name) || data.body.includes(tag_name) ) {
-            data.tags.push(tag.tag_name)
-        }
-    })
+    
     try {
+        // const Tags = await Tags.find()
+        // Tags.filter(tag => {
+        //     if (data.title.includes(tag.tag_name) || data.body.includes(tag_name) ) {
+        //         data.tags.push(tag.tag_name)
+        //     }
+        // })
+
         const dataToSave = await data.save();
         res.status(200).json(dataToSave)
     }
