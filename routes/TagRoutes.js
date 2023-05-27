@@ -3,7 +3,7 @@ const { Model } = require("mongoose");
 const Tags = require('../models/Tags');
 const TagRoutes = express.Router()
 TagRoutes.get('/get-all-tags', async (req, res) => {
-    console.log('get all content')
+    console.log('get all tags')
     try{
         const data = await Tags.find();
         res.json(data)
