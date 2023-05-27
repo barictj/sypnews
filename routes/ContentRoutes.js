@@ -18,12 +18,12 @@ ContentRoutes.post('/post-content', async (req, res) => {
     const data = new Content(req.body)
     
     try {
-        // const Tags = await Tags.find()
-        // Tags.filter(tag => {
-        //     if (data.title.includes(tag.tag_name) || data.body.includes(tag_name) ) {
-        //         data.tags.push(tag.tag_name)
-        //     }
-        // })
+        const Tags = await Tags.find()
+        Tags.filter(tag => {
+            if (data.title.includes(tag.tag_name) || data.body.includes(tag_name) ) {
+                data.tags.push(tag.tag_name)
+            }
+        })
 
         const dataToSave = await data.save();
         res.status(200).json(dataToSave)
