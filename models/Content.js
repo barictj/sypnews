@@ -1,6 +1,6 @@
 // Require Mongoose
 const mongoose = require("mongoose");
-
+const Tags = require('./Tags');
 // Define a schema
 const Schema = mongoose.Schema;
 
@@ -16,6 +16,10 @@ const ContentSchema = new Schema({
     site: String,
     date_published: String,
     source: String,
+    tags: {
+        type:  Tags.schema ,
+        default: {}
+    },
 });
 
 // Create a model using the schema.

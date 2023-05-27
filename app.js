@@ -17,7 +17,7 @@ const numCPUs = require('os').cpus().length;
 const server = next({ dev })
 const handle = server.getRequestHandler()
 //impooort the routes
-const ContentRoutes = require('./routes/ContentRoutes');
+const Routes = require('./routes/Index.js');
 const bodyParser = require('body-parser')
 
 
@@ -34,7 +34,7 @@ server.prepare().then(() => {
   app.use(express.json())   
   app.use(express.urlencoded({ extended: true })) // Uses URL encoded query strings
   // All your routes will be listed under `/api/*`
-  app.use('/api/content-routes', ContentRoutes)
+  app.use('/api/', Routes)
   app.all('*', (req,res) => {
    return handle(req, res)   
   })

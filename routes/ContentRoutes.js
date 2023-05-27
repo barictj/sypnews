@@ -5,7 +5,7 @@ const ContentRoutes = express.Router()
 ContentRoutes.get('/', async (req, res) => {
     console.log('get all content')
     try{
-        const data = await Content.find().sort({date: -1});
+        const data = await Content.find().sort({ date_published: -1 });
         res.json(data)
     }
     catch(error){
