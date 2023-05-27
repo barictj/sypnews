@@ -17,17 +17,23 @@ const handle = server.getRequestHandler();
 //impooort the routes
 const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser');
+const nocache = require('nocache');
+const TagRoutes = require('./routes/TagRoutes');
 // write a function to connect to the mongodb database using mongoose and check for errors
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.log(err, 'error'));
 server.prepare().then(() => {
     const app = express();
+    app.disable('view cache');
+    app.use(nocache());
+    app.set('etag', false);
     app.use(express.json());
     app.use(express.urlencoded({ extended: true })); // Uses URL encoded query strings
     // All your routes will be listed under `/api/*`
     console.log('server is running');
     app.use('/api/content-routes', ContentRoutes);
+    app.use('/api/tag-routes', TagRoutes);
     app.all('*', (req, res) => {
         return handle(req, res);
     });

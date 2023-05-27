@@ -18,7 +18,7 @@ const handle = server.getRequestHandler()
 const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser')
 const nocache = require('nocache');
-
+const TagRoutes = require('./routes/TagRoutes');
 
 
 
@@ -38,6 +38,7 @@ server.prepare().then(() => {
   // All your routes will be listed under `/api/*`
   console.log('server is running')
   app.use('/api/content-routes', ContentRoutes)
+  app.use('/api/tag-routes', TagRoutes)
   app.all('*', (req: Request, res: Response) => {
    return handle(req, res)   
   })
