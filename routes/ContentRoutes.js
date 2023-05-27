@@ -19,11 +19,11 @@ ContentRoutes.post('/post-content', async (req, res) => {
     const data = new Content(req.body)
     console.log(tagsData)
     //checking to see if tag is in the title or 
-    tagsData.filter(tag => {
-        if (data.title.includes(tag.tag_name) || data.body.includes(tag_name) ) {
-            data.tags.push(tag.tag_name)
-        }
-    })
+    // tagsData.filter(tag => {
+    //     if (data.title.includes(tag.tag_name) || data.body.includes(tag_name) ) {
+    //         data.tags.push(tag.tag_name)
+    //     }
+    // })
     try {
         const dataToSave = await data.save();
         res.status(200).json(dataToSave)
