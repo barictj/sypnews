@@ -16,6 +16,8 @@ const ContentSchema = new Schema({
     site: String,
     date_published: String,
     source: String,
+    fake_clicks: {type: Number, default: Math.floor(Math.random() * 101) + 14},
+    real_clicks: Number,
     tags: {
         type:  Tags.schema ,
         default: {}

@@ -5,8 +5,6 @@ const TagsSchema = new Schema({
     name: {
         tag_name: String,
         count: Number,
-        fake_clicks: {type: Number, default: Math.floor(Math.random() * 101) + 14},
-        real_clicks: Number,
     },
 }
 )
