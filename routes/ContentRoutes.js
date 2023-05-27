@@ -2,11 +2,10 @@ const express = require('express');
 const { Model } = require("mongoose");
 const Content = require('../models/Content');
 const ContentRoutes = express.Router()
-const Tags = require('../models/Tags');
 ContentRoutes.get('/', async (req, res) => {
     console.log('get all content')
     try{
-        const data = await Content.find().sort({ date_published: -1 });
+        const data = await Content.find().sort({ date: -1 });
         res.json(data)
     }
     catch(error){
@@ -14,16 +13,9 @@ ContentRoutes.get('/', async (req, res) => {
     }
 })
 ContentRoutes.post('/post-content', async (req, res) => {
-    const tagsData = await Tags.find();
     console.log('postContent')
     const data = new Content(req.body)
-    console.log(data.body)
-    tagsData.filter(tag => {
-        if (data.body.toLowerCase().includes(tag.tag_name.toLowerCase())) {
-            data.tags[tag.name].push(tag_name)
-            console.log(data.tags)  
-        }
-    })  
+    
     try {
         const dataToSave = await data.save();
         res.status(200).json(dataToSave)
