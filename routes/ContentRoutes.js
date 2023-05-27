@@ -2,6 +2,7 @@ const express = require('express');
 const { Model } = require("mongoose");
 const Content = require('../models/Content');
 const ContentRoutes = express.Router()
+const Tags = require('../models/Tags');
 ContentRoutes.get('/', async (req, res) => {
     console.log('get all content')
     try{

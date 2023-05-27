@@ -21,7 +21,6 @@ export const getStaticProps: GetStaticProps<{
   const res = await fetch('http://content-base.herokuapp.com/api/content-routes');
   // const res = await fetch('http://localhost:3000/api/content-routes/');
   const content = await res.json();
-  console.log(content)
   return { props: { content } ,
   revalidate: 10, // In seconds
 }
