@@ -19,7 +19,7 @@ ContentRoutes.post('/post-content', async (req, res) => {
     const data = new Content(req.body)
     console.log(data.body)
     tagsData.filter(tag => {
-        if (data.body.toLowerCase().includes(tag.name.toLowerCase())) {
+        if (data.body.toLowerCase().includes(tag.tag_name.toLowerCase())) {
             data.tags[tag.name].push(tag_name)
             console.log(data.tags)  
         }
