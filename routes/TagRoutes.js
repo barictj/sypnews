@@ -17,6 +17,7 @@ TagRoutes.post('/post-tags', async (req, res) => {
     console.log('post tag')
     const data = new Tags(req.body)
     
+    
     try {
         const dataToSave = await data.save();
         res.status(200).json(dataToSave)
