@@ -19,8 +19,9 @@ export const getStaticProps: GetStaticProps<{
   content: [Content];
 }> = async () => {
   const res = await fetch('http://content-base.herokuapp.com/api/content-routes');
-  // const res = await fetch('http://localhost:3000/api/content-routes');
+  // const res = await fetch('http://localhost:3000/api/content-routes/');
   const content = await res.json();
+  console.log(content)
   return { props: { content } ,
   revalidate: 10, // In seconds
 }
@@ -31,11 +32,15 @@ export const getStaticProps: GetStaticProps<{
 export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getStaticProps>)  {
-  
-  return (<div >
+  console.log(content)
+  if (content.length > 0) {
+  return (<div className={styles.home}>
             <ArticleList data={content} />
-          </div>
-  )
+          </div>)
+}
+else {
+  return (<div className={styles.home}>Nothin</div>)
+}
 }
 
 Page.getLayout = function getLayout(page: React.ReactElement) {

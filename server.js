@@ -8,6 +8,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
 const express = require('express');
 const mongoose = require('mongoose');
+const TagRoutes = require('./routes/TagRoutes');
 // const uri = 'mongodb://127.0.0.1:27017/test';
 const uri = 'mongodb+srv://stackyourprops:egYb2acoGB0YJwsq@contentdb.2wrsfg9.mongodb.net/?retryWrites=true&w=majority';
 const cluster = require('cluster');
@@ -18,7 +19,6 @@ const handle = server.getRequestHandler();
 const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser');
 const nocache = require('nocache');
-const TagRoutes = require('./routes/TagRoutes');
 // write a function to connect to the mongodb database using mongoose and check for errors
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
