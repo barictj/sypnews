@@ -5,7 +5,6 @@ const TagsSchema = new Schema({
     name: {
         tag_name: {
             type: String,
-            required: true,
             unique: true,
         },
         count: Number,
