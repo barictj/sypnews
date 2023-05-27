@@ -13,7 +13,7 @@ TagRoutes.get('/get-all-tags', async (req, res) => {
     }
 })
 
-ContentRoutes.post('/post-tags', async (req, res) => {
+TagRoutes.post('/post-tags', async (req, res) => {
     console.log('post tag')
     const data = new Tags(req.body)
     
@@ -25,3 +25,4 @@ ContentRoutes.post('/post-tags', async (req, res) => {
         res.status(400).json({message: error.message})
     }
 })
+module.exports = TagRoutes
