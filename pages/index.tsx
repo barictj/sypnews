@@ -31,6 +31,7 @@ export const getStaticProps: GetStaticProps<{
 export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getStaticProps>)  {
+  console.log('index page')
   if (content.length > 0) {
   return (<div className={styles.home}>
             <ArticleList data={content} />
