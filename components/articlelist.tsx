@@ -6,6 +6,7 @@ export default function ArticleList({ data }) {
     let sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()); 
     console.log('article list page')
 
+    
   return (
     <div className={styles.content_container}>
         {sortedData.map((article) => (
