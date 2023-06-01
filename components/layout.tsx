@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/main.module.scss'
-
+import BurgerMenuButton from './burgerMenuButton'
 type LayoutProps = {
   children: React.ReactNode
 }
@@ -19,7 +19,7 @@ export default function Layout({ children }: LayoutProps) {
                 SYP Politics
             </div>
             <div className={styles.logo_right}>
-              All your news in one spot!
+              <BurgerMenuButton />
             </div>
           </div>
               <>
