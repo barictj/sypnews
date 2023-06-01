@@ -2,16 +2,16 @@ import Link from 'next/link'
 import styles from '../styles/main.module.scss'
 import { useState } from 'react'
 import Image from 'next/image';
-import BurgerMenu from './burgerMenu';
+import {BurgerMenu} from './burgerMenu';
 import { Menu as MenuIcon } from '@mui/icons-material/';
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
 
 
-export default function BurgerMenuButton() {
+export const  BurgerMenuButton = () => {
     const [toggle, setToggle] = useState(false) // toggle state for burger menu
     let newDiv = <div className={styles.burger_menu}></div>
     if (toggle === true) {
-        newDiv = <BurgerMenu />
+        newDiv = <BurgerMenu setToggle={setToggle}/>
     } 
   return (
     <div>

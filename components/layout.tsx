@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/main.module.scss'
-import BurgerMenuButton from './burgerMenuButton'
+import {BurgerMenuButton} from './burgerMenuButton'
 type LayoutProps = {
   children: React.ReactNode
 }
