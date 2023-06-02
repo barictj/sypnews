@@ -5,7 +5,7 @@ const Tags = require('../models/Tags');
 ContentRoutes.get('/', async (req, res) => {
     console.log('get all content')
     try{
-        const tagsData = await Tags.find()
+        // const tagsData = await Tags.find()
         const data = (await Content.find().sort({ date: -1 })).splice(0, 25);
         console.log(data)
         res.json(data)

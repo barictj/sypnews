@@ -10,7 +10,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const TagRoutes = require('./routes/TagRoutes');
 // const uri = 'mongodb://127.0.0.1:27017/test';
-const uri = 'mongodb+srv://stackyourprops:egYb2acoGB0YJwsq@contentdb.2wrsfg9.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://stackyourprops:egYb2acoGB0YJwsq@contentdb.2wrsfg9.mongodb.net/?connectTimeoutMS=600000&retryWrites=true&w=majority';
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 const server = (0, next_1.default)({ dev });
