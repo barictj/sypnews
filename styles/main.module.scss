@@ -1,13 +1,9 @@
 $small:500px;
 $large: 501px;
-
-
 ///home container at 100 percent contains logo
 /// 
 .home{
-
-      
-      @media screen and (max-width: $small) {
+    @media screen and (max-width: $small) {
         background-color: rgb(5, 5, 59);
         text-align: center;
         min-height: 100vh;
@@ -18,8 +14,8 @@ $large: 501px;
         padding-top: 0em;
         // width: 95%;
         // height: 100%;
-      }
-      @media screen and (min-width: $large) {
+    }
+    @media screen and (min-width: $large) {
         text-align: center;
         background-color: rgb(5, 5, 59);
         color: white;
@@ -30,7 +26,7 @@ $large: 501px;
         height: 100%;
         padding-top: 0;
 
-      }
+    }
 
 }
 //both sides of logo 100 percent of screen
@@ -42,6 +38,7 @@ $large: 501px;
     z-index: 3;
     background-color: rgb(5, 5, 59);
     position: fixed;
+    background-image: linear-gradient(black, rgb(5, 5, 59));
 
     @media screen and (max-width: $small) {
         height: 65px;
@@ -51,25 +48,29 @@ $large: 501px;
     }   
 }
 .logo_left{
-    width: auto;
-    margin-left: .4em;
+
+    width: 100px;
+    margin-left: 0em;
     padding-bottom: .2em;
+    height: 100%;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     @media screen and (max-width: $small) {
-        font-size: 1.4em;
         font-weight: bold;
-        text-align: center;
         margin-bottom: 0em;
         margin-top: 0em;
+        height: 65px;
         color: white;
         text-decoration: none;
         font-family: "Courier, Times, serif";  
         align-self: flex-end;
+        padding: 0em;
     }   
     @media screen and (min-width: $large) {
-        font-size: 1.75em;
         font-weight: bold;
-        text-align: left;
         margin-top: 0em;
         color: white;
         text-decoration: none;
@@ -78,71 +79,6 @@ $large: 501px;
         padding-top: .25em;
     }   
 
-}
-.button_menu {
-
-    background: transparent;
-    outline: none;
-    border: 0;
-
-}
-.menu{
-    position: absolute;
-    top: 60px;
-    font-size: 1.2em;
-    right: 5px;
-    // stacks the li tags vertically 
-    flex-direction: column;
-   // makes menu span full height and width
-    width: 25%;
-    height: calc(100vh - 77px);
-    background-image: linear-gradient(to bottom right, #202634, rgb(5, 5, 59));
-    border: 5px solid black;
-    border-radius: 15px;
-    @media screen and (max-width: $small) {
-        width: 95%
-    }   
-}
-.menu_div{
-    width: 100%;
-    height:75%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 3em;
-    justify-content: center;
-    // margin-right: ;
-    
-}
-.menu_item{
-    width: 100%;
-    align-items: center;
-    align-self: center;
-    text-align: center;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    border-bottom: 2px solid gray;
-
-}
-.menu_item:hover{
-    background-color:rgb(59, 59, 63)
-}
-.menu_item_link{
-    color: rgb(240, 240, 240);
-    text-decoration: none;
-    width: 100%;
-    font-weight: 600;
-}
-.menu_item_link:visited{
-    color: rgb(240, 240, 240);
-    width: 100%;
-}
-.button_menu_button {
-    width: 75px;
-    height: auto;
-    background: transparent;
-    outline: none;
-    border: 0;
-    cursor: pointer;
 }
 //right side of logo
 .logo_right{
@@ -175,7 +111,6 @@ $large: 501px;
         color: white;
         text-decoration: none;        
     }
-        
 }
     
 

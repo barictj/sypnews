@@ -12,11 +12,15 @@ export default function Layout({ children }: LayoutProps) {
       <Head>
         <title>SYP Politics</title>
       </Head>
-      
       <main className={styles.home}>
           <div className={styles.logo_div}>
             < div className={styles.logo_left}>
-                SYP Politics
+                <div>
+                  SYP
+                </div>
+                <div> 
+                  Politics 
+                </div>
             </div>
             <div className={styles.logo_right}>
               <BurgerMenuButton />
@@ -25,7 +29,6 @@ export default function Layout({ children }: LayoutProps) {
               <>
                 {children}
               </>
-          
         </main>
     </>
   )

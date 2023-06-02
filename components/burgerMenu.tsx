@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/main.module.scss'
+import styles from '../styles/menu.module.scss'
 import { useState } from 'react'
 
 
