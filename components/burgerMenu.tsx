@@ -7,7 +7,7 @@ import { SearchBar } from './searchBar'
 export  const BurgerMenu = (props) => {
   return (
       <div className={styles.menu}>
-        <SearchBar />
+        <SearchBar props={props} />
         <div className={styles.menu_div}> 
             <div className={styles.menu_item}>
               <Link href="/" >

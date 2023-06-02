@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import Router from 'next/router';
 
-export const SearchBar = () => {
+export const SearchBar = (props) => {
     const [searchText, setSearchText] = useState('');
     const search = (e) => {
         console.log(searchText)

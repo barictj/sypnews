@@ -4,7 +4,7 @@ import styles from '../styles/main.module.scss'
 
 const About = (props) => {
     return (
-      <div className={styles.home}>
+      <div className={styles.content_container}  style={{marginTop: '65px', color: 'white'}}>
         <p>About Us</p>
             <p></p>
       </div>
