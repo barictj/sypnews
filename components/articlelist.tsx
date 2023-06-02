@@ -3,13 +3,14 @@ import styles from '../styles/main.module.scss'
 // create react component with typescript and props from parent component called data
 export default function ArticleList({ data }) {
     // sort data by date_published
-    let sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()); 
-    console.log('article list page')
+    let sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()).slice(0, 50); 
+    sortedData.map((article) => () => {console.log(article)})
 
     
   return (
     <div className={styles.content_container}>
         {sortedData.map((article) => (
+        
           <div key={article.id} >
              <Link href={article.url}>
                 <a><img src={article.image} className={styles.img}/></a>

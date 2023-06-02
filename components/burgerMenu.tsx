@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import styles from '../styles/menu.module.scss'
-import { useState } from 'react'
-
+import { SearchBar } from './searchBar'
 
 
 //Create a navigagtion menu that includes a nextjs link to the about page
 export  const BurgerMenu = (props) => {
   return (
       <div className={styles.menu}>
+        <SearchBar />
         <div className={styles.menu_div}> 
             <div className={styles.menu_item}>
               <Link href="/" >

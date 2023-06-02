@@ -1,5 +1,4 @@
 const express = require('express');
-const { Model } = require("mongoose");
 const Content = require('../models/Content');
 const ContentRoutes = express.Router()
 const Tags = require('../models/Tags');
@@ -7,8 +6,8 @@ ContentRoutes.get('/', async (req, res) => {
     console.log('get all content')
     try{
         const tagsData = await Tags.find()
-        const data = await Content.find().sort({ date: -1 });
-        console.log(data[0])
+        const data = (await Content.find().sort({ date: -1 })).splice(0, 25);
+        console.log(data)
         res.json(data)
     }
     catch(error){
@@ -71,13 +70,14 @@ ContentRoutes.get('/find/:text', async (req, res) => {
         const data = await Content.find()
         data.filter(content => {
                 if (content.title.toLowerCase().includes(text.toLowerCase())) {
-                    console.log(content.title)
-                    dataFound.push(content)
+                    if(!dataFound.includes(content.title))
+                        console.log(content.title)
+                        dataFound.push(content)
                 }
-                if (content.body != null){
+                else if (content.body != null){
                     if (content.body.toLowerCase().includes(text.toLowerCase())) {
-                    console.log(content.body)
-                    dataFound.push(content)
+                        if(!dataFound.includes(content.body))
+                            dataFound.push(content)
                 }}
             }) 
         res.json(dataFound)       

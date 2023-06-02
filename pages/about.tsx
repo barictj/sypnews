@@ -1,9 +1,14 @@
 //create an about page component
-export default function About() {
+import styles from '../styles/main.module.scss'
+
+
+const About = (props) => {
     return (
-      <div>
-        <h1>About Us</h1>
-            n<p>Getting ready for the revolution of political news from DotReduce</p>
+      <div className={styles.home}>
+        <p>About Us</p>
+            <p></p>
       </div>
     );
   }
+
+export default About;

@@ -1,10 +1,7 @@
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
-import { it } from 'node:test';
 import styles from '../styles/main.module.scss'
-import Link from 'next/link'
 import ArticleList from 'components/articlelist';
 import Layout from '../components/layout'
-import { NextPageWithLayout } from './_app'
 
 type Content = {
   title: string;

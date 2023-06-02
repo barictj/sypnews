@@ -57,7 +57,7 @@ $large: 501px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    
     @media screen and (max-width: $small) {
         font-weight: bold;
         margin-bottom: 0em;
@@ -78,7 +78,6 @@ $large: 501px;
         height: 50px;
         padding-top: .25em;
     }   
-
 }
 //right side of logo
 .logo_right{
