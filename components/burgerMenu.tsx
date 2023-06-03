@@ -11,7 +11,7 @@ export  const BurgerMenu = (props) => {
         <div className={styles.menu_div}> 
               <Link href="/" >
                 <div className={styles.menu_item} onClick={props.setToggle}>
-                  <a className={styles.menu_item_link} >Home</a>
+                  <a className={styles.menu_item_link}>Home</a>
                 </div>
               </Link>
             <Link href="/about" >
