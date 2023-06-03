@@ -7,10 +7,8 @@ import Router from 'next/router';
 
 export const SearchBar = (props) => {
     const [searchText, setSearchText] = useState('');
-    console.log(props)
     const search = (e) => {
         e.preventDefault();
-        console.log(searchText)
         if(searchText === '') return false;
         else{
             props.setToggle(false)

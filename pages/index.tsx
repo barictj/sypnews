@@ -17,7 +17,8 @@ type Content = {
 // }> = async () => {
 //   const res = await fetch('http://content-base.herokuapp.com/api/content-routes');
 //   // const res = await fetch('http://localhost:3000/api/content-routes/');
-//   const content = await res.json();
+//   const data = await res.json();
+//   const content = data.data
 //   return { props: { content } ,
 //   revalidate: 10, // In seconds
 // }
@@ -38,7 +39,6 @@ export async function getServerSideProps() {
 export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
-  console.log('index page')
   if (content.length > 0) {
   return (<div className={styles.home}>
             <ArticleList data={content} />

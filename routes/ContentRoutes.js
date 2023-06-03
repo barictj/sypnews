@@ -3,7 +3,6 @@ const Content = require('../models/Content');
 const ContentRoutes = express.Router()
 const Tags = require('../models/Tags');
 ContentRoutes.get('/', async (req, res) => {
-    console.log('get all content')
     try{
         // const tagsData = await Tags.find()
         const data = (await Content.find())
@@ -15,7 +14,6 @@ ContentRoutes.get('/', async (req, res) => {
     }
 })
 ContentRoutes.post('/post-content', async (req, res) => {
-    console.log('postContent')
     const data = new Content(req.body)
     try{
     const tagsData = await Tags.find()
@@ -40,7 +38,6 @@ ContentRoutes.post('/post-content', async (req, res) => {
 //create route to get a single content and delete by id
 //create route to get a single content and delete by id
 ContentRoutes.get('/getone/:id', async (req, res) => {
-    console.log('get single content')
     try{
         const data = await Content.findById(req.params.id);
         res.json(data)
@@ -52,7 +49,6 @@ ContentRoutes.get('/getone/:id', async (req, res) => {
 // DELETE Content
 
 ContentRoutes.get('/delete/:id', async (req, res) => {
-    console.log('get single content')
     try{
         const data = await Content.findByIdAndRemove(req.params.id);
         res.json(data)
@@ -62,8 +58,6 @@ ContentRoutes.get('/delete/:id', async (req, res) => {
     }
 })
 ContentRoutes.get('/find/:text', async (req, res) => {
-    console.log('find by')
-    console.log(req.params.text)
     const text = req.params.text
     const dataFound = []
     try{
@@ -71,7 +65,6 @@ ContentRoutes.get('/find/:text', async (req, res) => {
         data.filter(content => {
                 if (content.title.toLowerCase().includes(text.toLowerCase())) {
                     if(!dataFound.includes(content.title))
-                        console.log(content.id)
                         dataFound.push(content)
                 }
                 else if (content.body != null){
