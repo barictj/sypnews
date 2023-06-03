@@ -7,7 +7,7 @@ ContentRoutes.get('/', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
         const data = (await Content.find())
-        const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()).splice(0, 10)
+        const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
         res.json(sortedData)
     }
     catch(error){
