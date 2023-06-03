@@ -8,8 +8,8 @@ const Search = (props) => {
   const map = {};
   const newArray = query.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
     return (
-      <div className={styles.content_container} style={{marginTop: '65px', color: 'white'}}>
-        Results
+      <div style={{marginTop: '65px', color: 'white'}}>
+        <h2>Results</h2>
         <ArticleList data={newArray} />
       </div>
     );
