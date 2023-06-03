@@ -7,18 +7,19 @@ import Router from 'next/router';
 
 export const SearchBar = (props) => {
     const [searchText, setSearchText] = useState('');
+    console.log(props)
     const search = (e) => {
         e.preventDefault();
         console.log(searchText)
         if(searchText === '') return false;
         else{
+            props.setToggle(false)
             Router.push({
                 pathname: '/search',
                 query: { searchText:  searchText}
             }, '/search');
         }
     };
-
     return (
     <div className={styles.search_div}>
         <form className={styles.search_form} onSubmit={search}>
@@ -28,18 +29,12 @@ export const SearchBar = (props) => {
             onChange={(e) => setSearchText(e.target.value)}
             className={styles.search_input}
             >
-            
             </input>
             <div className={styles.search_button}>
-                <IconButton edge="start" sx={{minHeight: 0, minWidth: 0, padding: 0, paddingTop:1}}  type='submit'  >
+                <IconButton edge="start" sx={{minHeight: 0, minWidth: 0, padding: 0, paddingTop:1}}  type='submit' >
                     <SearchIcon sx={{color:'black', fontSize: 35}} />
                 </IconButton>
             </div>
-            
-            {/* <button type='submit' onClick={search} className={styles.search__button}> */}
-                {/* Search */}
-            {/* </button> */}
-            
         </form>
       </div>  
     );
