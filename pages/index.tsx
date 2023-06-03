@@ -12,22 +12,30 @@ type Content = {
   date_published: string;
 };
  
-export const getStaticProps: GetStaticProps<{
-  content: [Content];
-}> = async () => {
-  const res = await fetch('http://content-base.herokuapp.com/api/content-routes');
-  // const res = await fetch('http://localhost:3000/api/content-routes/');
+// export const getStaticProps: GetStaticProps<{
+//   content: [Content];
+// }> = async () => {
+//   const res = await fetch('http://content-base.herokuapp.com/api/content-routes');
+//   // const res = await fetch('http://localhost:3000/api/content-routes/');
+//   const content = await res.json();
+//   return { props: { content } ,
+//   revalidate: 10, // In seconds
+// }
+// };
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`http://content-base.herokuapp.com/api/content-routes`);
   const content = await res.json();
-  return { props: { content } ,
-  revalidate: 10, // In seconds
+ 
+  // Pass data to the page via props
+  return { props: { content } };
 }
-};
  
 
 
 export default function Page({
   content,
-}: InferGetStaticPropsType<typeof getStaticProps>)  {
+}: InferGetStaticPropsType<typeof getServerSideProps>)  {
   console.log('index page')
   if (content.length > 0) {
   return (<div className={styles.home}>

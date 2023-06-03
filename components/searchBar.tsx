@@ -8,6 +8,7 @@ import Router from 'next/router';
 export const SearchBar = (props) => {
     const [searchText, setSearchText] = useState('');
     const search = (e) => {
+        e.preventDefault();
         console.log(searchText)
         if(searchText === '') return false;
         else{
@@ -20,7 +21,7 @@ export const SearchBar = (props) => {
 
     return (
     <div className={styles.search_div}>
-        <form className={styles.search_form}>
+        <form className={styles.search_form} onSubmit={search}>
             <input
             type="text"
             value={searchText}
@@ -30,7 +31,7 @@ export const SearchBar = (props) => {
             
             </input>
             <div className={styles.search_button}>
-                <IconButton edge="start" sx={{minHeight: 0, minWidth: 0, padding: 0, paddingTop:1}} onClick={(e) => search(searchText)} type='button'  >
+                <IconButton edge="start" sx={{minHeight: 0, minWidth: 0, padding: 0, paddingTop:1}}  type='submit'  >
                     <SearchIcon sx={{color:'black', fontSize: 35}} />
                 </IconButton>
             </div>

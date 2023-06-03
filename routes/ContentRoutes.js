@@ -6,9 +6,9 @@ ContentRoutes.get('/', async (req, res) => {
     console.log('get all content')
     try{
         // const tagsData = await Tags.find()
-        const data = (await Content.find().sort({ date: -1 })).splice(0, 25);
-        console.log(data)
-        res.json(data)
+        const data = (await Content.find())
+        const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()).splice(0, 10)
+        res.json(sortedData)
     }
     catch(error){
         res.status(500).json({message: error.message})
@@ -71,12 +71,12 @@ ContentRoutes.get('/find/:text', async (req, res) => {
         data.filter(content => {
                 if (content.title.toLowerCase().includes(text.toLowerCase())) {
                     if(!dataFound.includes(content.title))
-                        console.log(content.title)
+                        console.log(content.id)
                         dataFound.push(content)
                 }
                 else if (content.body != null){
                     if (content.body.toLowerCase().includes(text.toLowerCase())) {
-                        if(!dataFound.includes(content.body))
+                        if(!dataFound.includes(content.id))
                             dataFound.push(content)
                 }}
             }) 
