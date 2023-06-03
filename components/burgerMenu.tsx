@@ -10,13 +10,13 @@ export  const BurgerMenu = (props) => {
         <SearchBar setToggle={props.setToggle} />
         <div className={styles.menu_div}> 
               <Link href="/" >
-                <div className={styles.menu_item}>
-                  <a className={styles.menu_item_link} onClick={props.setToggle}>Home</a>
+                <div className={styles.menu_item} onClick={props.setToggle}>
+                  <a className={styles.menu_item_link} >Home</a>
                 </div>
               </Link>
-            <Link href="/about">
-              <div className={styles.menu_item}>
-                <a className={styles.menu_item_link} onClick={props.setToggle}>About</a>
+            <Link href="/about" >
+              <div className={styles.menu_item} onClick={props.setToggle}>
+                <a className={styles.menu_item_link} >About</a>
               </div>
             </Link>
         </div>
