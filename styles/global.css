@@ -1,17 +1,18 @@
 html {
-  margin:0;
+  /* margin:0;
   padding:0;
-  max-height:100vh;
-  overflow:hidden;
-  background-color: rgb(5, 5, 59);
+  /* max-height:100vh; */
+  /* overflow:hidden;  */
 
 }
 
 
+
 body {
-  display: flex;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   margin: 0;
+  background-color: rgb(5, 5, 59);
+
 }
 
 #__next {
