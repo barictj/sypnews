@@ -40,9 +40,9 @@ export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
   if (content.length > 0) {
-  return (<div className={styles.home}>
+  return (
             <ArticleList data={content} />
-          </div>)
+          )
 }
 else {
   return (<div className={styles.home}>Nothin</div>)
