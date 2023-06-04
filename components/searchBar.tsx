@@ -11,7 +11,9 @@ export const SearchBar = (props) => {
         e.preventDefault();
         if(searchText === '') return false;
         else{
+            if(typeof props.setToggle==='function'){
             props.setToggle(false)
+        }
             Router.push({
                 pathname: '/search',
                 query: { searchText:  searchText}
