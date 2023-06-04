@@ -22,6 +22,7 @@ const ContentSchema = new Schema({
         type: [ Tags.schema ],
         default: []
     },
+    matched: {type: Number, default: 0},
 });
 
 // Create a model using the schema.

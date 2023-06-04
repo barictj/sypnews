@@ -40,8 +40,10 @@ export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
   if (content.length > 0) {
+    let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
+    const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
   return (
-            <ArticleList data={content} />
+            <ArticleList data={newArray} />
           )
 }
 else {

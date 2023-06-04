@@ -60,18 +60,65 @@ ContentRoutes.get('/delete/:id', async (req, res) => {
 ContentRoutes.get('/find/:text', async (req, res) => {
     const text = req.params.text
     const dataFound = []
+    const textArray = text.split(/(\s+)/).filter( e => e.trim().length > 0)
+    function getUncommon(sentence, common) {
+        var wordArr = sentence.match(/\w+/g),
+            commonObj = {},
+            uncommonArr = [],
+            word, i;
+    
+        common = common.split(',');
+        for ( i = 0; i < common.length; i++ ) {
+            commonObj[ common[i].trim() ] = true;
+        }
+    
+        for ( i = 0; i < wordArr.length; i++ ) {
+            word = wordArr[i].trim().toLowerCase();
+            if ( !commonObj[word] ) {
+                uncommonArr.push(word);
+            }
+        }
+    
+        return uncommonArr;
+    }
+    const uncommon = getUncommon(text, 'the,be,to,of,and,a,in,that,have,I,it,for,not,on,with,he,as,you,do,at,this,but,his,is,by,from,they,we,say,her,she,or,an,will,my,one,all,would,there,their,what,so,up,out,if,about,who,get,which,go,me,when,make,can,like,time,no,just,him,know,take,people,into,year,your,good,some,could,them,see,other,than,then,now,look,only,come,its,over,think,also,back,after,use,two,how,our,work,first,well,way,even,new,want,because,any,these,give,day,most,us')
+    console.log(uncommon)
+    console.log('SEARCH plust help')
     try{
+        console.log('try')
         const data = await Content.find()
         data.filter(content => {
                 if (content.title.toLowerCase().includes(text.toLowerCase())) {
                     if(!dataFound.includes(content.title))
+                        content["matched"] = 100
                         dataFound.push(content)
                 }
-                else if (content.body != null){
-                    if (content.body.toLowerCase().includes(text.toLowerCase())) {
+                else if (content.body != null && content.body.toLowerCase().includes(text.toLowerCase())){
                         if(!dataFound.includes(content.id))
                             dataFound.push(content)
-                }}
+                }
+                else{
+                    let wordMatch = 0
+                    uncommon.filter(word => {
+                        console.log(word)
+                        if (content.title.toLowerCase().includes(word.toLowerCase())) {
+                            if(!dataFound.includes(content.title))
+                                console.log(word)
+                                wordMatch++
+                        }
+                        else if (content.body != null){
+                            if (content.body.toLowerCase().includes(word.toLowerCase())) {
+                                if(!dataFound.includes(content.id))
+                                    wordMatch++
+                        }}
+                    })
+                    if(wordMatch > 0){
+                        console.log(wordMatch);
+                        let newContent = content
+                        newContent["matched"] = wordMatch
+                        dataFound.push(newContent)
+                    }
+                }
             }) 
         res.json(dataFound)       
     }
