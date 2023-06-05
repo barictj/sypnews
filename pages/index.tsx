@@ -2,7 +2,7 @@ import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import styles from '../styles/main.module.scss'
 import ArticleList from 'components/articlelist';
 import Layout from '../components/layout'
-
+import TopStoryContainer from '../components/top_story/topStoryContainer'
 type Content = {
   title: string;
   body: string;
@@ -42,8 +42,14 @@ export default function Page({
   if (content.length > 0) {
     let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
     const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
-  return (
-            <ArticleList data={newArray} />
+    const length = newArray.length
+    console.log(length)
+    const spliced = newArray.splice(8, length)
+    return (
+    <div className={styles.content_container}>
+            <TopStoryContainer data={newArray} />
+            <ArticleList data={spliced} />
+    </div>
           )
 }
 else {

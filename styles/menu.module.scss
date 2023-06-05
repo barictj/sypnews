@@ -1,13 +1,12 @@
-$small:500px;
-$large: 501px;
-
+$small:1100px;
+$large: 1101px;
 .menu_div{
     width: 100%;
     height:75%;
     display: flex;
     flex-direction: column;
     padding-top: 3em;
-    justify-content: center;
+    justify-content: flex-start;
     // margin-right: ;    
 }
 .menu_item{
@@ -66,3 +65,12 @@ $large: 501px;
         width: 95%
     }   
 }
+.top_story_right_new{
+    align-self: center;
+    width: 75%;
+    font-size: 1.5em;
+    text-align: center;
+    padding-bottom: .5em;
+    border-bottom: #ffffff solid 1px;
+}
+
