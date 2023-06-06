@@ -3,6 +3,7 @@ import styles from '../styles/main.module.scss'
 import ArticleList from 'components/articlelist';
 import Layout from '../components/layout'
 import TopStoryContainer from '../components/top_story/topStoryContainer'
+import { useState, useEffect } from 'react';
 type Content = {
   title: string;
   body: string;
@@ -33,30 +34,37 @@ export async function getServerSideProps() {
   // Pass data to the page via propsrs
     return { props: { content } };
 }
- 
-
-
 export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
   if (content.length > 0) {
-    let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
-    const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
-    const length = newArray.length
-    console.log(length)
-    const spliced = newArray.splice(11, length)
+      const [readyData, setReadyData] = useState("");
+      const [spliced, setSpliced] = useState("");
+      useEffect(() => {
+        let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
+        const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
+        const length = newArray.length
+        setReadyData(newArray)
+        setSpliced(newArray.splice(11, length))
+      }, [content]); 
     return (
     <div className={styles.content_container}>
-            <TopStoryContainer data={newArray} />
+            {readyData.length > 0 ?
+            <>
+            <TopStoryContainer data={readyData} />
             <ArticleList data={spliced} />
+            </>
+            :
+            <div>Nothing</div>
+            }
+            
     </div>
           )
 }
 else {
-  return (<div className={styles.home}>Nothin</div>)
+  return (<div className={styles.content_container}>Nothin</div>)
 }
 }
-
 Page.getLayout = function getLayout(page: React.ReactElement) {
   return (
     <Layout>

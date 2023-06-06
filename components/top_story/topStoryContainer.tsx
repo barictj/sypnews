@@ -11,8 +11,10 @@ import TopStoryRightTops from './topStoryRightTops';
 
 export const TopStoryContainer = (props) => {
     const content = props.data;
+    console.log(content)
     const splicedContent = content.splice(5, 10);
     const topTwo = content.splice(1, 4);
+    console.log(topTwo);
     const [toggle, setToggle] = useState(false);
     // console.log(splicedContent)
     return (

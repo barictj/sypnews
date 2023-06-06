@@ -5,7 +5,7 @@ $large: 801px;
 .home{
     @media screen and (max-width: $small) {
         background-color: rgb(5, 5, 59);
-        text-align: center;
+        text-align: left;
         min-height: 100vh;
         color: white;
         font: 1.1em "Times New Roman", Times, serif;
@@ -16,7 +16,7 @@ $large: 801px;
         padding-top: 0;
     }
     @media screen and (min-width: $large) {
-        text-align: center;
+        text-align: left;
         background-color: rgb(5, 5, 59);
         color: white;
         font: 1.3em "Times New Roman", Times, serif;
@@ -150,12 +150,5 @@ $large: 801px;
     padding-left: .5em;
     padding-right: .5em;
   }
-  .top_story_right_new{
-    align-self: center;
-    width: 100%;
-    font-size: 1.5em;
-    text-align: center;
-    padding-bottom: .5em;
-    border-bottom: #ffffff solid 1px;
-}
+
 
