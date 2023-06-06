@@ -7,48 +7,63 @@ $large: 801px;
     flex-wrap: wrap;
     @media screen and (max-width: $small) {
         flex-direction: column;
+        justify-content: flex-start;
+
     }
+
 }
 .top_story_div{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex: 550px;
+    flex: 450px;
     @media screen and (max-width: $small) {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
 }
 .top_story_title{
-    margin-bottom: .5rem;
-    padding: .15em;
+    padding: 0;
+    margin-bottom: .5em;
+    text-align: left;
+    align-self: flex-start;
+    width: 85%;
 }
 .top_story_title_link{
-    font-size: 2em;
-    font-weight: 600;
+    font-size: 1.7em;
+    font-weight: 800;
     color: #ffffff;
     text-decoration: none;
-    text-align: left;
+    
+    text-align: center;
+    align-self: self-start;
+    width: 100%;
     &:visited{
         color: #ffffff;
-        text-decoration: none
+        text-decoration: none;
+        font-size: 1.75em;
+        font-weight: 600;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        text-align: center;
+        align-self: self-start;
 }
 }
 .top_story_description{
-    font-size: 1.25rem;
-    padding-top: 1rem;
+    font-size: 1.1rem;
+    padding-top: 0rem;
     font-weight: 400;
     color: #ffffff;
     text-decoration: none;
     text-align: left;
-    padding-left: .5em;
-    padding-right: .5em;
 
 }
 .top_story_image{
 
-    width: 95%;
+    width: 99%;
     height: auto;
+    margin-top: 0;
    
 }
 .top_stories_right{
@@ -60,13 +75,15 @@ $large: 801px;
     text-align: left;
     padding: 1em;
     padding-top: 0em;
-    margin-bottom: 2em;
     width: 100%;
+    margin-bottom: 2em;
+    margin-top: 2em;
     @media screen and (max-width: $small) {
         width: 100%;
-        padding: .5em;
-        padding-top: 1em;
-        margin-top: 2em;
+        margin-top: 0em;
+        padding-top: 0em;
+        padding: 0;
+        margin-bottom: 1em;
     }
 }
 .top_story_right_link{
@@ -118,9 +135,10 @@ $large: 801px;
     font-size: 30px;
     text-align: center;
     width: 500px;
+    margin-bottom: 1em;
     @media screen and (max-width: $small) {
         width: 100%;
-        margin-top: 2em;
+        margin-top: 1em;
     }
   }
   
