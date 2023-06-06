@@ -44,7 +44,7 @@ export default function Page({
     const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
     const length = newArray.length
     console.log(length)
-    const spliced = newArray.splice(8, length)
+    const spliced = newArray.splice(11, length)
     return (
     <div className={styles.content_container}>
             <TopStoryContainer data={newArray} />

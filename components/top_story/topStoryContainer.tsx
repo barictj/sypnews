@@ -6,16 +6,19 @@ import Image from 'next/image';
 import { useState } from 'react';
 import TopStoryRight from './topStoryRight';
 import TopStory from './topStory';
+import TopStoryRightTops from './topStoryRightTops';
 
 
 export const TopStoryContainer = (props) => {
     const content = props.data;
-    const splicedContent = content.splice(1, 7);
+    const splicedContent = content.splice(5, 10);
+    const topTwo = content.splice(1, 4);
     const [toggle, setToggle] = useState(false);
     // console.log(splicedContent)
     return (
         <div className={styles.top_story_container_div}>
             <TopStory data={content[0]} />
+            <TopStoryRightTops props={topTwo} />
             <TopStoryRight props={splicedContent} />
         </div>
     );

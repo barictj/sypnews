@@ -1,9 +1,10 @@
-$small:1100px;
-$large: 1101px;
+$small:800;
+$large: 801px;
 .top_story_container_div{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     @media screen and (max-width: $small) {
         flex-direction: column;
     }
@@ -12,8 +13,7 @@ $large: 1101px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 65%;
-    min-width: 350px;
+    flex: 550px;
     @media screen and (max-width: $small) {
         width: 100%;
         justify-content: space-between;
@@ -24,7 +24,7 @@ $large: 1101px;
     padding: .15em;
 }
 .top_story_title_link{
-    font-size: 2.25em;
+    font-size: 2em;
     font-weight: 600;
     color: #ffffff;
     text-decoration: none;
@@ -35,7 +35,7 @@ $large: 1101px;
 }
 }
 .top_story_description{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     padding-top: 1rem;
     font-weight: 400;
     color: #ffffff;
@@ -53,14 +53,15 @@ $large: 1101px;
 }
 .top_stories_right{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: flex-start;
     text-align: left;
     padding: 1em;
     padding-top: 0em;
     margin-bottom: 2em;
-    width: 35%;
+    width: 100%;
     @media screen and (max-width: $small) {
         width: 100%;
         padding: .5em;
@@ -79,11 +80,14 @@ $large: 1101px;
         text-decoration: none   
 }
 }
+
+
 .top_story_right_div{
     margin-top: 1em;
     margin-bottom: .5em;
     padding-left: .25em;
     padding-right: .5em;
+    width: 100%;
 }
 .top_story_right_new{
     align-self: center;
@@ -93,3 +97,57 @@ $large: 1101px;
     padding-bottom: .5em;
     border-bottom: #ffffff solid 1px;
 }
+
+
+.link_in_pic{
+    text-decoration: none;
+    color: #ffffff;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    &:visited{
+        color: #ffffff;
+        text-decoration: none
+}
+    
+}
+
+.top_stories_right_tops{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    text-align: center;
+    width: 500px;
+    @media screen and (max-width: $small) {
+        width: 100%;
+        
+    }
+  }
+  
+  .top_articles_with_pic {
+    flex-basis: 50%; /* CHANGED from -> width: 50% */
+    font-size: 20px;
+    height: 335px;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    color: #ffffff;
+    &:visited{
+        color: #ffffff;
+        text-decoration: none
+}
+    @media screen and (max-width: $small) {
+    width: 100%;
+    flex-basis: 100%;
+    
+}
+  }
+.top_articles_with_pic:hover{
+    font-weight: 800;
+}
+  
+  /* Responsive layout - makes a one column-layout instead of a two-column layout */
+  @media (max-width: 800px) {
+    .flex-item-right, .flex-item-left {
+      flex: 100%;
+    }
+  }
