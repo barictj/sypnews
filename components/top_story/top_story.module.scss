@@ -1,4 +1,4 @@
-$small:800;
+$small:800px;
 $large: 801px;
 .top_story_container_div{
     width: 100%;
@@ -124,22 +124,23 @@ $large: 801px;
   }
   
   .top_articles_with_pic {
-    flex-basis: 50%; /* CHANGED from -> width: 50% */
+    flex-basis: 48%; /* CHANGED from -> width: 50% */
     font-size: 20px;
     height: 335px;
     display: flex;
     align-items: flex-end;
     text-decoration: none;
     color: #ffffff;
+    
+    @media screen and (max-width: $small) {
+        flex-basis: 100%;
+        padding: 1rem;
+    }
     &:visited{
         color: #ffffff;
         text-decoration: none
 }
-    @media screen and (max-width: $small) {
-    width: 100%;
-    flex-basis: 100%;
-    
-}
+
   }
 .top_articles_with_pic:hover{
     font-weight: 800;
