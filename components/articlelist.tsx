@@ -10,7 +10,7 @@ export default function ArticleList({ props }) {
             <Link href={article.url} key={article.id}>
                 <a 
                 className={styles.full_list_with_pic} 
-                style={{background: `rgba(0, 0, 0, 0.80) url(${article.image}) `, 
+                style={{background: `rgba(0, 0, 0, 0.40) url(${article.image}) `, 
                 backgroundSize: 'cover', 
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
