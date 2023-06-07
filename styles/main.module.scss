@@ -1,5 +1,6 @@
 $small:800px;
 $large: 801px;
+$extra_large: 1000px;
 ///home container at 100 percent contains logo
 /// 
 .home{
@@ -132,10 +133,20 @@ $large: 801px;
         margin-bottom: 0;
         margin-left: auto;
         padding: 1em;
-        width: 75%;
+        width: 95%;
         // width: 100vw;
         // height: 100%;
-      }
+
+        @media screen and (min-width: $extralarge) {
+            margin-top: 75px;
+            margin-right: auto;
+            margin-bottom: 0;
+            margin-left: auto;
+            padding: 1em;
+            width: 75%;
+            // width: 100vw;
+            // height: 100%;
+        }
 }
 .img {
     width: 90%;
