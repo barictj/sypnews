@@ -16,13 +16,20 @@ export const TopStoryContainer = (props) => {
     const topTwo = content.splice(1, 4);
     console.log(topTwo);
     const [toggle, setToggle] = useState(false);
+    
     // console.log(splicedContent)
     return (
+        <>
+        {content.length > 0 ? 
         <div className={styles.top_story_container_div}>
             <TopStory data={content[0]} />
             <TopStoryRightTops props={topTwo} />
-            <TopStoryRight props={splicedContent} />
+            
         </div>
+        :
+        <div>LOADING</div>
+        }
+        </>
     );
 }
 ;

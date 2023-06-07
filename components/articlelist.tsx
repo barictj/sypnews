@@ -1,18 +1,29 @@
 import Link from 'next/link'
-import styles from '../styles/main.module.scss'
-
+import styles from './article_list.module.scss'
 import { useState, useEffect } from 'react';
 // create react component with typescript and props from parent component called data
-export default function ArticleList({ data }) {
+export default function ArticleList({ props }) {
+    const data = props
   return (
-    <>
-    <div className={styles.top_story_right_new}>Recent News</div>
+    <div className={styles.full_list}>
         {data.map((article) => (
-          <div key={article.id} >
-              <Link href={article.url}>  
-                  <a className={styles.title}><div className={styles.title_div}>{article.title}</div></a>   
-              </Link>
-          </div>
+            <Link href={article.url}>
+                <a 
+                className={styles.full_list_with_pic} 
+                style={{background: `rgba(0, 0, 0, 0.80) url(${article.image}) `, 
+                backgroundSize: 'cover', 
+                backgroundPosition: 'center center',
+                backgroundRepeat: 'no-repeat',
+                backgroundBlendMode: 'darken',
+                objectFit: 'cover',
+                overflow: 'hidden',
+                }}
+                >   
+                    <div key={article.id} >
+                        {article.title}
+                    </div>   
+                </a>    
+            </Link>
         ))}
-    </>
+    </div>
   )}

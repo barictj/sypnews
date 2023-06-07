@@ -3,6 +3,7 @@ import styles from './top_story.module.scss'
 import { useState, useEffect } from 'react';
 // create react component with typescript and props from parent component called data
 export default function TopStoryRightTops({ props }) {
+    console.log(props)
     const data = props
   return (
     <div className={styles.top_stories_right_tops}>

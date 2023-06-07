@@ -1,0 +1,32 @@
+$small:800px;
+$large: 801px;
+.full_list{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1em;
+    @media screen and (max-width: $small) {
+        width: 100%;
+        margin-top: 1em;
+    }
+  }
+  .full_list_with_pic{    
+    flex-basis: 33%; /* CHANGED from -> width: 50% */
+    font-size: 20px;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    color: #ffffff;
+    
+    @media screen and (max-width: $small) {
+        flex-basis: 100%;
+        padding: 1rem;
+    }
+    &:visited{
+        color: #ffffff;
+        text-decoration: none
+}}

@@ -4,6 +4,7 @@ import ArticleList from 'components/articlelist';
 import Layout from '../components/layout'
 import TopStoryContainer from '../components/top_story/topStoryContainer'
 import { useState, useEffect } from 'react';
+import TopStoryRightTops from '../components/top_story/topStoryRightTops';
 type Content = {
   title: string;
   body: string;
@@ -52,7 +53,9 @@ export default function Page({
             {readyData.length > 0 ?
             <>
             <TopStoryContainer data={readyData} />
-            <ArticleList data={spliced} />
+            <ArticleList props={spliced} />
+
+           
             </>
             :
             <div>Nothing</div>
