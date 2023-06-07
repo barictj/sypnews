@@ -7,7 +7,7 @@ export default function ArticleList({ props }) {
   return (
     <div className={styles.full_list}>
         {data.map((article) => (
-            <Link href={article.url}>
+            <Link href={article.url} key={article.id}>
                 <a 
                 className={styles.full_list_with_pic} 
                 style={{background: `rgba(0, 0, 0, 0.80) url(${article.image}) `, 
@@ -19,7 +19,7 @@ export default function ArticleList({ props }) {
                 overflow: 'hidden',
                 }}
                 >   
-                    <div key={article.id} >
+                    <div  style={{padding: '.25em'}}>
                         {article.title}
                     </div>   
                 </a>    

@@ -4,7 +4,7 @@ $large: 801px;
 .top_story_container_div{
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-wrap: wrap;
     @media screen and (max-width: $small) {
         flex-direction: column;
@@ -27,48 +27,56 @@ $large: 801px;
 
 //Div above link
 .top_story_title{
-    padding: 0;
+    padding-left: .5em;
     margin-bottom: .5em;
     text-align: left;
     align-self: flex-start;
     width: 100%;
+    font-weight: bolder;
 }
 //A in top_story_title link
 .top_story_title_link{
     font-size: 1.5em;
-    font-weight: 800;
-    color: #ffffff;
+    font-weight: 600;
+    color: black;
     text-decoration: none;
     text-align: center;
     align-self: self-start;
     width: 100%;
     &:visited{
-        color: #ffffff;
         text-decoration: none;
-        font-size: 1.5em;
+        font-size: 1.75em;
         font-weight: 600;
-        color: #ffffff;
+        color: black;
         text-decoration: none;
         font-weight: 700;
         text-align: center;
         align-self: self-start;
     }
 }
+.top_story_title_link:hover{
+    color: cadetblue;
+}
 //Div below link 
 .top_story_description{
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     padding-top: 0rem;
-    font-weight: 400;
-    color: #ffffff;
+    font-weight: 100;
+    color: black;
     text-decoration: none;
     text-align: left;
     width: 95%;
-    margin-top: 1em;
+    margin-top: .2em;
+    padding: .5em;
+    
 }
 .top_story_image{
-    width: 99%;
+    width: 100%;
     height: auto;
     margin-top: 0;
+}
+.top_story_image:hover{
+    filter: brightness(50%);
 }
 //right side of top story container.  includes four pics
 .top_stories_right{
@@ -105,35 +113,6 @@ $large: 801px;
 // }
 
 
-.top_story_right_div{
-    margin-top: 1em;
-    margin-bottom: .5em;
-    padding-left: .25em;
-    padding-right: .5em;
-    width: 100%;
-}
-.top_story_right_new{
-    align-self: center;
-    width: 75%;
-    font-size: 1.5em;
-    text-align: center;
-    padding-bottom: .5em;
-    border-bottom: #ffffff solid 1px;
-}
-
-
-.link_in_pic{
-    text-decoration: none;
-    color: #ffffff;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    &:visited{
-        color: #ffffff;
-        text-decoration: none
-}
-    
-}
-
 .top_stories_right_tops{
     display: flex;
     flex-wrap: wrap;
@@ -141,6 +120,7 @@ $large: 801px;
     text-align: center;
     width: 700px;
     margin-bottom: 1em;
+    height: 100%;
     @media screen and (max-width: $small) {
         width: 100%;
         margin-top: 1em;
@@ -151,7 +131,7 @@ $large: 801px;
   .top_articles_with_pic {
     flex-basis: 50%; /* CHANGED from -> width: 50% */
     font-size: 20px;
-    height: 225px;
+    height: 235px;
     display: flex;
     align-items: flex-end;
     text-decoration: none;
