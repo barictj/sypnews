@@ -1,6 +1,6 @@
 $small:800px;
 $large: 801px;
-$extra_large: 1000px;
+$extra_large: 1651px;
 ///home container at 100 percent contains logo
 /// 
 .home{
@@ -28,6 +28,43 @@ $extra_large: 1000px;
 
     }
 
+}
+.content_container{
+    z-index: 2;
+    margin-top: 60px;
+    padding-top: 10em;
+    position: relative;
+    overflow: hidden;
+    @media screen and (max-width: $small) {
+
+        padding: .2em;
+        margin-top: 75px;
+        width: 100vw;
+        height: 95%;
+        // padding: 0em;
+        
+        // height: 100%;60
+      }
+    @media screen and (min-width: $large) {
+        margin-top: 75px;
+        margin-right: auto;
+        margin-bottom: 0;
+        margin-left: auto;
+        padding: 1em;
+        width: 95%;
+        // width: 100vw;
+        // height: 100%;
+      }
+    @media screen and (min-width: $extra_large) {
+        margin-top: 75px;
+        margin-right: auto;
+        margin-bottom: 0;
+        margin-left: auto;
+        padding: 1em;
+        width: 75%;
+        // width: 100vw;
+        // height: 100%;
+    }
 }
 //both sides of logo 100 percent of screen
 .logo_div{
@@ -111,43 +148,7 @@ $extra_large: 1000px;
 }
     
 
-.content_container{
-    z-index: 2;
-    margin-top: 60px;
-    padding-top: 10em;
-    position: relative;
-    overflow: hidden;
-    @media screen and (max-width: $small) {
 
-        padding: .2em;
-        margin-top: 75px;
-        width: 100vw;
-        height: 95%;
-        // padding: 0em;
-        
-        // height: 100%;60
-      }
-      @media screen and (min-width: $large) {
-        margin-top: 75px;
-        margin-right: auto;
-        margin-bottom: 0;
-        margin-left: auto;
-        padding: 1em;
-        width: 95%;
-        // width: 100vw;
-        // height: 100%;
-
-        @media screen and (min-width: $extralarge) {
-            margin-top: 75px;
-            margin-right: auto;
-            margin-bottom: 0;
-            margin-left: auto;
-            padding: 1em;
-            width: 75%;
-            // width: 100vw;
-            // height: 100%;
-        }
-}
 .img {
     width: 90%;
     height: auto;
