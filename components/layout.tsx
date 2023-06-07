@@ -6,7 +6,7 @@ type LayoutProps = {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  console.log("Layout")
+  // console.log("Layout")
   return (
     <>
       <Head>

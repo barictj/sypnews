@@ -16,7 +16,7 @@ const Search = (props) => {
           <div>
             <SearchBar />
           </div>
-        <ArticleList data={sortedArray} />
+        <ArticleList props={sortedArray} />
       </div>
     );
   }

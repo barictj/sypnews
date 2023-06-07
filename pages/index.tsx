@@ -54,8 +54,6 @@ export default function Page({
             <>
             <TopStoryContainer data={readyData} />
             <ArticleList props={spliced} />
-
-           
             </>
             :
             <div>Nothing</div>

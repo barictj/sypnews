@@ -14,7 +14,6 @@ type AppPropsWithLayout = AppProps & {
 }
 
 export default function MyApp({ Component, pageProps }) {
-  console.log('app page')
   const getLayout = Component.getLayout ?? ((page) => page)
   return (<Layout>
     <Component {...pageProps} />
