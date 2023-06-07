@@ -1,5 +1,6 @@
 $small:800px;
 $large: 801px;
+//contains all top story components
 .top_story_container_div{
     width: 100%;
     display: flex;
@@ -10,8 +11,9 @@ $large: 801px;
         justify-content: flex-start;
 
     }
+}   
 
-}
+//top story div for the entire left side of top stories}
 .top_story_div{
     display: flex;
     flex-direction: column;
@@ -22,19 +24,21 @@ $large: 801px;
         justify-content: flex-start;
     }
 }
+
+//Div above link
 .top_story_title{
     padding: 0;
     margin-bottom: .5em;
     text-align: left;
     align-self: flex-start;
-    width: 85%;
+    width: 100%;
 }
+//A in top_story_title link
 .top_story_title_link{
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 800;
     color: #ffffff;
     text-decoration: none;
-    
     text-align: center;
     align-self: self-start;
     width: 100%;
@@ -48,8 +52,9 @@ $large: 801px;
         font-weight: 700;
         text-align: center;
         align-self: self-start;
+    }
 }
-}
+//Div below link 
 .top_story_description{
     font-size: 1.1rem;
     padding-top: 0rem;
@@ -57,15 +62,15 @@ $large: 801px;
     color: #ffffff;
     text-decoration: none;
     text-align: left;
-
+    width: 95%;
+    margin-top: 1em;
 }
 .top_story_image{
-
     width: 99%;
     height: auto;
     margin-top: 0;
-   
 }
+//right side of top story container.  includes four pics
 .top_stories_right{
     display: flex;
     flex-direction: row;
@@ -86,18 +91,18 @@ $large: 801px;
         margin-bottom: 1em;
     }
 }
-.top_story_right_link{
-    font-size: 1em;
-    font-weight: 600;
-    color: #ffffff;
-    text-decoration: none;
-    text-align: left;
-    margin-top: 0;
-    &:visited{
-        color: #ffffff;
-        text-decoration: none   
-}
-}
+// .top_story_right_link{
+//     font-size: 1em;
+//     font-weight: 600;
+//     color: #ffffff;
+//     text-decoration: none;
+//     text-align: left;
+//     margin-top: 0;
+//     &:visited{
+//         color: #ffffff;
+//         text-decoration: none   
+// }
+// }
 
 
 .top_story_right_div{
@@ -144,9 +149,9 @@ $large: 801px;
 
 
   .top_articles_with_pic {
-    flex-basis: 48%; /* CHANGED from -> width: 50% */
+    flex-basis: 50%; /* CHANGED from -> width: 50% */
     font-size: 20px;
-    height: 250px;
+    height: 225px;
     display: flex;
     align-items: flex-end;
     text-decoration: none;
@@ -159,9 +164,9 @@ $large: 801px;
     &:visited{
         color: #ffffff;
         text-decoration: none
-}
+    }
 
-  }
+}
 .top_articles_with_pic:hover{
     font-weight: 800;
 }

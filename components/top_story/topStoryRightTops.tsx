@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 export default function TopStoryRightTops({ props }) {
     const data = props
   return (
-    <div className={styles.top_stories_right_tops}>
+    <div className={styles.top_stories_right_tops} >
         {data.map((article) => (
-            <Link href={article.url}>
+            <Link href={article.url} key={article.id}>
                 <a 
                 className={styles.top_articles_with_pic} 
                 style={{background: `rgba(0, 0, 0, 0.80) url(${article.image}) `, 
@@ -19,7 +19,7 @@ export default function TopStoryRightTops({ props }) {
                 overflow: 'hidden',
                 }}
                 >   
-                    <div key={article.id} >
+                    <div  >
                         {article.title}
                     </div>   
                 </a>    
