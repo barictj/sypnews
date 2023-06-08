@@ -24,6 +24,7 @@ export const SearchBar = (props) => {
     <div className={styles.search_div}>
         <form className={styles.search_form} onSubmit={search}>
             <input
+            placeholder="Search SYPolitics..."
             type="text"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}

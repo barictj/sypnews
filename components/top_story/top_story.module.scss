@@ -36,9 +36,9 @@ $large: 801px;
 }
 //A in top_story_title link
 .top_story_title_link{
+    color: black;
     font-size: 1.5em;
     font-weight: 600;
-    color: black;
     text-decoration: none;
     text-align: center;
     align-self: self-start;
@@ -47,7 +47,6 @@ $large: 801px;
         text-decoration: none;
         font-size: 1.75em;
         font-weight: 600;
-        color: black;
         text-decoration: none;
         font-weight: 700;
         text-align: center;
@@ -62,13 +61,13 @@ $large: 801px;
     font-size: 1.05rem;
     padding-top: 0rem;
     font-weight: 100;
-    color: black;
     text-decoration: none;
     text-align: left;
     width: 95%;
     margin-top: .2em;
     padding: .5em;
-    
+    color: rgb(79, 79, 79);
+
 }
 .top_story_image{
     width: 100%;
@@ -99,20 +98,6 @@ $large: 801px;
         margin-bottom: 1em;
     }
 }
-// .top_story_right_link{
-//     font-size: 1em;
-//     font-weight: 600;
-//     color: #ffffff;
-//     text-decoration: none;
-//     text-align: left;
-//     margin-top: 0;
-//     &:visited{
-//         color: #ffffff;
-//         text-decoration: none   
-// }
-// }
-
-
 .top_stories_right_tops{
     display: flex;
     flex-wrap: wrap;

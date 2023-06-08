@@ -41,7 +41,6 @@ export default function Page({
   if (content.length > 0) {
       const [readyData, setReadyData] = useState("");
       const [spliced, setSpliced] = useState("");
-      console.log(content.length)
       useEffect(() => {
         let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)

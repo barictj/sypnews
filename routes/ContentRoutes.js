@@ -84,7 +84,6 @@ ContentRoutes.get('/find/:text', async (req, res) => {
     }
     const uncommon = getUncommon(text, 'the,be,to,of,and,a,in,that,have,I,it,for,not,on,with,he,as,you,do,at,this,but,his,is,by,from,they,we,say,her,she,or,an,will,my,one,all,would,there,their,what,so,up,out,if,about,who,get,which,go,me,when,make,can,like,time,no,just,him,know,take,people,into,year,your,good,some,could,them,see,other,than,then,now,look,only,come,its,over,think,also,back,after,use,two,how,our,work,first,well,way,even,new,want,because,any,these,give,day,most,us')
         try{
-        console.log('try')
         const data = await Content.find()
         data.filter(content => {
                 if (content.title.toLowerCase().includes(text.toLowerCase())) {
@@ -99,10 +98,8 @@ ContentRoutes.get('/find/:text', async (req, res) => {
                 else{
                     let wordMatch = 0
                     uncommon.filter(word => {
-                        console.log(word)
                         if (content.title.toLowerCase().includes(word.toLowerCase())) {
                             if(!dataFound.includes(content.title))
-                                console.log(word)
                                 wordMatch++
                         }
                         else if (content.body != null){
@@ -112,7 +109,6 @@ ContentRoutes.get('/find/:text', async (req, res) => {
                         }}
                     })
                     if(wordMatch > 0){
-                        console.log(wordMatch);
                         let newContent = content
                         newContent["matched"] = wordMatch
                         dataFound.push(newContent)
