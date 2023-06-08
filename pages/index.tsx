@@ -27,8 +27,8 @@ type Content = {
 // };
 export async function getServerSideProps() {
   // Fetch data from external API
-  // const res = await fetch(`http://content-base.herokuapp.com/api/content-routes`);
-    const res = await fetch('http://localhost:3000/api/content-routes/');
+  const res = await fetch(`http://content-base.herokuapp.com/api/content-routes`);
+    // const res = await fetch('http://localhost:3000/api/content-routes/');
 
   const data = await res.json();
   const content = data.data
