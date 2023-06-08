@@ -27,8 +27,8 @@ type Content = {
 // };
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`http://content-base.herokuapp.com/api/content-routes`);
-    // const res = await fetch('http://localhost:3000/api/content-routes/');
+  // const res = await fetch(`http://content-base.herokuapp.com/api/content-routes`);
+    const res = await fetch('http://localhost:3000/api/content-routes/');
 
   const data = await res.json();
   const content = data.data
@@ -41,6 +41,7 @@ export default function Page({
   if (content.length > 0) {
       const [readyData, setReadyData] = useState("");
       const [spliced, setSpliced] = useState("");
+      console.log(content.length)
       useEffect(() => {
         let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
