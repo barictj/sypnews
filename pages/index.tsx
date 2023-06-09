@@ -35,6 +35,7 @@ export async function getServerSideProps() {
     // const res = await fetch('http://localhost:3000/api/content-routes/');
 
   const data = await res.json();
+  console.log(data)
   const content = data.data
   // Pass data to the page via propsrs
     return { props: { content } };
