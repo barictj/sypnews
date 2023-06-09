@@ -10,7 +10,7 @@ export default function TopStoryRightTops({ props }) {
             <Link href={article.url} key={article.id}>
                 <a 
                 className={styles.top_articles_with_pic} 
-                style={{background: `rgba(0, 0, 0, 0.60) url(${article.image}) `, 
+                style={{background: `rgba(0, 0, 0, 0.70) url(${article.image}) `, 
                 backgroundSize: 'cover', 
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',

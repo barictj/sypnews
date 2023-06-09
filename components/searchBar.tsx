@@ -33,7 +33,7 @@ export const SearchBar = (props) => {
             </input>
             <div className={styles.search_button}>
                 <IconButton edge="start" sx={{minHeight: 0, minWidth: 0, padding: 0, paddingTop:1}}  type='submit' >
-                    <SearchIcon sx={{color:'black', fontSize: 35}} />
+                    <SearchIcon sx={{color:'rgb(111, 121, 175)', fontSize: 35}} />
                 </IconButton>
             </div>
         </form>
