@@ -46,6 +46,7 @@ export default function Page({
       const [readyData, setReadyData] = useState("");
       const [spliced, setSpliced] = useState([]);
       const [preBidenSpliced, setPreBidenSpliced] = useState([]);
+      const [shuffled, setShuffled] = useState([]);
       let preBiden = []
       useEffect(() => {
         let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
@@ -54,7 +55,7 @@ export default function Page({
         
         setReadyData(newArray)
         setSpliced(newArray.splice(11, length))
-      }, [content]); 
+        
       function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
       
@@ -72,7 +73,9 @@ export default function Page({
       
         return array;
       }
-      const shuffled = shuffle(contentCopy)
+      setShuffled(shuffle(contentCopy))
+      }, [content]); 
+      
       console.log(preBidenSpliced)  
       return (
       <div className={styles.content_container}>
