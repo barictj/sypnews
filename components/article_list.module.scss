@@ -25,6 +25,7 @@ $large: 801px;
     @media screen and (max-width: $small) {
         flex-basis: 100%;
         padding: 1rem;
+        height: 250px;
     }
     &:visited{
         color: #ffffff;

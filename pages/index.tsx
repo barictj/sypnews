@@ -75,8 +75,6 @@ export default function Page({
       }
       setShuffled(shuffle(contentCopy))
       }, [content]); 
-      
-      console.log(preBidenSpliced)  
       return (
       <div className={styles.content_container}>
               {readyData.length > 0 ?
