@@ -31,11 +31,10 @@ type Content = {
 // };
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`http://content-base.herokuapp.com/api/content-routes`);
-    // const res = await fetch('http://localhost:3000/api/content-routes/');
+  // const res = await fetch(`https://content-base.herokuapp.com/api/content-routes`);
+    const res = await fetch('http://localhost:3000/api/content-routes/');
 
   const data = await res.json();
-  console.log(data)
   const content = data.data
   // Pass data to the page via propsrs
     return { props: { content } };
