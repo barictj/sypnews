@@ -8,6 +8,7 @@ import TopStoryRightTops from '../components/top_story/topStoryRightTops';
 import { PerTagContainer } from '../components/perTag/perTagContainer';
 import { PerSourceContainer } from '../components/perSource/perSourceContainer';
 import {ArticleListMin} from '../components/articlelistmin'
+import LoadingComponent from '../components/basic/loading'
 type Content = {
   title: string;
   body: string;
@@ -90,14 +91,15 @@ export default function Page({
               <ArticleList props={shuffled} />
               </>
               :
-              <div>Nothing</div>
+              <div><LoadingComponent /></div>
               }
               
       </div>
+      
           )
 }
 else {
-  return (<div className={styles.content_container}>Nothin</div>)
+  return (<div className={styles.content_container}><LoadingComponent /></div>)
 }
 }
 Page.getLayout = function getLayout(page: React.ReactElement) {
