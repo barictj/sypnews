@@ -1,4 +1,4 @@
-npm run build
+# npm run build
 git add .
 git commit -m "build"   
 git push heroku main
