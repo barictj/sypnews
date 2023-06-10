@@ -59,7 +59,7 @@ $large: 801px;
 }
 //Div below link 
 .top_story_description{
-    font-size: 1.25rem;
+    font-size: 1.1em;
     padding-top: 0rem;
     font-weight: 100;
     text-decoration: none;
@@ -67,9 +67,11 @@ $large: 801px;
     width: 95%;
     margin-top: .2em;
     padding: .5em;
-    padding-top: 1.5em;
     color: rgb(79, 79, 79);
+    border-bottom: 1px solid#6c76dc;
+    border-top: 1px solid #6c76dc;
 
+    margin-bottom: 1em;
 }
 .top_story_image{
     width: 100%;
@@ -118,7 +120,7 @@ $large: 801px;
   .top_articles_with_pic {
     flex-basis: 50%; /* CHANGED from -> width: 50% */
     font-size: 20px;
-    height: 235px;
+    height: 275px;
     display: flex;
     align-items: flex-end;
     text-decoration: none;

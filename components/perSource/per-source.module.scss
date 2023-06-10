@@ -51,7 +51,6 @@ $large: 801px;
     color:#6c76dc;
     font-weight: 900;
     text-decoration: none;
-
     &:visited{
         color: #6c76dc;
         text-decoration: none;
@@ -61,5 +60,8 @@ $large: 801px;
     font-size: 1.05em;
 }
 .per_tag_link{
-    padding-bottom: 2em;
+    margin-bottom: 2em;
+    padding-bottom: .5em;
+    border-bottom: 1px solid rgb(169, 169, 169);
+
 }

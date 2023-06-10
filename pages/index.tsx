@@ -82,6 +82,8 @@ export default function Page({
               <>
               <TopStoryContainer data={readyData} />
               <PerTagContainer tag="Trump" articles={spliced} />
+              <ArticleListMin props={shuffled.splice(12,17)} />
+
               <PerSourceContainer tag="cnn" articles={spliced} />
               <ArticleListMin props={shuffled.splice(20,26)} />
               <PerTagContainer tag="Biden" articles={spliced} />

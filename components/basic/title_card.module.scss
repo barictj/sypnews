@@ -13,11 +13,11 @@ $large: 801px;
 }
 .title_text{
     width: 85%;
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #6c76dc;
-    border-bottom: 5px solid #6c76dc;
-    padding-bottom: .5em;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #4c5aed;
+    border-bottom: 1px solid rgb(166, 166, 166);
+    padding-bottom: .25em;
     @media screen and (max-width: $small) {
         width: 85%;
     }
