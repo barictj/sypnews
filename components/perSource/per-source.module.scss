@@ -11,7 +11,7 @@ $large: 801px;
     @media screen and (max-width: $small) {
         width: 100%;
         flex-direction: row;
-        height: 800px;
+        height: auto;
     }
 }
 .per_tag_image{    
