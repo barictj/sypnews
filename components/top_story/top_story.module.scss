@@ -34,52 +34,61 @@ $large: 801px;
     margin-bottom: .5em;
     text-align: left;
     align-self: flex-start;
-    width: 97%;
+    width: 100%;
     font-weight: bolder;
     padding: 1%;
-    padding-top: 0;
+    padding-top: .5em;
     padding-bottom: 0%;
 }
 //A in top_story_title link
 .top_story_title_link{
-    color: black;
+    color: #4c5aed;
     font-size: 1.5em;
     font-weight: 600;
     text-decoration: none;
     text-align: center;
     align-self: self-start;
-    width: 95%;
+    width: 100%;
     &:visited{
         text-decoration: none;
-        font-weight: 600;
-        text-decoration: none;
-        font-weight: 700;
-        text-align: center;
-        align-self: self-start;
     }
 }
 .top_story_title_link:hover{
-    color: cadetblue;
+    text-decoration: underline;
 }
 //Div below link 
 .top_story_description{
     font-size: 1em;
     padding-top: 0rem;
-    font-weight: 100;
+    font-weight: 600;
     text-decoration: none;
     padding: 1%;
     padding-top: 0;
     padding-bottom: 0%;
     text-align: left;
-    width: 97%;
+    width: 90%;
     margin-top: 0;
     color: rgb(79, 79, 79);
     margin-bottom: 1em;
 }
-.top_story_image{
+.top_story_image_div{
     width: 100%;
-    height: auto;
+    height: 300px;
     margin-top: 0;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to bottom right, #202634, rgb(5, 5, 59));
+
+    @media screen and (max-width: $small) {
+        width: 100%;
+        height: auto;
+    }
+}
+.top_story_image{
+    width: auto;
+    height: 300px;
+    margin-top: 0;
+
 }
 .top_story_image:hover{
     filter: brightness(50%);
@@ -142,7 +151,7 @@ $large: 801px;
 
 }
 .top_articles_with_pic:hover{
-    font-weight: 800;
+    text-decoration: underline;
 }
   
   /* Responsive layout - makes a one column-layout instead of a two-column layout */

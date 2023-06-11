@@ -10,7 +10,7 @@ export const TopStory = (props) => {
     const [toggle, setToggle] = useState(false);
     return (
         <>
-            <div >
+            <div className={styles.top_story_image_div}>
                 <Link  href={content.url}>
                     <a>
                         <img src={content.image} alt={props.title} className={styles.top_story_image}/>
@@ -20,7 +20,7 @@ export const TopStory = (props) => {
             <div className={styles.top_story_title}>
                 <Link  href={content.url}>
                     <a className={styles.top_story_title_link}>
-                        {content.title}
+                        {content.source.toUpperCase()}: {content.title}
                     </a>
                 </Link>
             </div>
