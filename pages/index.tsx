@@ -80,14 +80,14 @@ export default function Page({
       <div className={styles.content_container}>
               {readyData.length > 0 ?
               <>
-              <TopStoryContainer data={readyData} />
+              <TopStoryContainer data={spliced} />
               <PerTagContainer tag="Trump" articles={spliced} />
               <ArticleListMin props={shuffled.splice(12,17)} />
 
               <PerSourceContainer tag="cnn" articles={spliced} />
               <ArticleListMin props={shuffled.splice(20,26)} />
               <PerTagContainer tag="Biden" articles={spliced} />
-              <ArticleListMin props={shuffled.splice(27,33)} />
+              <ArticleListMin props={shuffled.splice(27,30)} />
 
               <PerSourceContainer tag="nbcnews" articles={spliced} />
               <ArticleList props={shuffled} />

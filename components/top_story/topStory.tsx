@@ -9,7 +9,7 @@ export const TopStory = (props) => {
     const content = props.data;
     const [toggle, setToggle] = useState(false);
     return (
-        <div className={styles.top_story_div}>
+        <>
             <div >
                 <Link  href={content.url}>
                     <a>
@@ -27,7 +27,7 @@ export const TopStory = (props) => {
             <div className={styles.top_story_description}>
                 {content.body}
             </div>
-        </div>
+        </>
     );
 }
 ;

@@ -7,11 +7,31 @@ $large: 801px;
     text-align: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: 1em;
     @media screen and (max-width: $small) {
         width: 100%;
-        margin-top: 1em;
+        margin-top: 1em;    
+        margin-bottom: 1em;
+
     }
+  }
+  .two_pic{
+    flex-basis: 50% ; /* CHANGED from -> width: 50% */
+    font-size: 20px;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    color: #ffffff;
+    
+    @media screen and (max-width: $small) {
+        flex-basis: 100%;
+        padding: 1rem;
+        height: 250px;
+    }
+    &:visited{
+        color: #ffffff;
+        text-decoration: none
+}
   }
   .full_list_with_pic{    
     flex-basis: 33% ; /* CHANGED from -> width: 50% */

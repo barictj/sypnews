@@ -7,19 +7,23 @@ import { useState } from 'react';
 import TopStoryRight from './topStoryRight';
 import TopStory from './topStory';
 import TopStoryRightTops from './topStoryRightTops';
-
+import ArticleListTwo from '../articlelisttwo';
 
 export const TopStoryContainer = (props) => {
     const content = props.data;
-    const splicedContent = content.splice(5, 10);
-    const topTwo = content.splice(1, 4);
+    const topTwo = content.splice(1, 2);
+    console.log(topTwo.length)
+    const topFour = content.splice(3,6);
     const [toggle, setToggle] = useState(false);
     return (
             <>
                 {content.length > 0 ? 
                 <div className={styles.top_story_container_div}>
-                    <TopStory data={content[0]} />
-                    <TopStoryRightTops props={topTwo} />
+                    <div className={styles.top_story_div}>
+                        <TopStory data={content[0]} />
+                        <ArticleListTwo props={content} />
+                    </div>
+                    <TopStoryRightTops props={topFour} />
                     
                 </div>
                 :

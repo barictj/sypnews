@@ -34,7 +34,7 @@ $large: 801px;
         text-decoration: none
 }}
 .per_tag_right{
-    width: 30%;
+    width: 35%;
     border: 5px solid white;
     height: 450px;
     border-radius: 15px;
@@ -43,7 +43,8 @@ $large: 801px;
 
     @media screen and (max-width: $small) {
         flex-basis: 100%;
-        padding: 1rem;
+        padding-left: .5em;
+        height: auto;
     }
 }
 .per_tag_link_a{
