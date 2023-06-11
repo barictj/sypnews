@@ -23,6 +23,9 @@ export default function ArticleList({ props }) {
                 >   
                     <div  style={{padding: '.25em'}}>
                         {article.title}
+                        <div>
+                            Published on: {article.date_published}
+                        </div>
                     </div>   
                 </a>    
             </Link>
