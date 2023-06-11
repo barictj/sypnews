@@ -8,7 +8,7 @@ $large: 801px;
     justify-content: flex-start;
     margin-top: 1em;
     @media screen and (max-width: $small) {
-        width: 95%;
+        width: 100%;
     }
 }
 .title_text{
@@ -19,6 +19,6 @@ $large: 801px;
     border-bottom: 1px solid rgb(166, 166, 166);
     padding-bottom: .25em;
     @media screen and (max-width: $small) {
-        width: 85%;
+        width: 100%;
     }
 }
