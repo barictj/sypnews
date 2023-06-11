@@ -30,12 +30,15 @@ $large: 801px;
 //Div above link
 .top_story_title{
     padding-left: 0;
-    padding-top: 1em;
+    padding-top: .5em;
     margin-bottom: .5em;
     text-align: left;
     align-self: flex-start;
-    width: 95%;
+    width: 97%;
     font-weight: bolder;
+    padding: 1%;
+    padding-top: 0;
+    padding-bottom: 0%;
 }
 //A in top_story_title link
 .top_story_title_link{
@@ -48,7 +51,6 @@ $large: 801px;
     width: 95%;
     &:visited{
         text-decoration: none;
-        font-size: 1.75em;
         font-weight: 600;
         text-decoration: none;
         font-weight: 700;
@@ -61,16 +63,17 @@ $large: 801px;
 }
 //Div below link 
 .top_story_description{
-    font-size: 1.1em;
+    font-size: 1em;
     padding-top: 0rem;
     font-weight: 100;
     text-decoration: none;
+    padding: 1%;
+    padding-top: 0;
+    padding-bottom: 0%;
     text-align: left;
-    width: 95%;
-    margin-top: .2em;
+    width: 97%;
+    margin-top: 0;
     color: rgb(79, 79, 79);
-
-
     margin-bottom: 1em;
 }
 .top_story_image{
