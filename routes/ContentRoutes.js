@@ -6,7 +6,7 @@ ContentRoutes.get('/', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
         const data = (await Content.find())
-        const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()).splice(1,75)
+        const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()).splice(0,75)
         // sortedData = sortedData.limit(75)
         res.json({data: sortedData, number: 6})
     }
@@ -129,6 +129,23 @@ ContentRoutes.get('/:number', async (req, res) => {
     res.json({data: sortedData, number: endNumber})
     
 })
+ContentRoutes.get('/source/:source', async (req, res) => {
+    const sourceRequested = req.params.source
+    const data = (await Content.find())
+    let readyContent = []
+    data.map(content => {
+        if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
+            readyContent.push(content)
+        }
+    })
+    const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
+    res.json({data: readyContent})
+    console.log(readyContent)
+})
+
+
+
+
 
 module.exports = ContentRoutes ;
 // export default ContentRoutes

@@ -1,15 +1,20 @@
 import Link from 'next/link'
-import styles from './top_story.module.scss'
+import styles from './article_list.module.scss'
 import { useState, useEffect } from 'react';
 // create react component with typescript and props from parent component called data
-export default function TopStoryRightTops({ props }) {
-    const data = props
+export default function ArticleListItem({ props }) {
+    const article = props
+    const dateData = article.date_published
+
+    const dateObject = new Date(Date.parse(dateData));
+    
+    const dateReadable = dateObject.toDateString();
+      
   return (
-    <div className={styles.top_stories_right_tops} >
-        {data.map((article) => (
+    
             <Link href={article.url} key={article.id}>
                 <a 
-                className={styles.top_articles_with_pic} 
+                className={styles.full_list_with_pic} 
                 style={{background: `rgba(0, 0, 0, 0.70) url(${article.image}) `, 
                 backgroundSize: 'cover', 
                 backgroundPosition: 'center center',
@@ -17,12 +22,15 @@ export default function TopStoryRightTops({ props }) {
                 backgroundBlendMode: 'darken',
                 objectFit: 'cover',
                 overflow: 'hidden',
-                }} >   
+                }}
+                >   
                     <div  style={{padding: '.25em'}}>
-                    <b>{article.source.toUpperCase()}</b>:   {article.title}
+                        <b>{article.source.toUpperCase()}</b>:  {article.title}
+                        <div>
+                            Published at: {dateReadable}
+                        </div>
                     </div>   
                 </a>    
             </Link>
-        ))}
-    </div>
-  )}
+        )
+    }

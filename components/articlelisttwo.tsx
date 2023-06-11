@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styles from './article_list.module.scss'
 import { useState, useEffect } from 'react';
+import ArticleListItem from './articleListItem';
 // create react component with typescript and props from parent component called data
 export const ArticleListTwo = ({ props }) => {
     const data = props.splice(1, 2)
@@ -22,7 +23,7 @@ export const ArticleListTwo = ({ props }) => {
                 }}
                 >   
                     <div  style={{padding: '.25em'}}>
-                        {article.title}
+                    <b>{article.source.toUpperCase()}</b>:  {article.title}
                     </div>   
                 </a>    
             </Link>

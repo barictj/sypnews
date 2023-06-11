@@ -9,6 +9,7 @@ import { PerTagContainer } from '../components/perTag/perTagContainer';
 import { PerSourceContainer } from '../components/perSource/perSourceContainer';
 import {ArticleListMin} from '../components/articlelistmin'
 import LoadingComponent from '../components/basic/loading'
+import { BySourceDisplay } from '../components/bySourceDisplay';
 type Content = {
   title: string;
   body: string;
@@ -31,8 +32,8 @@ type Content = {
 // };
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`https://content-base.herokuapp.com/api/content-routes`);
-    // const res = await fetch('http://localhost:3000/api/content-routes/');
+  // const res = await fetch(`https://content-base.herokuapp.com/api/content-routes`);
+    const res = await fetch('http://localhost:3000/api/content-routes/');
 
   const data = await res.json();
   const content = data.data
@@ -81,13 +82,14 @@ export default function Page({
               {readyData.length > 0 ?
               <>
               <TopStoryContainer data={spliced} />
+              {/* <BySourceDisplay/> */}
               <PerTagContainer tag="Trump" articles={spliced} />
-              <ArticleListMin props={shuffled.splice(12,17)} />
+              <ArticleListMin props={shuffled} />
 
               <PerSourceContainer tag="cnn" articles={spliced} />
-              <ArticleListMin props={shuffled.splice(20,26)} />
+              <ArticleListMin props={shuffled} />
               <PerTagContainer tag="Biden" articles={spliced} />
-              <ArticleListMin props={shuffled.splice(27,30)} />
+              <ArticleListMin props={shuffled} />
 
               <PerSourceContainer tag="nbcnews" articles={spliced} />
               <ArticleList props={shuffled} />
