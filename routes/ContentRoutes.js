@@ -140,7 +140,6 @@ ContentRoutes.get('/source/:source', async (req, res) => {
     })
     const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
     res.json({data: readyContent})
-    console.log(readyContent)
 })
 
 

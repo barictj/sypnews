@@ -8,7 +8,7 @@ export default function TopStoryRight({ props }) {
     <div className={styles.top_stories_right}>
         <div className={styles.top_story_right_new}>Other New Stories</div>
           {data.map((article) => (
-            <div key={article.id} className={styles.top_story_right_div}>
+            <div key={article._id} className={styles.top_story_right_div}>
               <Link href={article.url}>  
                   <a className={styles.top_story_right_link}>{article.title}</a>   
               </Link>

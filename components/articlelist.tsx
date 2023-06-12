@@ -10,7 +10,7 @@ export default function ArticleList({ props }) {
   return (
     <div className={styles.full_list}>
         {data.map((article) => (
-            <ArticleListItem props={article} />
+            <ArticleListItem props={article} key={article._id}/>
         ))}
     </div>
   )}

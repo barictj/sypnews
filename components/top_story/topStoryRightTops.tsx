@@ -7,7 +7,7 @@ export default function TopStoryRightTops({ props }) {
   return (
     <div className={styles.top_stories_right_tops} >
         {data.map((article) => (
-            <Link href={article.url} key={article.id}>
+            <Link href={article.url} key={article._id}>
                 <a 
                 className={styles.top_articles_with_pic} 
                 style={{background: `rgba(0, 0, 0, 0.70) url(${article.image}) `, 

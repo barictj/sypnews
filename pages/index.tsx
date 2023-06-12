@@ -10,6 +10,7 @@ import { PerSourceContainer } from '../components/perSource/perSourceContainer';
 import {ArticleListMin} from '../components/articlelistmin'
 import LoadingComponent from '../components/basic/loading'
 import { BySourceDisplay } from '../components/bySourceDisplay';
+import TitleCard from '../components/basic/titleCard';
 type Content = {
   title: string;
   body: string;
@@ -49,7 +50,7 @@ export default function Page({
       const [spliced, setSpliced] = useState([]);
       const [preBidenSpliced, setPreBidenSpliced] = useState([]);
       const [shuffled, setShuffled] = useState([]);
-      let preBiden = []
+      
       useEffect(() => {
         let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
@@ -82,7 +83,8 @@ export default function Page({
               {readyData.length > 0 ?
               <>
               <TopStoryContainer data={spliced} />
-              {/* <BySourceDisplay/> */}
+              <TitleCard title='Political Articles by Source' />
+              <BySourceDisplay/>
               <PerTagContainer tag="Trump" articles={spliced} />
               <ArticleListMin props={shuffled} />
 

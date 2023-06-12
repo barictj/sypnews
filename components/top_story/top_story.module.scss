@@ -9,7 +9,6 @@ $large: 801px;
     @media screen and (max-width: $small) {
         flex-direction: column;
         justify-content: flex-start;
-
     }
 }   
 
@@ -77,7 +76,7 @@ $large: 801px;
     margin-top: 0;
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(to bottom right, #202634, rgb(5, 5, 59));
+    background-image: linear-gradient(to bottom right, #67769a, rgb(5, 5, 59));
 
     @media screen and (max-width: $small) {
         width: 100%;

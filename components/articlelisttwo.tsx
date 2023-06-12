@@ -5,11 +5,10 @@ import ArticleListItem from './articleListItem';
 // create react component with typescript and props from parent component called data
 export const ArticleListTwo = ({ props }) => {
     const data = props.splice(1, 2)
-    console.log(data)
   return (
     <div className={styles.full_list} style={{width: '100%'}}>
         {data.map((article) => (
-            <Link href={article.url} key={article.id}>
+            <Link href={article.url} key={article._id}>
                 <a 
                 className={styles.two_pic} 
                 style={{background: `rgba(0, 0, 0, 0.70) url(${article.image}) `, 

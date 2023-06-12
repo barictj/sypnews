@@ -7,8 +7,8 @@ export const PerTagRight = (props) => {
     return (
         <div className={styles.per_tag_right}>
             {articles.map((article) => (
-                <Link href={article.url}>
-                    <a className={styles.per_tag_link_a} key={article.id}>
+                <Link href={article.url} key={article._id}>
+                    <a className={styles.per_tag_link_a} key={article._id}>
                         <div className={styles.per_tag_link}>
                             {article.source.toUpperCase()}:  {article.title} 
                         </div>
