@@ -5,17 +5,17 @@ import { Title } from '@mui/icons-material'
 import Image from 'next/image'
 
 //Create a navigagtion menu that includes a nextjs link to the about page
-export  const BySourceDisplay = (props) => {
+export  const BySourceMenu = (props) => {
   return (
       <div className={styles.by_source_div}>
         
         <div className={styles.per_source_link}> 
               <Link href={{ pathname: '/by_source', query: { searchText: 'cnn' } }} >
-                <a className={styles.per_source_link_a}>
+                <a className={styles.per_source_link_a} onClick={props.setToggle}>
                     <Image
                         src="/images/cnn.png"
-                        width={200}
-                        height={200}
+                        width={100}
+                        height={100}
                         alt="Picture of the author"
                         placeholder='blur'
                         blurDataURL="https://via.placeholder.com/500"
@@ -26,11 +26,11 @@ export  const BySourceDisplay = (props) => {
         </div>
         <div className={styles.per_source_link}> 
               <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' } }} >
-              <a className={styles.per_source_link_a}>
+              <a className={styles.per_source_link_a} onClick={props.setToggle}>
               <Image
                         src="/images/nbcnews.png"
-                        width={200}
-                        height={200}
+                        width={100}
+                        height={100}
                         alt="Picture of the author"
                         placeholder='blur'
                         blurDataURL="https://via.placeholder.com/500"
@@ -39,7 +39,7 @@ export  const BySourceDisplay = (props) => {
               </Link>
             
         </div>
-        <div className={styles.per_source_link}> 
+        <div className={styles.per_source_link} style={{color: 'white'}}> 
               {/* <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' } }} >
                 <a>
                     More is coming                

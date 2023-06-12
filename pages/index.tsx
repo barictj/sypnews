@@ -82,18 +82,18 @@ export default function Page({
       <div className={styles.content_container}>
               {readyData.length > 0 ?
               <>
-              <TopStoryContainer data={spliced} />
+              <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
-              <PerTagContainer tag="Trump" articles={spliced} />
+              <PerTagContainer tag="Trump" articles={shuffled} />
               <ArticleListMin props={shuffled} />
 
-              <PerSourceContainer tag="cnn" articles={spliced} />
+              <PerSourceContainer tag="cnn" articles={shuffled} />
               <ArticleListMin props={shuffled} />
-              <PerTagContainer tag="Biden" articles={spliced} />
+              <PerTagContainer tag="Biden" articles={shuffled} />
               <ArticleListMin props={shuffled} />
 
-              <PerSourceContainer tag="nbcnews" articles={spliced} />
+              <PerSourceContainer tag="nbcnews" articles={shuffled} />
               <ArticleList props={shuffled} />
               </>
               :

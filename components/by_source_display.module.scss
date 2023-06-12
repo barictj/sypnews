@@ -8,7 +8,7 @@ $extra_large: 1651px;
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 150px;   
+    height: 200px;   
     padding-top: 25px;
     @media screen and (max-width: $small) {
         width: 100%;
@@ -25,7 +25,7 @@ $extra_large: 1651px;
     text-decoration: none;
     text-align: center;
     align-self: center;
-    width: 350px;
+    width: 200px;
     &:visited{
         color: #4c5aed;
         text-decoration: none;

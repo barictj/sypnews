@@ -17,20 +17,21 @@ $large: 801px;
     text-align: center;
     padding-top: 2em;
     padding-bottom: 2em;
-    border-bottom: 2px solid gray;
     cursor: pointer;
+    opacity: .75;
 
 }
 .menu_item:hover{
-    background-color:rgb(59, 59, 63);
+    opacity: 2;
     cursor: pointer;
 
 }
 .menu_item_link{
-    color: rgb(240, 240, 240);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     width: 100%;
-    font-weight: 600;
+    font-weight: 800;
+    font-size: 1.15em;
 }
 .menu_item_link:visited{
     color: rgb(240, 240, 240);
