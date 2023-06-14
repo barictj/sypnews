@@ -7,7 +7,7 @@ $large: 801px;
     justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: row;
-    height: 450px;
+    height: 100%;
     @media screen and (max-width: $small) {
         width: 100%;
         flex-direction: row;
@@ -15,7 +15,7 @@ $large: 801px;
     }
 }
 .per_tag_image{    
-    flex-basis: 60% ; /* CHANGED from -> width: 50% */
+    flex: 60% ; /* CHANGED from -> width: 50% */
     font-size: 23px;
     height: 400px;
     display: flex;
@@ -34,11 +34,11 @@ $large: 801px;
         text-decoration: none
 }}
 .per_tag_right{
-    width: 35%;
+    flex: 35%;
     border: 5px solid white;
-    height: 450px;
+    height: 100%;
     border-radius: 15px;
-    padding-top: 1em;
+    padding: 1;
     text-decoration: none;
 
     @media screen and (max-width: $small) {
