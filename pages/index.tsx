@@ -50,25 +50,19 @@ export default function Page({
       const [spliced, setSpliced] = useState([]);
       const [preBidenSpliced, setPreBidenSpliced] = useState([]);
       const [shuffled, setShuffled] = useState([]);
-      
       useEffect(() => {
         let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
         const length = newArray.length
-        
         setReadyData(newArray)
         setSpliced(newArray.splice(11, length))
-        
       function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
-      
         // While there remain elements to shuffle.
         while (currentIndex != 0) {
-      
           // Pick a remaining element.
           randomIndex = Math.floor(Math.random() * currentIndex);
           currentIndex--;
-      
           // And swap it with the current element.
           [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]];
