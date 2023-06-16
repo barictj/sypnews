@@ -111,7 +111,7 @@ ContentRoutes.get('/find/:text', async (req, res) => {
                     if(wordMatch > 0){
                         let newContent = content
                         newContent["matched"] = wordMatch
-                        dataFound.push(newContent)
+                        dataFound.push(newContent.splice(0,200))
                     }
                 }
             }) 
@@ -135,7 +135,7 @@ ContentRoutes.get('/source/:source', async (req, res) => {
     let readyContent = []
     data.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
-            readyContent.push(content)
+            readyContent.push(content.splice(0,75)
         }
     })
     const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
