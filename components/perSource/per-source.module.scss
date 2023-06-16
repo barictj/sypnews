@@ -8,6 +8,7 @@ $large: 801px;
     flex-wrap: wrap;
     flex-direction: row;
     height: 100%;
+    margin-bottom: 1em;
     @media screen and (max-width: $small) {
         width: 100%;
         flex-direction: row;

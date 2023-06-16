@@ -11,6 +11,7 @@ import {ArticleListMin} from '../components/articlelistmin'
 import LoadingComponent from '../components/basic/loading'
 import { BySourceDisplay } from '../components/bySourceDisplay';
 import TitleCard from '../components/basic/titleCard';
+import CatHeader from '../components/cat_header/catHeader';
 type Content = {
   title: string;
   body: string;
@@ -76,6 +77,7 @@ export default function Page({
       <div className={styles.content_container}>
               {readyData.length > 0 ?
               <>
+              <CatHeader articles={shuffled} />
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
