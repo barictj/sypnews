@@ -131,11 +131,11 @@ ContentRoutes.get('/get_more/:number', async (req, res) => {
 })
 ContentRoutes.get('/source/:source', async (req, res) => {
     const sourceRequested = req.params.source
-    const data = (await Content.find().splice(0,250))
+    const data = (await Content.find())
     let readyContent = []
     data.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
-            readyContent.push(content.splice(0,75))
+            readyContent.push(content.splice(0,250))
         }
     })
     const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
