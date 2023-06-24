@@ -84,7 +84,7 @@ export default function Page({
       <div className={styles.content_container}>
               {readyData.length > 0 ?
               <>
-              <CatHeader articles={shuffled} />
+              {/* <CatHeader articles={shuffled} /> */}
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
