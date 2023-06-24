@@ -16,9 +16,7 @@ $large: 801px;
 .top_story_div{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     flex: 250px;
-    height: 900px;
     @media screen and (max-width: $small) {
         width: 100%;
         justify-content: flex-start;
@@ -76,7 +74,9 @@ $large: 801px;
     margin-top: 0;
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(to bottom right, #67769a, rgb(5, 5, 59));
+    background-image: linear-gradient(to bottom, #67769a, rgb(5, 5, 59));
+    border-bottom: 6px solid  rgb(5, 5, 59);
+    border-top: 6px solid #67769a;
 
     @media screen and (max-width: $small) {
         width: 100%;
@@ -93,26 +93,7 @@ $large: 801px;
     filter: brightness(50%);
 }
 //right side of top story container.  includes four pics
-.top_stories_right{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    text-align: left;
-    padding: 1em;
-    padding-top: 0em;
-    width: 100%;
-    margin-bottom: 2em;
-    margin-top: 2em;
-    @media screen and (max-width: $small) {
-        width: 100%;
-        margin-top: 0em;
-        padding-top: 0em;
-        padding: 0;
-        margin-bottom: 1em;
-    }
-}
+
 .top_stories_right_tops{
     display: flex;
     flex-wrap: wrap;
@@ -120,24 +101,36 @@ $large: 801px;
     text-align: center;
     width: 600px;
     margin-bottom: 1em;
-    height: 900px;
+    height: auto;
     @media screen and (max-width: $small) {
         width: 100%;
         margin-top: 1em;
         height: 100%;
     }
   }
+  .top_stories_right_container{
+   
+    width: 48%;
+
+
+    @media screen and (max-width: $small) {
+        width: 100%;
+        justify-content: flex-start;
+        height: 100%;
+    }
+  }
 
 
   .top_articles_with_pic {
-    flex-basis: 50%; /* CHANGED from -> width: 50% */
+    flex-basis: 100%; /* CHANGED from -> width: 50% */
     font-size: 20px;
     height: 300px;
     display: flex;
     align-items: flex-end;
     text-decoration: none;
     color: #ffffff;
-    
+    border-bottom: 6px solid  rgb(5, 5, 59);
+    border-top: 6px solid #67769a;
     @media screen and (max-width: $small) {
         flex-basis: 100%;
         padding: 1rem;
@@ -159,4 +152,15 @@ $large: 801px;
       flex: 100%;
     }
   }
-
+  .top_story_right_description{
+    font-size: .5em;
+    text-align: left;
+    height: 150px;
+    font-weight: 900;
+    margin: 1em;
+ 
+    @media screen and (max-width: $small) {
+        
+        height: auto;
+    }
+}

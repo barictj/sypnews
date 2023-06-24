@@ -6,12 +6,19 @@ import TopStoryContainer from '../components/top_story/topStoryContainer'
 import { useState, useEffect } from 'react';
 import TopStoryRightTops from '../components/top_story/topStoryRightTops';
 import { PerTagContainer } from '../components/perTag/perTagContainer';
-import { PerSourceContainer } from '../components/perSource/perSourceContainer';
 import {ArticleListMin} from '../components/articlelistmin'
 import LoadingComponent from '../components/basic/loading'
-import { BySourceDisplay } from '../components/bySourceDisplay';
+// import { BySourceDisplay } from '../components/bySourceDisplay';
 import TitleCard from '../components/basic/titleCard';
 import CatHeader from '../components/cat_header/catHeader';
+import dynamic from 'next/dynamic'
+const BySourceDisplay = dynamic(() => import('../components/bySourceDisplay'), {
+  loading: () => <p><LoadingComponent /></p>,
+})
+const PerSourceContainer = dynamic(() => import('../components/perSource/perSourceContainer'), {
+  ssr: false, loading: () => <p><LoadingComponent /></p>,
+})
+
 type Content = {
   title: string;
   body: string;
@@ -56,7 +63,7 @@ export default function Page({
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
         const length = newArray.length
         setReadyData(newArray)
-        setSpliced(newArray.splice(11, length))
+        setSpliced(newArray.splice(15, length))
       function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
         // While there remain elements to shuffle.
@@ -90,7 +97,7 @@ export default function Page({
               <ArticleListMin props={shuffled} />
 
               <PerSourceContainer tag="nbcnews" articles={shuffled} />
-              <ArticleList props={shuffled} />
+              {/* <ArticleList props={shuffled} /> */}
               </>
               :
               <div><LoadingComponent /></div>

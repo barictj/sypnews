@@ -31,7 +31,7 @@ export const PerTagContainer = (props) => {
             {tagData.length > 0 ? 
             <>
             <PerTagTop article={tagData[0]} />
-            <PerTagRight articles={tagData.splice(1,4)}/>
+            <PerTagRight articles={tagData.splice(1,5)}/>
             </>
             :
             <TitleCard title="Loading" />

@@ -131,18 +131,29 @@ ContentRoutes.get('/:number', async (req, res) => {
 })
 ContentRoutes.get('/source/:source', async (req, res) => {
     const sourceRequested = req.params.source
-    const data = (await Content.find())
+    const data = (await Content.find().splice(0,250))
     let readyContent = []
     data.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
-            readyContent.push(content.splice(0,75)
+            readyContent.push(content.splice(0,75))
         }
     })
     const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
     res.json({data: readyContent})
 })
 
-
+ContentRoutes.get('/for-delete', async (req, res) => {
+    try{
+        // const tagsData = await Tags.find()
+        const data = (await Content.find())
+        const sortedData = data.sort((a, b) => new Date(a.date_published).valueOf() - new Date(b.date_published).valueOf()).splice(0,1000)
+        // sortedData = sortedData.limit(75)
+        res.json({data: sortedData, number: 6})
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
 
 
 

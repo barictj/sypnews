@@ -11,19 +11,19 @@ import ArticleListTwo from '../articlelisttwo';
 
 export const TopStoryContainer = (props) => {
     const content = props.data;
-    const topTwo = content.splice(1, 2);
-    console.log(topTwo.length)
-    const topFour = content.splice(3,6);
+    const top = content[0];
+    const topTwo = [content[1], content[2]]
+    const topRight = content.slice(3)  
     const [toggle, setToggle] = useState(false);
     return (
             <>
                 {content.length > 0 ? 
                 <div className={styles.top_story_container_div}>
                     <div className={styles.top_story_div}>
-                        <TopStory data={content[0]} />
-                        <ArticleListTwo props={content} />
+                        <TopStory data={top} />
+                        <ArticleListTwo props={topTwo} />
                     </div>
-                    <TopStoryRightTops props={topFour} />
+                    <TopStoryRightTops props={topRight} />
                     
                 </div>
                 :

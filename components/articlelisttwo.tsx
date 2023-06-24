@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import ArticleListItem from './articleListItem';
 // create react component with typescript and props from parent component called data
 export const ArticleListTwo = ({ props }) => {
-    const data = props.splice(1, 2)
+    const data = props
+    
   return (
     <div className={styles.full_list} style={{width: '100%'}}>
         {data.map((article) => (

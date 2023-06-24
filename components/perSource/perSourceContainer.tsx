@@ -32,7 +32,7 @@ export const PerSourceContainer = (props) => {
             {tagData.length > 0 ? 
             <>
             <PerSourceTop article={tagData[0]} />
-            <PerSourceRight articles={tagData.splice(1,4)}/>
+            <PerSourceRight articles={tagData.splice(1,5)}/>
             </>
             :
             <TitleCard title="Loading" />
@@ -42,3 +42,4 @@ export const PerSourceContainer = (props) => {
         </>
     );
 }
+export default PerSourceContainer;

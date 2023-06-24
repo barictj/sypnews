@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import styles from './cat_header.module.scss';
 import { count } from 'console';
-
+import {VerticalHalfBorder} from '../basic/verticalHalfBorder';
 export const CatHeader = (props) => {
     const articles = props.articles
     const topTags = []
@@ -31,9 +31,14 @@ export const CatHeader = (props) => {
         <div className={styles.cat_head_div}>
             <div className={styles.cat_head_trend}>Trending:</div>
             <div className={styles.cat_head_item}>{sorted[0][0].charAt(0).toUpperCase() + sorted[0][0].slice(1)}</div>
+            <VerticalHalfBorder />
             <div className={styles.cat_head_item}>{sorted[1][0].charAt(0).toUpperCase() + sorted[1][0].slice(1)}</div>
+            <VerticalHalfBorder />
             <div className={styles.cat_head_item}>{sorted[2][0].charAt(0).toUpperCase() + sorted[2][0].slice(1)}</div>
+            <VerticalHalfBorder />
             <div className={styles.cat_head_item}>{sorted[3][0]?sorted[3][0].charAt(0).toUpperCase() + sorted[3][0].slice(1):<></>}</div>
+            <VerticalHalfBorder />
+            <div className={styles.cat_head_item}>{sorted[4][0]?sorted[4][0].charAt(0).toUpperCase() + sorted[4][0].slice(1):<></>}</div>
 
         </div>
     )

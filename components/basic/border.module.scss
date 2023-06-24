@@ -1,0 +1,26 @@
+.vertical_half_border_container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.vertical_half_border_div{
+    border-right: 1px solid #4c5aed;
+    height: 50%;
+    color: white;
+    align-self: center;
+}
+.horizontal_half_border_div{
+    border-bottom: 1px solid #4c5aed;
+    width: 60%;
+    color: white;
+    align-self: flex-start;
+    margin-bottom: .3em;
+}
+.horizontal_half_border_container{
+    width: 150px;
+    display: flex;
+    justify-content: flex-start;
+}

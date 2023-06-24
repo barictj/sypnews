@@ -1,12 +1,13 @@
 .loading_container{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    // position: fixed;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
     background-image: linear-gradient(to bottom right, #202634, rgb(5, 5, 59));
-    opacity: 0.85;
-    z-index: 4;
+    // opacity: 0.85;
+    // z-index: 4;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

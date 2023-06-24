@@ -51,3 +51,5 @@ export  const BySourceDisplay = (props) => {
       </div>
   )
 }
+
+export default BySourceDisplay;

@@ -33,6 +33,9 @@ $large: 801px;
         text-decoration: none
 }
   }
+    .two_pic:hover{
+        text-decoration: underline;
+    }
   .full_list_with_pic{    
     flex-basis: 33% ; /* CHANGED from -> width: 50% */
     font-size: 20px;
@@ -52,5 +55,5 @@ $large: 801px;
         text-decoration: none
 }}
 .full_list_with_pic:hover{
-    font-weight: 800;
+    text-decoration: underline;
 }
