@@ -1,7 +1,6 @@
 //create component to map through articles and display title and body
 import Link from 'next/link';
 import styles from './cat_header.module.scss';
-import { count } from 'console';
 import {VerticalHalfBorder} from '../basic/verticalHalfBorder';
 export const CatHeader = (props) => {
     const articles = props.articles

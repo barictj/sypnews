@@ -10,7 +10,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const TagRoutes = require('./routes/TagRoutes');
 // const uri = 'mongodb://127.0.0.1:27017/test';
-const uri = 'mongodb+srv://stackyourprops:egYb2acoGB0YJwsq@contentdb.2wrsfg9.mongodb.net/?connectTimeoutMS=600000&retryWrites=true&w=majority';
+const uri = 'mongodb+srv://stackyourprops:egYb2acoGB0YJwsq@contentdb.2wrsfg9.mongodb.net/?retryWrites=true&w=majority';
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 const server = (0, next_1.default)({ dev });
@@ -20,7 +20,7 @@ const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser');
 const nocache = require('nocache');
 // write a function to connect to the mongodb database using mongoose and check for errors
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 80000, maxIdleTimeMS: 80000 })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.log(err, 'error'));
 server.prepare().then(() => {

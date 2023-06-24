@@ -121,7 +121,7 @@ ContentRoutes.get('/find/:text', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-ContentRoutes.get('/:number', async (req, res) => {
+ContentRoutes.get('/get_more/:number', async (req, res) => {
     const startNumber = req.params.number
     const endNumber = startNumber + 75
     const data = (await Content.find())    
@@ -141,20 +141,18 @@ ContentRoutes.get('/source/:source', async (req, res) => {
     const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
     res.json({data: readyContent})
 })
-
-ContentRoutes.get('/for-delete', async (req, res) => {
+ContentRoutes.get('/for_delete', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
         const data = (await Content.find())
-        const sortedData = data.sort((a, b) => new Date(a.date_published).valueOf() - new Date(b.date_published).valueOf()).splice(0,1000)
+        const sortedData = data.sort((a, b) => new Date(a.date_published).valueOf() - new Date(b.date_published).valueOf()).splice(0,20000)
         // sortedData = sortedData.limit(75)
-        res.json({data: sortedData, number: 6})
+        res.json({data: sortedData, number: sortedData.length})
     }
     catch(error){
         res.status(500).json({message: error.message})
     }
 })
-
 
 
 module.exports = ContentRoutes ;

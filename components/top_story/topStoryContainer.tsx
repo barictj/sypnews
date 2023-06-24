@@ -4,7 +4,6 @@ import styles from './top_story.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import TopStoryRight from './topStoryRight';
 import TopStory from './topStory';
 import TopStoryRightTops from './topStoryRightTops';
 import ArticleListTwo from '../articlelisttwo';
