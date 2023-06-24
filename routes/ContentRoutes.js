@@ -6,7 +6,7 @@ ContentRoutes.get('/', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
         const data = (await Content.find())
-        const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()).splice(0,250)
+        const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()).splice(0,500)
         // sortedData = sortedData.limit(75)
         res.json({data: sortedData, number: 6})
     }
