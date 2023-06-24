@@ -135,11 +135,11 @@ ContentRoutes.get('/source/:source', async (req, res) => {
     let readyContent = []
     data.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
-            readyContent.push(content.splice(0,250))
+            readyContent.push(content)
         }
     })
     const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
-    res.json({data: readyContent})
+    res.json({data: readyContent.splice(0,250)})
 })
 ContentRoutes.get('/for_delete', async (req, res) => {
     try{
