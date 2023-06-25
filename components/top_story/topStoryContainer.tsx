@@ -10,7 +10,6 @@ import ArticleListTwo from '../articlelisttwo';
 
 export const TopStoryContainer = (props) => {
     const content = props.data;
-    console.log(content)
     const top = content[0];
     const topTwo = [content[1], content[2]]
     const topRight = content.slice(3)  

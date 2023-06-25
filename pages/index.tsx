@@ -53,6 +53,7 @@ export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
   if (content.length > 0) {
+    let final = []
       let contentCopy = [...content]
       const [readyData, setReadyData] = useState("");
       const [spliced, setSpliced] = useState([]);
@@ -63,7 +64,8 @@ export default function Page({
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
         const length = newArray.length
         setReadyData(newArray)
-        setSpliced(newArray.splice(15, length))
+        console.log(newArray.length)
+        setSpliced(newArray.slice(15, length))
       function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
         // While there remain elements to shuffle.
@@ -75,16 +77,16 @@ export default function Page({
           [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]];
         }
-      
         return array;
       }
-      setShuffled(shuffle(contentCopy))
-      }, [content]); 
+      setShuffled(shuffle(spliced))
+      }, [content]);
+      console.log(shuffled.length)
       return (
       <div className={styles.content_container}>
               {readyData.length > 0 ?
               <>
-              {/* <CatHeader articles={shuffled} /> */}
+              <CatHeader articles={contentCopy} />
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
@@ -97,7 +99,7 @@ export default function Page({
               <ArticleListMin props={shuffled} />
 
               <PerSourceContainer tag="nbcnews" articles={shuffled} />
-              {/* <ArticleList props={shuffled} /> */}
+              {/* <ArticleList props={spent} /> */}
               </>
               :
               <div><LoadingComponent /></div>

@@ -25,19 +25,18 @@ export const CatHeader = (props) => {
     });
     const sorted = Object.entries(countByTag).sort((a, b) => b[1] - a[1])
     console.log(sorted)
-    
     return (
         <div className={styles.cat_head_div}>
             <div className={styles.cat_head_trend}>Trending:</div>
-            <div className={styles.cat_head_item}>{sorted[0][0].charAt(0).toUpperCase() + sorted[0][0].slice(1)}</div>
+            <div className={styles.cat_head_item}>{sorted[0][0].toUpperCase()}</div>
             <VerticalHalfBorder />
-            <div className={styles.cat_head_item}>{sorted[1][0].charAt(0).toUpperCase() + sorted[1][0].slice(1)}</div>
+            <div className={styles.cat_head_item}>{sorted[1][0].toUpperCase()}</div>
             <VerticalHalfBorder />
-            <div className={styles.cat_head_item}>{sorted[2][0].charAt(0).toUpperCase() + sorted[2][0].slice(1)}</div>
+            <div className={styles.cat_head_item}>{sorted[2][0].toUpperCase()}</div>
             <VerticalHalfBorder />
-            <div className={styles.cat_head_item}>{sorted[3][0]?sorted[3][0].charAt(0).toUpperCase() + sorted[3][0].slice(1):<></>}</div>
+            <div className={styles.cat_head_item}>{sorted[3][0]?sorted[3][0].toUpperCase():<></>}</div>
             <VerticalHalfBorder />
-            <div className={styles.cat_head_item}>{sorted[4][0]?sorted[4][0].charAt(0).toUpperCase() + sorted[4][0].slice(1):<></>}</div>
+            <div className={styles.cat_head_item}>{sorted[4][0]?sorted[4][0].toUpperCase():<></>}</div>
 
         </div>
     )

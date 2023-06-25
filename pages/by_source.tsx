@@ -27,7 +27,6 @@ const BySource = (props) => {
     //   const url = `http://localhost:3000/api/content-routes/source/${search}`
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data)
     return { props: { query: data} };
   }
 export default withRouter(BySource);
