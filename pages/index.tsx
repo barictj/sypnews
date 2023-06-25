@@ -84,7 +84,7 @@ export default function Page({
       console.log(shuffled.length)
       return (
       <div className={styles.content_container}>
-              {readyData.length > 0 && spliced.length > 0 ?
+              {readyData.length > 0 && shuffled.length > 0 ?
               <>
               <CatHeader articles={contentCopy} />
               <TopStoryContainer data={readyData} />
@@ -102,7 +102,7 @@ export default function Page({
               {/* <ArticleList props={spent} /> */}
               </>
               :
-              <div><LoadingComponent /></div>
+              <div className={styles.content_container}><LoadingComponent /></div>
               }
               
       </div>
