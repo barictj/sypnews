@@ -10,8 +10,8 @@ export default function TopStoryPhoto({ props }) {
     let description = ''
     
     if (Object.keys(article).length > 0) {
-        if (article && article.body.length > 200) {
-            description = article.body.substring(0, 200) + '...'
+        if (article && article.body.length > 175) {
+            description = article.body.substring(0, 175) + '...'
         }
         else if (article && article.body.length < 200) {
             description = article.body
