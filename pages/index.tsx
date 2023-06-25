@@ -53,27 +53,29 @@ export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
   const [shuffled, setShuffled] = useState([]);
-
+  const [startData, setStartData] = useState([]);
+  const [dataForShuffle, setDataForShuffle] = useState([]);
+  
   if (content.length > 0) {
+    
     let final = []
       let contentCopy = [...content]
-      console.log(content.length)
       const [readyData, setReadyData] = useState("");
       const [spliced, setSpliced] = useState([]);
       const [preBidenSpliced, setPreBidenSpliced] = useState([]);
       let forSliced;
       useEffect(() => {
+        setDataForShuffle(content)
         let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
         const length = newArray.length
         setReadyData(newArray)
-        console.log(newArray.length)
-        forSliced = newArray.slice(15, length)
-        console.log(forSliced.length)
+        forSliced = newArray
 
         setSpliced(forSliced)
       
     }, [content]);
+
     useEffect(() => {
       function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
@@ -89,12 +91,10 @@ export default function Page({
         return array;
       }
         if(spliced.length > 0){
-          setShuffled(shuffle(spliced))
+          const splicedReady  = dataForShuffle.slice(15,200)
+          setShuffled(shuffle(splicedReady))
         }
-    
-  }, [spliced]);
-   
-      console.log(shuffled.length)
+  }, [content]);
       return (
       <div className={styles.content_container}>
               {readyData.length > 0 && spliced.length > 0 ?
@@ -103,13 +103,13 @@ export default function Page({
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
-              <PerTagContainer tag="Trump" articles={spliced} />
-              <ArticleListMin props={spliced} />
+              <PerTagContainer tag="Trump" articles={shuffled} />
+              <ArticleListMin props={shuffled} />
 
-              <PerSourceContainer tag="cnn" articles={spliced} />
-              <ArticleListMin props={spliced} />
-              <PerTagContainer tag="Biden" articles={spliced} />
-              <ArticleListMin props={spliced} />
+              <PerSourceContainer tag="cnn" articles={shuffled} />
+              <ArticleListMin props={shuffled} />
+              <PerTagContainer tag="Biden" articles={shuffled} />
+              <ArticleListMin props={shuffled} />
 
               <PerSourceContainer tag="nbcnews" articles={shuffled} />
               {/* <ArticleList props={spent} /> */}
