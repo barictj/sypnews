@@ -5,7 +5,7 @@ const Tags = require('../models/Tags');
 ContentRoutes.get('/', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
-        const data = (await Content.find().sort({date_published: -1}).skip(0).limit(50))
+        const data = (await Content.find().sort({date_published: -1}).skip(0).limit(150))
         // sortedData = sortedData.limit(75)
         res.json({data: data, number: data.length})
     }

@@ -14,7 +14,7 @@ $small:800px;
 }
 .list_item_link{
     text-decoration: none;
-    font-size: .5em;
+    font-size: .45em;
     font-weight: 900;
     text-decoration: none;
     line-height: .6em;
@@ -24,7 +24,7 @@ $small:800px;
         text-decoration: none;
         color: #4c5aed;
         text-decoration: none;
-        font-size: .5em;
+        font-size: .45em;
         font-weight: 900;
         text-decoration: none;
         line-height: .6em;
@@ -35,12 +35,11 @@ $small:800px;
     text-decoration: underline;
 }
 .list_item_li{
-    // height: 65px;
+    height: 60px;
     align-items: flex-start;
     align-self: flex-start;
     padding-left: .5em;
-    padding-right: .5em;
-    padding: .5em;
+    margin-top: .25em;
     @media screen and (max-width: $small) {
         height: auto;
     }

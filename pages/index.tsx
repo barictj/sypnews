@@ -52,21 +52,29 @@ export async function getServerSideProps() {
 export default function Page({
   content,
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
+  const [shuffled, setShuffled] = useState([]);
+
   if (content.length > 0) {
     let final = []
       let contentCopy = [...content]
+      console.log(content.length)
       const [readyData, setReadyData] = useState("");
       const [spliced, setSpliced] = useState([]);
       const [preBidenSpliced, setPreBidenSpliced] = useState([]);
-      const [shuffled, setShuffled] = useState([]);
       let forSliced;
       useEffect(() => {
         let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
         const length = newArray.length
         setReadyData(newArray)
+        console.log(newArray.length)
         forSliced = newArray.slice(15, length)
+        console.log(forSliced.length)
+
         setSpliced(forSliced)
+      
+    }, [content]);
+    useEffect(() => {
       function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
         // While there remain elements to shuffle.
@@ -80,8 +88,13 @@ export default function Page({
         }
         return array;
       }
-      setShuffled(shuffle(spliced))
-      }, [content]);
+        if(spliced.length > 0){
+          setShuffled(shuffle(spliced))
+        }
+    
+  }, [spliced]);
+   
+      console.log(shuffled.length)
       return (
       <div className={styles.content_container}>
               {readyData.length > 0 && spliced.length > 0 ?
