@@ -97,7 +97,7 @@ export default function Page({
   }, [content]);
       return (
       <div className={styles.content_container}>
-              {readyData.length > 0 && spliced.length > 0 ?
+              {readyData.length > 0 && shuffled.length > 0 ?
               <>
               <CatHeader articles={contentCopy} />
               <TopStoryContainer data={readyData} />
