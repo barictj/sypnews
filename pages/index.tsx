@@ -110,7 +110,7 @@ export default function Page({
           )
 }
 else {
-  return (<div className={styles.content_container} style={{height: '500px', width: '100%'}}><LoadingComponent /></div>)
+  return (<div style={{height: '500px', width: '100%'}}><LoadingComponent /></div>)
 }
 }
 Page.getLayout = function getLayout(page: React.ReactElement) {
