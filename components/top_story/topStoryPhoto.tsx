@@ -45,7 +45,7 @@ export default function TopStoryPhoto({ props }) {
     }
     else{
         return(
-            <div className={styles.top_articles_with_pic}>
+            <div className={styles.top_articles_with_pic} style={{height: '300px'}}>
                 <LoadingComponent />
             </div>
         )

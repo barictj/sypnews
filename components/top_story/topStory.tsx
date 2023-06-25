@@ -33,7 +33,7 @@ export const TopStory = (props) => {
     )}
     else{
         return(
-            <><div className={styles.top_story_image_div}>
+            <><div className={styles.top_story_image_div} style={{height: '100px'}}>
            <LoadingComponent />
         </div>
         <div className={styles.top_story_title} style={{height: '100px'}}>
