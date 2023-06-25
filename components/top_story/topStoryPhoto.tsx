@@ -8,16 +8,17 @@ import { describe } from 'node:test';
 export default function TopStoryPhoto({ props }) {
     const article = props
     let description = ''
-    if (article && article.body.length > 200) {
-        description = article.body.substring(0, 200) + '...'
-    }
-    else if (article && article.body.length < 200) {
-        description = article.body
-    }
-    else {
-        description = 'Loading'
-    }
-    if (article) {
+    
+    if (Object.keys(article).length > 0) {
+        if (article && article.body.length > 200) {
+            description = article.body.substring(0, 200) + '...'
+        }
+        else if (article && article.body.length < 200) {
+            description = article.body
+        }
+        else {
+            description = 'Loading'
+        }
         return (
             <>
             <Link href={article.url} key={article._id}>
@@ -44,7 +45,9 @@ export default function TopStoryPhoto({ props }) {
     }
     else{
         return(
-            <LoadingComponent />
+            <div className={styles.top_articles_with_pic}>
+                <LoadingComponent />
+            </div>
         )
     }
 }

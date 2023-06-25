@@ -5,10 +5,9 @@ const Tags = require('../models/Tags');
 ContentRoutes.get('/', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
-        const data = (await Content.find())
-        const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()).splice(0,500)
+        const data = (await Content.find().sort({date_published: -1}).skip(0).limit(50))
         // sortedData = sortedData.limit(75)
-        res.json({data: sortedData, number: 6})
+        res.json({data: data, number: data.length})
     }
     catch(error){
         res.status(500).json({message: error.message})
@@ -121,17 +120,15 @@ ContentRoutes.get('/find/:text', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-ContentRoutes.get('/get_more/:number', async (req, res) => {
+ContentRoutes.get('/get-more/:number', async (req, res) => {
     const startNumber = req.params.number
-    const endNumber = startNumber + 75
-    const data = (await Content.find())    
-    const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf()).splice(startNumber,endNumber)
-    res.json({data: sortedData, number: endNumber})
+    const data = (await Content.find().sort({date_published: -1}).skip(startNumber).limit(50))    
+    res.json({data: data})
     
 })
 ContentRoutes.get('/source/:source', async (req, res) => {
     const sourceRequested = req.params.source
-    const data = (await Content.find())
+    const data = (await Content.find().sort())
     let readyContent = []
     data.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){

@@ -65,10 +65,8 @@ export default function Page({
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
         const length = newArray.length
         setReadyData(newArray)
-        console.log(newArray.length)
         forSliced = newArray.slice(15, length)
         setSpliced(forSliced)
-        console.log(forSliced.length)
       function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
         // While there remain elements to shuffle.
@@ -84,7 +82,6 @@ export default function Page({
       }
       setShuffled(shuffle(spliced))
       }, [content]);
-      console.log(spliced.length)
       return (
       <div className={styles.content_container}>
               {readyData.length > 0 && spliced.length > 0 ?
@@ -113,7 +110,7 @@ export default function Page({
           )
 }
 else {
-  return (<div className={styles.content_container}><LoadingComponent /></div>)
+  return (<div className={styles.content_container} style={{height: '500px', width: '100%'}}><LoadingComponent /></div>)
 }
 }
 Page.getLayout = function getLayout(page: React.ReactElement) {

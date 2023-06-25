@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styles from './article_list.module.scss'
 import { useState, useEffect } from 'react';
 import ArticleListItem from './articleListItem';
+import LoadingComponent from './basic/loading';
 // create react component with typescript and props from parent component called data
 export const ArticleListTwo = ({ props }) => {
     const data = props
@@ -31,6 +32,13 @@ export const ArticleListTwo = ({ props }) => {
                 ))}
             </div>
           )
+    }
+    else{
+        return(
+            <div className={styles.full_list} style={{width: '100%', height: '100%'}}>
+                <LoadingComponent />
+            </div>
+        )
     }
 
   }

@@ -7,16 +7,18 @@ import { useState } from 'react';
 import TopStory from './topStory';
 import TopStoryRightTops from './topStoryRightTops';
 import ArticleListTwo from '../articlelisttwo';
-
+import LoadingComponent from '../basic/loading';
 export const TopStoryContainer = (props) => {
     const content = props.data;
-    const top = content[0];
-    const topTwo = [content[1], content[2]]
-    const topRight = content.slice(3)  
+    const testObj ={}
     const [toggle, setToggle] = useState(false);
-    return (
+    if(content.length > 0 ){
+        const top = content[0];
+        const topTwo = [content[1], content[2]]
+        const topRight = content.slice(3)  
+        return (
             <>
-                {content.length > 0 ? 
+                
                 <div className={styles.top_story_container_div}>
                     <div className={styles.top_story_div}>
                         <TopStory data={top} />
@@ -25,10 +27,20 @@ export const TopStoryContainer = (props) => {
                     <TopStoryRightTops props={topRight} />
                     
                 </div>
-                :
-                <div>LOADING</div>
-                }
+                
+                
+                
             </>
         )}
+    else{
+        return(
+            <div className={styles.top_story_container_div} style={{height: '300px', width: '100%'}}>
+                <LoadingComponent />
+            </div>
+    
+        )
+       
+    } 
+}    
 ;
 export default TopStoryContainer;
