@@ -103,15 +103,15 @@ export default function Page({
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
-              <PerTagContainer tag="Trump" articles={shuffled} />
-              <ArticleListMin props={shuffled} />
+              <PerTagContainer tag="Trump" articles={spliced} />
+              <ArticleListMin props={spliced} />
 
-              <PerSourceContainer tag="cnn" articles={shuffled} />
-              <ArticleListMin props={shuffled} />
-              <PerTagContainer tag="Biden" articles={shuffled} />
-              <ArticleListMin props={shuffled} />
+              <PerSourceContainer tag="cnn" articles={spliced} />
+              <ArticleListMin props={spliced} />
+              <PerTagContainer tag="Biden" articles={spliced} />
+              <ArticleListMin props={spliced} />
 
-              <PerSourceContainer tag="nbcnews" articles={shuffled} />
+              <PerSourceContainer tag="nbcnews" articles={spliced} />
               {/* <ArticleList props={spent} /> */}
               </>
               :
