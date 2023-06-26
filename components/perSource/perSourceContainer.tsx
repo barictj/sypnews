@@ -16,7 +16,7 @@ export const PerSourceContainer = (props) => {
     const [articles, setArticles] = useState(props.articles);
     useEffect(() => {
         articles.map((article) => {
-            if(article.source.includes(tag)){
+            if(article.source === (tag)){
                 setTagData(tagData => [...tagData, article]);
             }
         })

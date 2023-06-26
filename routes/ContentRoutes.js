@@ -5,7 +5,7 @@ const Tags = require('../models/Tags');
 ContentRoutes.get('/', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
-        const data = (await Content.find().sort({date_published: -1}).skip(0).limit(150))
+        const data = (await Content.find().sort({date_published: -1}).skip(0).limit(100))
         // sortedData = sortedData.limit(75)
         res.json({data: data, number: data.length})
     }
@@ -128,15 +128,14 @@ ContentRoutes.get('/get-more/:number', async (req, res) => {
 })
 ContentRoutes.get('/source/:source', async (req, res) => {
     const sourceRequested = req.params.source
-    const data = (await Content.find().sort().skip(0).limit(150))
+    const data = (await Content.find({source: sourceRequested}).sort({published_date: -1}).skip(0).limit(150))
     let readyContent = []
     data.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
             readyContent.push(content)
         }
     })
-    const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
-    res.json({data})
+    res.json({readyContent})
 })
 ContentRoutes.get('/for_delete', async (req, res) => {
     try{

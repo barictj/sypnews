@@ -104,7 +104,7 @@ export default function Page({
               <PerTagContainer tag="Biden" articles={shuffled} />
               <ArticleListMin props={shuffled} />
 
-              <PerSourceContainer tag="nbcnews" articles={shuffled} />
+              <PerSourceContainer tag="politico" articles={shuffled} />
               {/* <ArticleList props={spent} /> */}
               </>
               :
