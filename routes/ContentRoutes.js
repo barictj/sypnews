@@ -128,7 +128,7 @@ ContentRoutes.get('/get-more/:number', async (req, res) => {
 })
 ContentRoutes.get('/source/:source', async (req, res) => {
     const sourceRequested = req.params.source
-    const data = (await Content.find().sort())
+    const data = (await Content.find().sort().skip(0).limit(150))
     let readyContent = []
     data.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
@@ -136,7 +136,7 @@ ContentRoutes.get('/source/:source', async (req, res) => {
         }
     })
     const sortedData = data.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
-    res.json({data: readyContent.splice(0,250)})
+    res.json({data})
 })
 ContentRoutes.get('/for_delete', async (req, res) => {
     try{

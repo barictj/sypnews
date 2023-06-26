@@ -13,10 +13,10 @@ import TitleCard from '../components/basic/titleCard';
 import CatHeader from '../components/cat_header/catHeader';
 import dynamic from 'next/dynamic'
 const BySourceDisplay = dynamic(() => import('../components/bySourceDisplay'), {
-  loading: () => <p><LoadingComponent /></p>,
+  loading: () => <><LoadingComponent /></>,
 })
 const PerSourceContainer = dynamic(() => import('../components/perSource/perSourceContainer'), {
-  ssr: false, loading: () => <p><LoadingComponent /></p>,
+  ssr: false, loading: () => <><LoadingComponent /></>,
 })
 
 type Content = {
@@ -62,18 +62,12 @@ export default function Page({
       let contentCopy = [...content]
       const [readyData, setReadyData] = useState("");
       const [spliced, setSpliced] = useState([]);
-      const [preBidenSpliced, setPreBidenSpliced] = useState([]);
-      let forSliced;
       useEffect(() => {
-        setDataForShuffle(content)
         let sortedData = content.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
         const length = newArray.length
         setReadyData(newArray)
-        forSliced = newArray
-
-        setSpliced(forSliced)
-      
+        setSpliced(contentCopy.splice(10,150))
     }, [content]);
 
     useEffect(() => {
@@ -91,27 +85,26 @@ export default function Page({
         return array;
       }
         if(spliced.length > 0){
-          const splicedReady  = dataForShuffle.slice(15,200)
-          setShuffled(shuffle(splicedReady))
+          setShuffled(shuffle(spliced))
         }
-  }, [content]);
+  }, [spliced]);
       return (
       <div className={styles.content_container}>
-              {readyData.length > 0 && spliced.length > 0 ?
+              {readyData.length > 0 && shuffled.length > 0 ?
               <>
               <CatHeader articles={contentCopy} />
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
-              <PerTagContainer tag="Trump" articles={spliced} />
-              <ArticleListMin props={spliced} />
+              <PerTagContainer tag="Trump" articles={shuffled} />
+              <ArticleListMin props={shuffled} />
 
-              <PerSourceContainer tag="cnn" articles={spliced} />
-              <ArticleListMin props={spliced} />
-              <PerTagContainer tag="Biden" articles={spliced} />
-              <ArticleListMin props={spliced} />
+              <PerSourceContainer tag="cnn" articles={shuffled} />
+              <ArticleListMin props={shuffled} />
+              <PerTagContainer tag="Biden" articles={shuffled} />
+              <ArticleListMin props={shuffled} />
 
-              <PerSourceContainer tag="nbcnews" articles={spliced} />
+              <PerSourceContainer tag="nbcnews" articles={shuffled} />
               {/* <ArticleList props={spent} /> */}
               </>
               :

@@ -9,7 +9,7 @@ export const ListOfFour = (props) => {
     return (
         <div className={styles.list_item_container}>
             {articles.map((article) => (
-                <ListOfFourLink article={article} />
+                <ListOfFourLink article={article} key={article._id}/>
             ))}
         </div>
     )

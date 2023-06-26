@@ -12,10 +12,11 @@ export const ListOfFourLink = (props) => {
     else{
         title = article.title
     }
+    
     return (
-        <div key={article._id} className={styles.list_item_li}>
-            <Link href={article.url}>
-                <a className={styles.list_item_link}>
+        <div className={styles.list_item_li} >
+            <Link href={article.url} >
+                <a className={styles.list_item_link} >
                     {article.source.toUpperCase()}: {title}
                 </a>
             </Link>

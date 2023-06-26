@@ -36,6 +36,20 @@ export  const BySourceDisplay = (props) => {
                         blurDataURL="https://via.placeholder.com/500"
                     />                          
                 </a>  
+              </Link>         
+        </div>
+        <div className={styles.per_source_link}> 
+              <Link href={{ pathname: '/by_source', query: { searchText: 'politico' } }} >
+              <a className={styles.per_source_link_a}>
+              <Image
+                        src="/images/politico.png"
+                        width={200}
+                        height={200}
+                        alt="Picture of the author"
+                        placeholder='blur'
+                        blurDataURL="https://via.placeholder.com/500"
+                    />                          
+                </a>  
               </Link>
             
         </div>

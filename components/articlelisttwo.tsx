@@ -6,7 +6,6 @@ import LoadingComponent from './basic/loading';
 // create react component with typescript and props from parent component called data
 export const ArticleListTwo = ({ props }) => {
     const data = props
-    console.log(data)
     if(data.length > 0 && data[0] != undefined) {
         return (
             <div className={styles.full_list} style={{width: '100%'}}>

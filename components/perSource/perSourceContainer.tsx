@@ -6,6 +6,7 @@ import styles from './per-source.module.scss';
 import PerSourceTop from './perSourceTop';
 import PerSourceRight from './perSourceRight';
 import TitleCard from '../basic/titleCard';
+import LoadingComponent from '../basic/loading';
 
 export const PerSourceContainer = (props) => {
     const [readyData, setReadyData] = useState("");
@@ -14,9 +15,7 @@ export const PerSourceContainer = (props) => {
     const [tagData, setTagData] = useState([]);
     const [articles, setArticles] = useState(props.articles);
     useEffect(() => {
-        let sortedData = articles.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
-        const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
-        newArray.map((article) => {
+        articles.map((article) => {
             if(article.source.includes(tag)){
                 setTagData(tagData => [...tagData, article]);
             }
@@ -35,7 +34,7 @@ export const PerSourceContainer = (props) => {
             <PerSourceRight articles={tagData.splice(1,5)}/>
             </>
             :
-            <TitleCard title="Loading" />
+            <LoadingComponent />
             }
             
         </div>
