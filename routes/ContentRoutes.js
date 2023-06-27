@@ -126,10 +126,11 @@ ContentRoutes.get('/get-more/:number', async (req, res) => {
     res.json({data: data})
     
 })
-ContentRoutes.get('/source/:source', async (req, res) => {
+ContentRoutes.get('/source/:source/:itemSkip', async (req, res) => {
     const sourceRequested = req.params.source
+    let itemSkip = req.params.itemSkip
     let data = []
-    const readyContent = (await Content.find({source: sourceRequested}).sort({published_date: -1}).skip(0).limit(48))
+    const readyContent = (await Content.find({source: sourceRequested}).sort({published_date: -1}).skip(itemSkip).limit(48))
     readyContent.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
             data.push(content)
