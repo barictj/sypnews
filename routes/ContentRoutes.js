@@ -6,8 +6,9 @@ ContentRoutes.get('/', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
         const data = (await Content.find().sort({date_published: -1}).skip(0).limit(100))
+        const tags = (await Tags.find())
         // sortedData = sortedData.limit(75)
-        res.json({data: data, number: data.length})
+        res.json({data: data, number: data.length, tags: tags})
     }
     catch(error){
         res.status(500).json({message: error.message})
