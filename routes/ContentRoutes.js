@@ -129,7 +129,7 @@ ContentRoutes.get('/get-more/:number', async (req, res) => {
 ContentRoutes.get('/source/:source', async (req, res) => {
     const sourceRequested = req.params.source
     let data = []
-    const readyContent = (await Content.find({source: sourceRequested}).sort({published_date: -1}).skip(0).limit(150))
+    const readyContent = (await Content.find({source: sourceRequested}).sort({published_date: -1}).skip(0).limit(48))
     readyContent.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
             data.push(content)
