@@ -128,14 +128,14 @@ ContentRoutes.get('/get-more/:number', async (req, res) => {
 })
 ContentRoutes.get('/source/:source', async (req, res) => {
     const sourceRequested = req.params.source
-    const data = (await Content.find({source: sourceRequested}).sort({published_date: -1}).skip(0).limit(150))
-    let readyContent = []
-    data.map(content => {
+    let data = []
+    const readyContent = (await Content.find({source: sourceRequested}).sort({published_date: -1}).skip(0).limit(150))
+    readyContent.map(content => {
         if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
-            readyContent.push(content)
+            data.push(content)
         }
     })
-    res.json({readyContent})
+    res.json({data})
 })
 ContentRoutes.get('/for_delete', async (req, res) => {
     try{

@@ -5,16 +5,17 @@ import ArticleList from '../components/articlelist'
 import {SearchBar} from '../components/searchBar'
 import TitleCard from '../components/basic/titleCard'
 const BySource = (props) => {
-  const query = props.query.data
+  console.log(props.data)
+  const query = props.data
   const source = props.router.query.searchText
   const map = {};
-  const newArray = query.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
-  const sortedArray = newArray.sort((a, b) => (b.matched > a.matched) ? 1 : -1)
+  // const newArray = query.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
+  // const sortedArray = newArray.sort((a, b) => (b.matched > a.matched) ? 1 : -1)
     return (
       <div className={styles.content_container}>
       <div style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
-        <TitleCard title={source} />
-        <ArticleList props={sortedArray} />
+        {/* <TitleCard title={source} />
+        <ArticleList props={sortedArray} /> */}
       </div>
       </div>
     );
@@ -27,6 +28,7 @@ const BySource = (props) => {
     //   const url = `http://localhost:3000/api/content-routes/source/${search}`
       const res = await fetch(url);
       const data = await res.json();
-    return { props: { query: data} };
-  }
+      console.log(data)
+      return { props: { query: data} };
+    }
 export default withRouter(BySource);
