@@ -20,7 +20,7 @@ ContentRoutes.post('/post-content', async (req, res) => {
     const tagsData = await Tags.find()
     // checking to see if tag is in the title or body
     tagsData.filter(tag => {
-        if (data.title.toLowerCase().includes(tag.tag_name) || data.body.toLocaleLowerCase().includes(tag.tag_name) ) {
+        if (data.title.toLowerCase().includes(tag.tag_name.toLowerCase()) || data.body.toLocaleLowerCase().includes(tag.tag_name.toLowerCase()) ) {
             data.tags.push({tag_name: tag.tag_name})
         }
     })

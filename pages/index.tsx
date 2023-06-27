@@ -45,17 +45,18 @@ export async function getServerSideProps() {
     // const res = await fetch('http://localhost:3000/api/content-routes/');
 
   const data = await res.json();
+  const tags = data.tags
   const content = data.data
   // Pass data to the page via propsrs
-    return { props: { content } };
+    return { props: { content, tags } };
 }
 export default function Page({
-  content,
+  content, tags
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
   const [shuffled, setShuffled] = useState([]);
   const [startData, setStartData] = useState([]);
   const [dataForShuffle, setDataForShuffle] = useState([]);
-  
+  console.log(tags)
   if (content.length > 0) {
     
     let final = []
@@ -90,9 +91,9 @@ export default function Page({
   }, [spliced]);
       return (
       <div className={styles.content_container}>
-              {readyData.length > 0 && shuffled.length > 0 ?
+              {readyData.length > 0 && shuffled.length > 0  && tags.length > 0 ?
               <>
-              {/* <CatHeader articles={contentCopy} /> */}
+              <CatHeader articles={contentCopy} tags={tags} />
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>

@@ -4,14 +4,17 @@ import styles from './cat_header.module.scss';
 import {VerticalHalfBorder} from '../basic/verticalHalfBorder';
 export const CatHeader = (props) => {
     const articles = props.articles
+    const tags = props.tags
     const topTags = []
     articles.map((article) => {
-        if (article.tags) {
-            article.tags.map((tag) => {
-                topTags.push(tag)
-            })
-        }
-    })
+                tags.map((tag) => {
+                    if (article.title.toLowerCase().includes(tag.tag_name.toLowerCase())) {
+                        topTags.push(tag)
+                    }
+                }
+            )})
+
+    
     const count = function (ary, classifier) {
         classifier = classifier || String;
         return ary.reduce(function (counter, item) {

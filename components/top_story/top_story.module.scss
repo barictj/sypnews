@@ -87,6 +87,10 @@ $large: 801px;
     width: auto;
     height: 300px;
     margin-top: 0;
+    @media screen and (max-width: $small) {
+        width: 100%;
+        height: auto;
+    }
 
 }
 .top_story_image:hover{
