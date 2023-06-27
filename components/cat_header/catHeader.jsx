@@ -40,6 +40,8 @@ export const CatHeader = (props) => {
             <div className={styles.cat_head_item}>{sorted[3]?sorted[3][0].toUpperCase():<></>}</div>
             <VerticalHalfBorder />
             <div className={styles.cat_head_item}>{sorted[4]?sorted[4][0].toUpperCase():<></>}</div>
+            <VerticalHalfBorder />
+            <div className={styles.cat_head_item}>{sorted[5]?sorted[5][0].toUpperCase():<></>}</div>
 
         </div>
     )
