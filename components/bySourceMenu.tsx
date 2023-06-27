@@ -10,7 +10,7 @@ export  const BySourceMenu = (props) => {
       <div className={styles.by_source_div}>
         
         <div className={styles.per_source_link}> 
-              <Link href={{ pathname: '/by_source', query: { searchText: 'cnn' } }} >
+              <Link href={{ pathname: '/by_source', query: { searchText: 'cnn', skipNumber:0 } }} >
                 <a className={styles.per_source_link_a} onClick={props.setToggle}>
                     <Image
                         src="/images/cnn.png"
@@ -25,7 +25,7 @@ export  const BySourceMenu = (props) => {
             
         </div>
         <div className={styles.per_source_link}> 
-              <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' } }} >
+              <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews', skipNumber:0 } }} >
               <a className={styles.per_source_link_a} onClick={props.setToggle}>
               <Image
                         src="/images/nbcnews.png"
@@ -40,7 +40,7 @@ export  const BySourceMenu = (props) => {
             
         </div>
         <div className={styles.per_source_link}> 
-              <Link href={{ pathname: '/by_source', query: { searchText: 'politico' } }} >
+              <Link href={{ pathname: '/by_source', query: { searchText: 'politico' , skipNumber:0 } }} >
               <a className={styles.per_source_link_a} onClick={props.setToggle}>
               <Image
                         src="/images/politico.png"
