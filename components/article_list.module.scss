@@ -57,3 +57,41 @@ $large: 801px;
 .full_list_with_pic:hover{
     text-decoration: underline;
 }
+.no_pic_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color:'white';
+    width: 33% ;   
+    height: 250px;
+    text-align: left;
+    font-size: 1em;
+    @media screen and (max-width: $small) {
+        flex-basis: 100%;
+        padding: 1rem;
+        height: auto;
+    }
+}
+.no_pic_link{
+    color: #4c5aed;
+    text-decoration: none;
+    font-size: .65em;
+    padding: .5em;
+    font-weight: 900;
+    &:visited{
+        color: #4c5aed;
+        text-decoration: none
+    }
+}
+.no_pic_link:hover{
+    text-decoration: underline;
+}
+.no_pic_description{
+    font-size: .55em;
+    text-align: left;
+    padding: .5em;
+    color: black;
+    font-weight: 700;
+    // background-image: linear-gradient(to bottom, #202634, rgb(5, 5, 59));
+
+}

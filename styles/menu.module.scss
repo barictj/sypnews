@@ -62,7 +62,7 @@ $large: 801px;
     height: calc(100vh - 77px);
     background-image: linear-gradient(to bottom right, #202634, rgb(5, 5, 59));
     border: 5px solid black;
-    animation-duration: .5s;
+    animation-duration: .25s;
     animation-name: slidein;
     overflow: hidden;
     @media screen and (max-width: $small) {

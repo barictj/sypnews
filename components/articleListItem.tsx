@@ -5,19 +5,24 @@ import { useState, useEffect } from 'react';
 export default function ArticleListItem({ props }) {
     const article = props
     const dateData = article.date_published
-
+    let description;
     const dateObject = new Date(Date.parse(dateData));
     const dateReadable = dateObject.toDateString();
-    // const articleChoiceNumber = Math.floor(Math.random() * 4) + 1;
-    const articleChoiceNumber = 1;
-      
+    const articleChoiceNumber = Math.floor(Math.random() * 3) + 1;
+    if(article.body.length > 140){
+        description = article.body.substring(0, 140) + '...';
+    }
+    else{
+        description = article.body;
+    }
+    console.log(articleChoiceNumber)
   return (
             <>
-            {articleChoiceNumber == 1 ?
+            {articleChoiceNumber < 3 ?
              <Link href={article.url} key={article.id}>
              <a 
              className={styles.full_list_with_pic} 
-             style={{background: `rgba(0, 0, 0, 0.70) url(${article.image}) `, 
+             style={{background: `rgba(0, 0, 0, 0.75) url(${article.image}) `, 
              backgroundSize: 'cover', 
              backgroundPosition: 'center center',
              backgroundRepeat: 'no-repeat',
@@ -29,31 +34,26 @@ export default function ArticleListItem({ props }) {
                  <div  style={{padding: '.25em'}}>
                      <b>{article.source.toUpperCase()}</b>:  {article.title}
                      <div>
-                         Published at: {dateReadable}
+                         Published on: {dateReadable}
                      </div>
                  </div>   
              </a>    
          </Link>
 
          :
-         <Link href={article.url} key={article.id}>
-             <a 
-             className={styles.full_list_with_pic} 
-             style={{background: `black `,
-            fontSize: '.5em',
-            }}
-             >   
-                 <div  style={{padding: '.25em', textAlign:'left', fontSize:'1em', fontWeight: '900'}}>
-                     <b style={{textAlign:'left', fontSize:'1em'}}>{article.source.toUpperCase()}</b>:  {article.title}
-                     <div>
-                         Published at: {dateReadable}
-                     </div>
-                     <div>
-                        {article.body}
-                     </div>
-                 </div>   
-             </a>    
-         </Link>
+         <div className={styles.no_pic_div}>
+            <Link href={article.url} key={article.id}>
+                <a className={styles.no_pic_link}>
+                <b>{article.source.toUpperCase()}</b>:{article.title}     
+                </a>    
+            </Link>
+            <div className={styles.no_pic_description}>
+                {description}
+            </div>
+            <div className={styles.no_pic_description}>
+            <b>Published on</b>: {dateReadable} 
+            </div>
+         </div>
         }
             </>
         )
