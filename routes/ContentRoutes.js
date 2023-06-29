@@ -184,7 +184,12 @@ ContentRoutes.get('/search/:text', async (req, res) => {
         _id: 3,
           title: 1,
           body: 2,
-          score: { $meta: "textScore" }
+          score: { $meta: "textScore" },
+          url: 4,
+            date_published: 5,
+            image:5,
+            source: 6,
+            
           
         };
 
