@@ -27,7 +27,9 @@ let ContentSchema = new Schema({
 ContentSchema.virtual('id').get(function(){
     return this._id.toHexString();
 })
-ContentSchema.index({title: 'text', body: 'text', description: 'text', tags: 'text', source: 'text', site: 'text', date_published: 'text', _id:'text', id:'text'});
+ContentSchema.index({title: 'text', body: 'text', description: 'text', tags: 'text', source: 'text', site: 'text', date_published: 'text', 
+_id:'text', id:'text', url:'text', image:'text'}, 
+{name: 'TextIndex', weights: {title: 10, body: 9, description: 5, tags: 5, source: 5, site: 5, date_published: 5, _id: 5, id: 5, url: 5, image: 5}});
 // Create a model using the schema.
 const Content = mongoose.model("Content", ContentSchema);
 
