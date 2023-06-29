@@ -7,8 +7,7 @@ import {SearchBar} from '../components/searchBar'
 const Search = (props) => {
   const query = props.query
   const map = {};
-  const newArray = query.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
-  const sortedArray = newArray.sort((a, b) => (b.matched > a.matched) ? 1 : -1)
+  const sortedArray = query.sort((a, b) => (b.score > a.score) ? 1 : -1)
     return (
       <div className={styles.content_container}>
       <div style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
