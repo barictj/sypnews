@@ -7,6 +7,8 @@ import Router from 'next/router';
 
 export const SearchBar = (props) => {
     const [searchText, setSearchText] = useState('');
+
+    //form submit function that pushes to search page with searchText
     const search = (e) => {
         e.preventDefault();
         if(searchText === '') return false;
@@ -14,12 +16,16 @@ export const SearchBar = (props) => {
             if(typeof props.setToggle==='function'){
             props.setToggle(false)
         }
+
+        //push to search page with searchText, need to add page number
             Router.push({
                 pathname: '/search',
                 query: { searchText:  searchText}
             }, '/search');
         }
     };
+
+
     return (
     <div className={styles.search_div}>
         <form className={styles.search_form} onSubmit={search}>
@@ -38,7 +44,4 @@ export const SearchBar = (props) => {
             </div>
         </form>
       </div>  
-    );
-  };
-  
-;
+    );};

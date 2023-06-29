@@ -8,7 +8,6 @@ import Image from 'next/image'
 export  const BySourceMenu = (props) => {
   return (
       <div className={styles.by_source_div}>
-        
         <div className={styles.per_source_link}> 
               <Link href={{ pathname: '/by_source', query: { searchText: 'cnn', skipNumber:0 } }} >
                 <a className={styles.per_source_link_a} onClick={props.setToggle}>
@@ -22,47 +21,42 @@ export  const BySourceMenu = (props) => {
                     />             
                 </a>
               </Link>
-            
         </div>
         <div className={styles.per_source_link}> 
               <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews', skipNumber:0 } }} >
-              <a className={styles.per_source_link_a} onClick={props.setToggle}>
+                <a className={styles.per_source_link_a} onClick={props.setToggle}>
               <Image
-                        src="/images/nbcnews.png"
-                        width={100}
-                        height={100}
-                        alt="Picture of the author"
-                        placeholder='blur'
-                        blurDataURL="https://via.placeholder.com/500"
-                    />                          
+                src="/images/nbcnews.png"
+                width={100}
+                height={100}
+                alt="Picture of the author"
+                placeholder='blur'
+                blurDataURL="https://via.placeholder.com/500"
+              />                          
                 </a>  
               </Link>
-            
-        </div>
-        <div className={styles.per_source_link}> 
+          </div>
+          <div className={styles.per_source_link}> 
               <Link href={{ pathname: '/by_source', query: { searchText: 'politico' , skipNumber:0 } }} >
-              <a className={styles.per_source_link_a} onClick={props.setToggle}>
+                <a className={styles.per_source_link_a} onClick={props.setToggle}>
               <Image
-                        src="/images/politico.png"
-                        width={100}
-                        height={100}
-                        alt="Picture of the author"
-                        placeholder='blur'
-                        blurDataURL="https://via.placeholder.com/500"
-                    />                          
+                src="/images/politico.png"
+                width={100}
+                height={100}
+                alt="Picture of the author"
+                placeholder='blur'
+                blurDataURL="https://via.placeholder.com/500"
+              />                          
                 </a>  
               </Link>
-            
-        </div>
-        <div className={styles.per_source_link} style={{color: 'white'}}> 
+          </div>
+          <div className={styles.per_source_link} style={{color: 'white'}}> 
               {/* <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' } }} >
                 <a>
                     More is coming                
                 </a>
               </Link> */}
-              More coming soon
-            
+              More coming soon           
+          </div>
         </div>
-      </div>
-  )
-}
+  )}

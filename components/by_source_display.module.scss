@@ -2,6 +2,8 @@ $small:800px;
 $large: 801px;
 $extra_large: 1651px;
 
+
+//Main div for bysourcemenu and bysource display
 .by_source_div{
     width: 100%; 
     display: flex;
@@ -18,8 +20,9 @@ $extra_large: 1651px;
         height: auto;
     }
 }
+ 
+//div for each link
 .per_source_link{
-
     font-size: 1.5em;
     font-weight: 600;
     text-decoration: none;
@@ -30,6 +33,8 @@ $extra_large: 1651px;
         text-decoration: none;
     }
 }
+
+//actual link
 .per_source_link_a{
     color: #4c5aed;
     text-decoration: none;

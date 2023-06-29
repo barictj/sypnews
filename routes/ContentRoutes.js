@@ -3,12 +3,22 @@ const Content = require('../models/Content');
 const ContentRoutes = express.Router()
 const Tags = require('../models/Tags');
 ContentRoutes.get('/', async (req, res) => {
+    //var to gather all the data
+    let readyData = []
     try{
-        // const tagsData = await Tags.find()
-        const data = (await Content.find().sort({date_published: -1}).skip(0).limit(100))
+        const cnnData = (await Content.find({source: 'cnn' }).sort({date_published: -1}).skip(0).limit(25))
+        const politicoData = (await Content.find({source: 'politico' }).sort({date_published: -1}).skip(0).limit(25))
+        const nbcNewsData = (await Content.find({source: 'nbcnews' }).sort({date_published: -1}).skip(0).limit(25))
+        for(let i = 0; i < 25; i++){
+            readyData.push(cnnData[i])
+            readyData.push(politicoData[i])
+            readyData.push(nbcNewsData[i])
+        }
+        const readyToSort = readyData.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
+        const sortedData = readyToSort.sort((a, b) => new Date(b.date_published).valueOf() - new Date(a.date_published).valueOf())
         const tags = (await Tags.find())
         // sortedData = sortedData.limit(75)
-        res.json({data: data, number: data.length, tags: tags})
+        res.json({data:readyData, tags: tags, cnnlength: cnnData.length , pollength:politicoData.length, nbclength:nbcNewsData.length})
     }
     catch(error){
         res.status(500).json({message: error.message})
@@ -84,7 +94,7 @@ ContentRoutes.get('/find/:text', async (req, res) => {
     }
     const uncommon = getUncommon(text, 'the,be,to,of,and,a,in,that,have,I,it,for,not,on,with,he,as,you,do,at,this,but,his,is,by,from,they,we,say,her,she,or,an,will,my,one,all,would,there,their,what,so,up,out,if,about,who,get,which,go,me,when,make,can,like,time,no,just,him,know,take,people,into,year,your,good,some,could,them,see,other,than,then,now,look,only,come,its,over,think,also,back,after,use,two,how,our,work,first,well,way,even,new,want,because,any,these,give,day,most,us')
         try{
-        const data = await Content.find()
+        const data = await Content.find().limit(500).sort({date_published: -1})
         data.filter(content => {
                 if (content.title.toLowerCase().includes(text.toLowerCase())) {
                     if(!dataFound.includes(content.title))
@@ -143,7 +153,7 @@ ContentRoutes.get('/for_delete', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
         const data = (await Content.find())
-        const sortedData = data.sort((a, b) => new Date(a.date_published).valueOf() - new Date(b.date_published).valueOf()).splice(0,7500)
+        const sortedData = data.sort((a, b) => new Date(a.date_published).valueOf() - new Date(b.date_published).valueOf())
         // sortedData = sortedData.limit(75)
         res.json({data: sortedData, number: sortedData.length})
     }

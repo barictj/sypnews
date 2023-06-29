@@ -1,5 +1,6 @@
 $small:800px;
 $large: 801px;
+//article list div with that maps articles into articlelistitem
 .full_list{
     display: flex;
     flex-wrap: wrap;
@@ -14,6 +15,8 @@ $large: 801px;
 
     }
   }
+
+  //two pictures used underneath top story on the left
   .two_pic{
     flex-basis: 50% ; /* CHANGED from -> width: 50% */
     font-size: 20px;
@@ -36,7 +39,9 @@ $large: 801px;
     .two_pic:hover{
         text-decoration: underline;
     }
-  .full_list_with_pic{    
+
+   // Article list item with picture
+  .with_pic_link{    
     flex-basis: 33% ; /* CHANGED from -> width: 50% */
     font-size: 20px;
     height: 250px;
@@ -57,11 +62,14 @@ $large: 801px;
 .full_list_with_pic:hover{
     text-decoration: underline;
 }
+
+
+//div that wraps all of articlelistitem if it's no pic
 .no_pic_div{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color:'white';
+    background-color: rgb(17, 17, 17);
     width: 33% ;   
     height: 250px;
     text-align: left;
@@ -90,8 +98,7 @@ $large: 801px;
     font-size: .55em;
     text-align: left;
     padding: .5em;
-    color: black;
+    color: white;
     font-weight: 700;
-    // background-image: linear-gradient(to bottom, #202634, rgb(5, 5, 59));
-
+  
 }

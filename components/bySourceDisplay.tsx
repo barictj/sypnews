@@ -8,50 +8,47 @@ import Image from 'next/image'
 export  const BySourceDisplay = (props) => {
   return (
       <div className={styles.by_source_div}>
-        
         <div className={styles.per_source_link}> 
               <Link href={{ pathname: '/by_source', query: { searchText: 'cnn', skipNumber: 0 } }} >
                 <a className={styles.per_source_link_a}>
                     <Image
-                        src="/images/cnn.png"
-                        width={200}
-                        height={200}
-                        alt="Picture of the author"
-                        placeholder='blur'
-                        blurDataURL="https://via.placeholder.com/500"
+                      src="/images/cnn.png"
+                      width={200}
+                      height={200}
+                      alt="Picture of the author"
+                      placeholder='blur'
+                      blurDataURL="https://via.placeholder.com/500"
                     />             
                 </a>
               </Link>
-            
         </div>
         <div className={styles.per_source_link}> 
-              <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' , skipNumber:0} }} >
-              <a className={styles.per_source_link_a}>
+          <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' , skipNumber:0} }} >
+            <a className={styles.per_source_link_a}>
               <Image
-                        src="/images/nbcnews.png"
-                        width={200}
-                        height={200}
-                        alt="Picture of the author"
-                        placeholder='blur'
-                        blurDataURL="https://via.placeholder.com/500"
+                src="/images/nbcnews.png"
+                width={200}
+                height={200}
+                alt="Picture of the author"
+                placeholder='blur'
+                blurDataURL="https://via.placeholder.com/500"
                     />                          
-                </a>  
-              </Link>         
+            </a>  
+          </Link>         
         </div>
         <div className={styles.per_source_link}> 
-              <Link href={{ pathname: '/by_source', query: { searchText: 'politico', skipNumber:0 } }} >
-              <a className={styles.per_source_link_a}>
+          <Link href={{ pathname: '/by_source', query: { searchText: 'politico', skipNumber:0 } }} >
+            <a className={styles.per_source_link_a}>
               <Image
-                        src="/images/politico.png"
-                        width={200}
-                        height={200}
-                        alt="Picture of the author"
-                        placeholder='blur'
-                        blurDataURL="https://via.placeholder.com/500"
-                    />                          
-                </a>  
-              </Link>
-            
+                src="/images/politico.png"
+                width={200}
+                height={200}
+                alt="Picture of the author"
+                placeholder='blur'
+                blurDataURL="https://via.placeholder.com/500"
+              />                          
+            </a>  
+          </Link>
         </div>
         <div className={styles.per_source_link}> 
               {/* <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' } }} >
@@ -59,8 +56,7 @@ export  const BySourceDisplay = (props) => {
                     More is coming                
                 </a>
               </Link> */}
-              More coming soon
-            
+              More coming soon  
         </div>
       </div>
   )
