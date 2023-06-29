@@ -20,17 +20,18 @@ const handle = server.getRequestHandler()
 const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser')
 const nocache = require('nocache');
-
+const Content = require('./models/Content');
 
 
 
 // write a function to connect to the mongodb database using mongoose and check for errors
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 80000, maxIdleTimeMS: 80000})
+const db = mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 80000, maxIdleTimeMS: 80000})
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.log(err, 'error'));
 
 
 server.prepare().then(() => {
+// collection.createIndex({ title: "text", body: "text" })
   const app = express()
   app.disable('view cache');
   app.use(nocache());

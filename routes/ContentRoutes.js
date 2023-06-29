@@ -3,6 +3,7 @@ const Content = require('../models/Content');
 const ContentRoutes = express.Router()
 const Tags = require('../models/Tags');
 ContentRoutes.get('/', async (req, res) => {
+
     //var to gather all the data
     let readyData = []
     try{
@@ -173,7 +174,28 @@ ContentRoutes.get('/for_all', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
+ContentRoutes.get('/search/:text', async (req, res) => {
+    try{
+        const text = req.params.text
+        const query = { $text: { $search: `\"${text}\"` } };
+        // Return only the `title` of each matched document
+        const projection = {
+        //   id: 0,
+        _id: 3,
+          title: 1,
+          body: 2,
+          score: { $meta: "textScore" }
+          
+        };
 
+        const data = (await Content.find(query, projection).sort({score: {$meta: "textScore"}}).limit(50))
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+
+})
 
 module.exports = ContentRoutes ;
 // export default ContentRoutes

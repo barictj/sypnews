@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 // Create a schema for the Content model with the following fields:  Title (string), Description (string), URL (string), and Date (date), 
 // and a Text field (string) for the content of the article
-const ContentSchema = new Schema({
+let ContentSchema = new Schema({
     title: String,
     description: String,
     url: String,
@@ -24,7 +24,10 @@ const ContentSchema = new Schema({
     },
     matched: {type: Number, default: 0},
 });
-
+ContentSchema.virtual('id').get(function(){
+    return this._id.toHexString();
+})
+ContentSchema.index({title: 'text', body: 'text', description: 'text', tags: 'text', source: 'text', site: 'text', date_published: 'text', _id:'text', id:'text'});
 // Create a model using the schema.
 const Content = mongoose.model("Content", ContentSchema);
 

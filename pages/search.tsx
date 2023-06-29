@@ -23,7 +23,7 @@ const Search = (props) => {
   export async function getServerSideProps(props) {
       const search = props.query.searchText
     // Fetch data from external API
-      const url = `https://stackyourprops.com/api/content-routes/find/${search}`
+      const url = `https://stackyourprops.com/api/content-routes/search/${search}`
       const res = await fetch(url);
       const data = await res.json();
     return { props: { query: data} };
