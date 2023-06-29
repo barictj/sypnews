@@ -177,7 +177,7 @@ ContentRoutes.get('/for_all', async (req, res) => {
 ContentRoutes.get('/search/:text', async (req, res) => {
     try{
         const text = req.params.text
-        const query = { $text: { $search: `\"${text}\"` } };
+        const query = { $text: { $search: `${text}` } };
         // Return only the `title` of each matched document
         const projection = {
         //   id: 0,
@@ -189,7 +189,7 @@ ContentRoutes.get('/search/:text', async (req, res) => {
             date_published: 5,
             image:5,
             source: 6,
-            
+
           
         };
 
