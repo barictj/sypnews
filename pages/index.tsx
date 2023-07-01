@@ -117,6 +117,7 @@ export default function Page({
   
   const tagOne = sorted[0][0]
   const tagTwo = sorted[1][0]
+  console.log(sorted)
       return (
       <div className={styles.content_container}>
               {readyData.length > 0 && shuffled.length > 0  && sorted.length > 0 ?
@@ -125,12 +126,12 @@ export default function Page({
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
-              <PerTagContainer tag={tagOne} articles={shuffled} />
+              <PerTagContainer tag={'biden'} articles={shuffled} />
               <ArticleListMin props={shuffled} />)
 
               <PerSourceContainer tag="cnn" articles={shuffled} />
               <ArticleListMin props={shuffled} />
-              <PerTagContainer tag={tagTwo} articles={shuffled} />
+              <PerTagContainer tag={'trump'} articles={shuffled} />
               <ArticleListMin props={shuffled} />
 
               <PerSourceContainer tag="politico" articles={shuffled} />
