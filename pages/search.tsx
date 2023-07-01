@@ -5,6 +5,11 @@ import ArticleList from '../components/articlelist'
 import {SearchBar} from '../components/searchBar'
 import Pagination from '../components/pagination/Pagination'
 import { useState, useEffect } from 'react'
+import PerSixContainer from '../components/perSix/perSixContainer'
+import { Title } from '@mui/icons-material'
+import TitleCard from 'components/basic/titleCard'
+
+
 const Search = (props) => {
   const data = props.data
   const count = props.count
@@ -25,7 +30,10 @@ const Search = (props) => {
         <div>
           <SearchBar />
         </div>
+        <TitleCard title={`Show results for ${source}`} /> 
+        {hydrated && <PerSixContainer articles={sortedArray} />}
         {hydrated && <ArticleList props={sortedArray} />}
+
         <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/>
 
       </div>

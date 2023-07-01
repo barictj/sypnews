@@ -1,0 +1,71 @@
+$small:800px;
+$large: 801px;
+
+.per_tag_div{
+    width: 100%; /* CHANGED from -> width: 50% */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 100%;
+    margin-bottom: 1em;
+    @media screen and (max-width: $small) {
+        width: 100%;
+        flex-direction: row;
+        height: auto;
+    }
+}
+.per_tag_image{    
+    flex: 60% ; /* CHANGED from -> width: 50% */
+    font-size: 23px;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    color: #ffffff;
+    padding-left: 2rem;
+    font-weight: 900;
+    
+    @media screen and (max-width: $small) {
+        flex-basis: 100%;
+        padding: 1rem;
+    }
+    &:visited{
+        color: #ffffff;
+        text-decoration: none
+}}
+.per_tag_image:hover{
+    text-decoration: underline;
+}
+.per_tag_right{
+    flex: 30%;
+    border: 5px solid white;
+    height: 100%;
+    border-radius: 15px;
+    padding: 1em;
+    text-decoration: none;
+
+    @media screen and (max-width: $small) {
+        flex-basis: 100%;
+        padding-left: .5em;
+        height: auto;
+    }
+}
+.per_tag_link_a{
+    font-size: 1rem;
+    color:#4c5aed;
+    font-weight: 900;
+    text-decoration: none;
+    &:visited{
+        color: #6c76dc;
+        text-decoration: none;
+}
+}
+.per_tag_link_a:hover{
+    text-decoration: underline;
+}
+.per_tag_link{
+    margin-bottom: 1em;
+    border-bottom: 1px solid rgb(169, 169, 169);
+    padding-bottom: 1em;
+
+}

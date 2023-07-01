@@ -61,7 +61,7 @@ export const Pagination = ({ props }) => {
     return(
         <div className={styles.pagination_div}>
             {pageNumber > 1 ? <div className={styles.button_div}><a onClick={goFirst} className={styles.button}>1</a></div>:<div className={styles.button_div}></div>}
-            {pageNumber - 1 > 1 ? <div className={styles.button_div}><a onClick={goPrevPage} className={styles.button}>{"<"} </a></div>:<div className={styles.button_div}><a className={styles.inactive}>{"<"} </a></div>}
+            {pageNumber  > 1 ? <div className={styles.button_div}><a onClick={goPrevPage} className={styles.button}>{"<"} </a></div>:<div className={styles.button_div}><a className={styles.inactive}>{"<"} </a></div>}
             {pageNumber < totalPages ? <div className={styles.button_div}><a onClick={goNextPage1} className={styles.button}>{pageNumber +1 === totalPages ? <>Last</>:<>{">"} </>}</a></div>:<div className={styles.button_div}><a className={styles.inactive}>{">"} </a></div>}
             {/* {nextPage1  < totalPages ? <div className={styles.button_div}><button onClick={goNextPage2}>{nextPage2}</button></div>:<div className={styles.button_div}></div>}
             {nextPage2  < totalPages ? <div className={styles.button_div}><button onClick={goNextPage3}>{nextPage3}</button></div>:<div className={styles.button_div}></div>} */}

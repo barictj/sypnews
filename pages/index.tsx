@@ -13,6 +13,8 @@ import TitleCard from '../components/basic/titleCard';
 import CatHeader from '../components/cat_header/catHeader';
 import dynamic from 'next/dynamic'
 import { TagTwoTone } from '@mui/icons-material';
+import PerSixContainer from '../components/perSix/perSixContainer';
+
 const BySourceDisplay = dynamic(() => import('../components/bySourceDisplay'), {
   loading: () => <><LoadingComponent /></>,
 })
@@ -113,11 +115,13 @@ export default function Page({
   const countByTag = count(topTags, function (item) {
       return item.tag_name
   });
-  const sorted = Object.entries(countByTag).sort((a, b) => (b[1] as any) - (a[1] as any))
+  const sorted:Array<{}> = Object.entries(countByTag).sort((a, b) => (b[1] as number) - (a[1] as number))
   
   const tagOne = sorted[0][0]
   const tagTwo = sorted[1][0]
-  console.log(sorted)
+  const tagOneCount = sorted[0][1]
+  const tagTwoCount = sorted[1][1]
+  console.log(tagOne, tagTwo, tagOneCount, tagTwoCount)
   
       return (
       <div className={styles.content_container}>
@@ -128,10 +132,11 @@ export default function Page({
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
               <PerTagContainer tag={tagOne} articles={shuffled} />
+
               <ArticleListMin props={shuffled} />
               <PerSourceContainer tag="cnn" articles={shuffled} />
               <ArticleListMin props={shuffled} />
-              <PerTagContainer tag={tagTwo} articles={shuffled} />
+              {/* {tagTwoCount > 12 ? <PerTagContainer tag={tagTwo} articles={shuffled} /> : <PerSixContainer articles={shuffled} />} */}
               <ArticleListMin props={shuffled} />
               <PerSourceContainer tag="politico" articles={shuffled} />
               {/* <ArticleListMin props={shuffled} />

@@ -8,6 +8,7 @@ import TitleCard from '../components/basic/titleCard'
 import LoadingComponent from '../components/basic/loading'
 import useVisibility from '../components/hooks/useVisibility'
 import Pagination from '../components/pagination/Pagination'
+import PerSixContainer from '../components/perSix/perSixContainer'
 const BySource = (props) => {
   const data = props.data
   const source = props.router.query.searchText
@@ -28,6 +29,7 @@ useEffect(() => {
       <div className={styles.content_container}>
       <div style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
         <TitleCard title={source} />
+        {hydrated && <PerSixContainer articles={data} />}
        {hydrated && <ArticleList props={data} />}
         <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/>
       </div>
