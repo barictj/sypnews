@@ -113,7 +113,7 @@ export default function Page({
   const countByTag = count(topTags, function (item) {
       return item.tag_name
   });
-  const sorted = Object.entries(countByTag).sort((a, b) => b[1] - a[1])
+  const sorted = Object.entries(countByTag).sort((a, b) => (a[1] as any) - (b[1] as any))
   
   const tagOne = sorted[0][0]
   const tagTwo = sorted[1][0]
