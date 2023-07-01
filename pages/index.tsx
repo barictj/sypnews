@@ -113,7 +113,7 @@ export default function Page({
   const countByTag = count(topTags, function (item) {
       return item.tag_name
   });
-  const sorted = Object.entries(countByTag).sort((a, b) => (a[1] as any) - (b[1] as any))
+  const sorted = Object.entries(countByTag).sort((a, b) => (b[1] as any) - (a[1] as any))
   
   const tagOne = sorted[0][0]
   const tagTwo = sorted[1][0]
@@ -126,12 +126,12 @@ export default function Page({
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
-              <PerTagContainer tag={'biden'} articles={shuffled} />
+              <PerTagContainer tag={tagOne} articles={shuffled} />
               <ArticleListMin props={shuffled} />)
 
               <PerSourceContainer tag="cnn" articles={shuffled} />
               <ArticleListMin props={shuffled} />
-              <PerTagContainer tag={'trump'} articles={shuffled} />
+              <PerTagContainer tag={tagTwo} articles={shuffled} />
               <ArticleListMin props={shuffled} />
 
               <PerSourceContainer tag="politico" articles={shuffled} />
