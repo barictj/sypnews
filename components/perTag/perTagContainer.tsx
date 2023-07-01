@@ -16,7 +16,7 @@ export const PerTagContainer = (props) => {
     useEffect(() => {
         
         articles.map((article) => {
-            if(article.title.includes(tag)){
+            if(article.title.toLowerCase().includes(tag)){
                 setTagData(tagData => [...tagData, article]);
             }
         })
@@ -31,7 +31,7 @@ export const PerTagContainer = (props) => {
             {tagData.length > 0 ? 
             <>
             <PerTagTop article={tagData[0]} />
-            <PerTagRight articles={tagData.splice(1,5)}/>
+            <PerTagRight articles={tagData.slice(1,5)}/>
             </>
             :
             <LoadingComponent />

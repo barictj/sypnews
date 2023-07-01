@@ -3,7 +3,7 @@ import styles from '../styles/main.module.scss'
 import ArticleList from 'components/articlelist';
 import Layout from '../components/layout'
 import TopStoryContainer from '../components/top_story/topStoryContainer'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import TopStoryRightTops from '../components/top_story/topStoryRightTops';
 import { PerTagContainer } from '../components/perTag/perTagContainer';
 import {ArticleListMin} from '../components/articlelistmin'
@@ -12,6 +12,7 @@ import LoadingComponent from '../components/basic/loading'
 import TitleCard from '../components/basic/titleCard';
 import CatHeader from '../components/cat_header/catHeader';
 import dynamic from 'next/dynamic'
+import { TagTwoTone } from '@mui/icons-material';
 const BySourceDisplay = dynamic(() => import('../components/bySourceDisplay'), {
   loading: () => <><LoadingComponent /></>,
 })
@@ -60,6 +61,7 @@ export default function Page({
   if (content.length > 0) {
     let final = []
       let contentCopy = [...content]
+      let forTags = [...content]
       const [readyData, setReadyData] = useState("");
       const [spliced, setSpliced] = useState([]);
       useEffect(() => {
@@ -67,10 +69,11 @@ export default function Page({
         const newArray = sortedData.filter((v,i,a)=>a.findIndex(v2=>(v2.title===v.title))===i)
         const length = newArray.length
         setReadyData(newArray)
-        setSpliced(contentCopy.splice(10,150))
+        setSpliced(contentCopy.slice(10,150))
     }, [content]);
 
     useEffect(() => {
+
       function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
         // While there remain elements to shuffle.
@@ -87,22 +90,47 @@ export default function Page({
         if(spliced.length > 0){
           setShuffled(shuffle(spliced))
         }
+       
   }, [spliced]);
-  console.log(shuffled.length, tags.length, readyData.length)
+  const topTags = []
+  contentCopy.map((article) => {
+              tags.map((tag) => {
+                  if (article.title.toLowerCase().includes(tag.tag_name.toLowerCase())) {
+                      topTags.push(tag)
+                  }
+              }
+          )})
+
+  
+  const count = function (ary, classifier) {
+      classifier = classifier || String;
+      return ary.reduce(function (counter, item) {
+          var p = classifier(item);
+          counter[p] = counter.hasOwnProperty(p) ? counter[p] + 1 : 1;
+          return counter;
+      }, {})
+  };
+  const countByTag = count(topTags, function (item) {
+      return item.tag_name
+  });
+  const sorted = Object.entries(countByTag).sort((a, b) => b[1] - a[1])
+  
+  const tagOne = sorted[0][0]
+  const tagTwo = sorted[1][0]
       return (
       <div className={styles.content_container}>
-              {readyData.length > 0 && shuffled.length > 0  && tags.length > 0 ?
+              {readyData.length > 0 && shuffled.length > 0  && sorted.length > 0 ?
               <>
-              <CatHeader articles={contentCopy} tags={tags} setTopTags={setTopTags}/>
+              <CatHeader articles={readyData} tags={sorted} />
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
-              <PerTagContainer tag="Trump" articles={shuffled} />
+              <PerTagContainer tag={tagOne} articles={shuffled} />
               <ArticleListMin props={shuffled} />)
 
               <PerSourceContainer tag="cnn" articles={shuffled} />
               <ArticleListMin props={shuffled} />
-              <PerTagContainer tag="Biden" articles={shuffled} />
+              <PerTagContainer tag={tagTwo} articles={shuffled} />
               <ArticleListMin props={shuffled} />
 
               <PerSourceContainer tag="politico" articles={shuffled} />

@@ -2,35 +2,12 @@
 import Link from 'next/link';
 import styles from './cat_header.module.scss';
 import {VerticalHalfBorder} from '../basic/verticalHalfBorder';
+import { useState, useEffect } from 'react';
 export const CatHeader = (props) => {
     const articles = props.articles
-    const tags = props.tags
-
-    const topTags = []
-    console.log(props)
-    articles.map((article) => {
-                tags.map((tag) => {
-                    if (article.title.toLowerCase().includes(tag.tag_name.toLowerCase())) {
-                        topTags.push(tag)
-                    }
-                }
-            )})
+    const sorted = props.tags
 
     
-    const count = function (ary, classifier) {
-        classifier = classifier || String;
-        return ary.reduce(function (counter, item) {
-            var p = classifier(item);
-            counter[p] = counter.hasOwnProperty(p) ? counter[p] + 1 : 1;
-            return counter;
-        }, {})
-    };
-    const countByTag = count(topTags, function (item) {
-        return item.tag_name
-    });
-    const sorted = Object.entries(countByTag).sort((a, b) => b[1] - a[1])
-    
-    console.log(sorted)
     return (
         <div className={styles.cat_head_div}>
             <div className={styles.cat_head_trend}>Trending:</div>
