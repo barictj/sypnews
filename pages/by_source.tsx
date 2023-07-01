@@ -36,8 +36,8 @@ const BySource = (props) => {
       const pageNumber = props.query.pageNumber
       const search = props.query.searchText
     // Fetch data from external API
-      // const url = `https://stackyourprops.com/api/content-routes/source/${search}/${pageNumber}`
-      const url = `http://localhost:3000/api/content-routes/source/${search}/${pageNumber}`
+      const url = `https://stackyourprops.com/api/content-routes/source/${search}/${pageNumber}`
+      // const url = `http://localhost:3000/api/content-routes/source/${search}/${pageNumber}`
       const res = await fetch(url);
       const query = await res.json();
       const data = query.data

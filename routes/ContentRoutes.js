@@ -9,9 +9,9 @@ ContentRoutes.get('/', async (req, res) => {
     //var to gather all the data
     let readyData = []
     try{
-        const cnnData = (await Content.find({source: 'cnn' }).sort({date_published: -1}).skip(0).limit(25))
-        const politicoData = (await Content.find({source: 'politico' }).sort({date_published: -1}).skip(0).limit(25))
-        const nbcNewsData = (await Content.find({source: 'nbcnews' }).sort({date_published: -1}).skip(0).limit(25))
+        const cnnData = (await Content.find({source: 'cnn' }).sort({date_published: -1}).skip(0).limit(35))
+        const politicoData = (await Content.find({source: 'politico' }).sort({date_published: -1}).skip(0).limit(35))
+        const nbcNewsData = (await Content.find({source: 'nbcnews' }).sort({date_published: -1}).skip(0).limit(35))
         for(let i = 0; i < 25; i++){
             readyData.push(cnnData[i])
             readyData.push(politicoData[i])
