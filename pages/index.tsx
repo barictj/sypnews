@@ -41,8 +41,8 @@ type Content = {
 // };
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`https://content-base.herokuapp.com/api/content-routes`);
-    // const res = await fetch('http://localhost:3000/api/content-routes/');
+  // const res = await fetch(`https://content-base.herokuapp.com/api/content-routes`);
+    const res = await fetch('http://localhost:3000/api/content-routes/');
 
   const data = await res.json();
   const tags = data.tags
@@ -58,7 +58,6 @@ export default function Page({
   const [dataForShuffle, setDataForShuffle] = useState([]);
   console.log(tags)
   if (content.length > 0) {
-    
     let final = []
       let contentCopy = [...content]
       const [readyData, setReadyData] = useState("");
@@ -106,7 +105,9 @@ export default function Page({
               <ArticleListMin props={shuffled} />
 
               <PerSourceContainer tag="politico" articles={shuffled} />
-              {/* <ArticleList props={spent} /> */}
+              {/* <ArticleListMin props={shuffled} />
+              <ArticleListMin props={shuffled} /> */}
+
               </>
               :
               <div className={styles.content_container}><LoadingComponent /></div>

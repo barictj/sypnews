@@ -7,31 +7,43 @@ import {SearchBar} from '../components/searchBar'
 import TitleCard from '../components/basic/titleCard'
 import LoadingComponent from '../components/basic/loading'
 import useVisibility from '../components/hooks/useVisibility'
+import Pagination from '../components/pagination/Pagination'
 const BySource = (props) => {
-  const query = props.query.data.slice(0,25)
+  const data = props.data
   const source = props.router.query.searchText
-  const [skipNumber, setSkipNumber] = useState(0)
-  const [articles, getArticles] = useState([])
-  const [loading, setLoading] = useState(true)
-  const map = {};
+  const pageNumber:Number = props.pageNumber
+  let count:Number = props.count
+  const url = `/by_source`
+  // const map = {};
+  if(data.length > 0) {
     return (
       
       <div className={styles.content_container}>
       <div style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
         <TitleCard title={source} />
-        <ArticleList props={query} />
+        <ArticleList props={data} />
+        {/* <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/> */}
       </div>
       </div>
-    );
+    );}
+    else {
+      return (
+        <LoadingComponent />
+      )
+    }
   }
   export async function getServerSideProps(props) {
-      const skipNumber = props.query.skipNumber
+      const pageNumber = props.query.pageNumber
       const search = props.query.searchText
     // Fetch data from external API
-      const url = `https://stackyourprops.com/api/content-routes/source/${search}/${skipNumber}`
-
+      // const url = `https://stackyourprops.com/api/content-routes/source/${search}/${pageNumber}`
+      const url = `http://localhost:3000/api/content-routes/source/${search}/${pageNumber}`
       const res = await fetch(url);
-      const data = await res.json();
-      return { props: { query: data} };
+      const query = await res.json();
+      const data = query.data
+      const page = query.pageNumber
+      const count = query.count
+
+      return { props: { data: data, pageNumber: pageNumber, count: count } };
     }
 export default withRouter(BySource);

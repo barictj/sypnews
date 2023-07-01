@@ -20,8 +20,8 @@ export const SearchBar = (props) => {
         //push to search page with searchText, need to add page number
             Router.push({
                 pathname: '/search',
-                query: { searchText:  searchText}
-            }, '/search');
+                query: { searchText:  searchText, pageNumber: 1}
+            });
         }
     };
 

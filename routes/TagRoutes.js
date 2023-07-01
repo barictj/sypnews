@@ -22,4 +22,13 @@ TagRoutes.post('/post-tags', async (req, res) => {
         res.status(400).json({message: error.message})
     }
 })
+TagRoutes.get('/delete/:id', async (req, res) => {
+    try{
+        const data = await Tags.findByIdAndRemove(req.params.id);
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
 module.exports = TagRoutes

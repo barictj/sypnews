@@ -6,8 +6,8 @@ import HoriontalHalfBorder from './horizontalHalfBorder';
 export const ListOfFourLink = (props) => {
     const article = props.article;
     let title = ''
-    if (article.title.length > 95) {
-        title = article.title.substring(0, 95) + '...'
+    if (article.title.length > 85) {
+        title = article.title.substring(0, 85) + '...'
     }
     else{
         title = article.title

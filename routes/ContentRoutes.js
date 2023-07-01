@@ -2,6 +2,8 @@ const express = require('express');
 const Content = require('../models/Content');
 const ContentRoutes = express.Router()
 const Tags = require('../models/Tags');
+
+
 ContentRoutes.get('/', async (req, res) => {
 
     //var to gather all the data
@@ -58,8 +60,9 @@ ContentRoutes.get('/getone/:id', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-// DELETE Content
 
+
+// DELETE Content
 ContentRoutes.get('/delete/:id', async (req, res) => {
     try{
         const data = await Content.findByIdAndRemove(req.params.id);
@@ -69,87 +72,26 @@ ContentRoutes.get('/delete/:id', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-ContentRoutes.get('/find/:text', async (req, res) => {
-    const text = req.params.text
-    const dataFound = []
-    const textArray = text.split(/(\s+)/).filter( e => e.trim().length > 0)
-    function getUncommon(sentence, common) {
-        var wordArr = sentence.match(/\w+/g),
-            commonObj = {},
-            uncommonArr = [],
-            word, i;
-    
-        common = common.split(',');
-        for ( i = 0; i < common.length; i++ ) {
-            commonObj[ common[i].trim() ] = true;
-        }
-    
-        for ( i = 0; i < wordArr.length; i++ ) {
-            word = wordArr[i].trim().toLowerCase();
-            if ( !commonObj[word] ) {
-                uncommonArr.push(word);
-            }
-        }
-    
-        return uncommonArr;
-    }
-    const uncommon = getUncommon(text, 'the,be,to,of,and,a,in,that,have,I,it,for,not,on,with,he,as,you,do,at,this,but,his,is,by,from,they,we,say,her,she,or,an,will,my,one,all,would,there,their,what,so,up,out,if,about,who,get,which,go,me,when,make,can,like,time,no,just,him,know,take,people,into,year,your,good,some,could,them,see,other,than,then,now,look,only,come,its,over,think,also,back,after,use,two,how,our,work,first,well,way,even,new,want,because,any,these,give,day,most,us')
-        try{
-        const data = await Content.find().limit(500).sort({date_published: -1})
-        data.filter(content => {
-                if (content.title.toLowerCase().includes(text.toLowerCase())) {
-                    if(!dataFound.includes(content.title))
-                        content["matched"] = 100
-                        dataFound.push(content)
-                }
-                else if (content.body != null && content.body.toLowerCase().includes(text.toLowerCase())){
-                        if(!dataFound.includes(content.id))
-                            dataFound.push(content)
-                }
-                else{
-                    let wordMatch = 0
-                    uncommon.filter(word => {
-                        if (content.title.toLowerCase().includes(word.toLowerCase())) {
-                            if(!dataFound.includes(content.title))
-                                wordMatch++
-                        }
-                        else if (content.body != null){
-                            if (content.body.toLowerCase().includes(word.toLowerCase())) {
-                                if(!dataFound.includes(content.id))
-                                    wordMatch++
-                        }}
-                    })
-                    if(wordMatch > 0){
-                        let newContent = content
-                        newContent["matched"] = wordMatch
-                        dataFound.push(newContent.splice(0,200))
-                    }
-                }
-            }) 
-        res.json(dataFound)       
-    }
-    catch(error){
-        res.status(500).json({message: error.message})
-    }
-})
+
+//for page 2 and beyond of home page
 ContentRoutes.get('/get-more/:number', async (req, res) => {
     const startNumber = req.params.number
     const data = (await Content.find().sort({date_published: -1}).skip(startNumber).limit(50))    
     res.json({data: data})
     
 })
-ContentRoutes.get('/source/:source/:itemSkip', async (req, res) => {
+
+//by_source with itemskip
+ContentRoutes.get('/source/:source/:pageNumber', async (req, res) => {
     const sourceRequested = req.params.source
-    let itemSkip = req.params.itemSkip
-    let data = []
-    const readyContent = (await Content.find({source: sourceRequested}).sort({date_published: -1}).skip(itemSkip).limit(48))
-    readyContent.map(content => {
-        if(content.source.toLocaleLowerCase() == sourceRequested.toLocaleLowerCase()){
-            data.push(content)
-        }
-    })
-    res.json({data})
+    let pageNumber = req.params.pageNumber
+    let itemSkip = pageNumber * 24 - 24
+    const data = (await Content.find({source: sourceRequested}).sort({date_published: -1}).skip(itemSkip).limit(24))
+    const count = (await Content.find({source: sourceRequested}).count())
+    res.json({data: data, pageNumber: pageNumber, count: count})
 })
+
+//for deletion gettin all the data
 ContentRoutes.get('/for_delete', async (req, res) => {
     try{
         // const tagsData = await Tags.find()
@@ -162,22 +104,15 @@ ContentRoutes.get('/for_delete', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-ContentRoutes.get('/for_all', async (req, res) => {
+
+//search function
+ContentRoutes.get('/search/:text/:pageNumber', async (req, res) => {
     try{
-        // const tagsData = await Tags.find()
-        const data = (await Content.find())
-        const sortedData = data
-        // sortedData = sortedData.limit(75)
-        res.json({data: sortedData, number: sortedData.length})
-    }
-    catch(error){
-        res.status(500).json({message: error.message})
-    }
-})
-ContentRoutes.get('/search/:text', async (req, res) => {
-    try{
+        
         const text = req.params.text
+        let pageNumber = req.params.pageNumber
         const query = { $text: { $search: `${text}` } };
+        let itemSkip = pageNumber * 24 - 24
         // Return only the `title` of each matched document
         const projection = {
         //   id: 0,
@@ -193,8 +128,9 @@ ContentRoutes.get('/search/:text', async (req, res) => {
           
         };
 
-        const data = (await Content.find(query, projection).sort({score: {$meta: "textScore"}}).limit(50))
-        res.json(data)
+        const data = (await Content.find(query, projection).sort({score: {$meta: "textScore"}}).skip(itemSkip).limit(24))
+        const count = (await Content.find(query, projection).count())
+        res.json({data: data, pageNumber: pageNumber, count: count})
     }
     catch(error){
         res.status(500).json({message: error.message})
@@ -204,3 +140,4 @@ ContentRoutes.get('/search/:text', async (req, res) => {
 
 module.exports = ContentRoutes ;
 // export default ContentRoutes
+
