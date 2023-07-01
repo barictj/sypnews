@@ -6,8 +6,6 @@ import { useState, useEffect } from 'react';
 export const CatHeader = (props) => {
     const articles = props.articles
     const sorted = props.tags
-
-    
     return (
         <div className={styles.cat_head_div}>
             <div className={styles.cat_head_trend}>Trending:</div>
