@@ -29,7 +29,7 @@ export const CatHeader = (props) => {
         return item.tag_name
     });
     const sorted = Object.entries(countByTag).sort((a, b) => b[1] - a[1])
-    props.setTopTags(sorted)
+    
     console.log(sorted)
     return (
         <div className={styles.cat_head_div}>
