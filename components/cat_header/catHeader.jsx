@@ -5,7 +5,9 @@ import {VerticalHalfBorder} from '../basic/verticalHalfBorder';
 export const CatHeader = (props) => {
     const articles = props.articles
     const tags = props.tags
+
     const topTags = []
+    console.log(props)
     articles.map((article) => {
                 tags.map((tag) => {
                     if (article.title.toLowerCase().includes(tag.tag_name.toLowerCase())) {
@@ -27,6 +29,7 @@ export const CatHeader = (props) => {
         return item.tag_name
     });
     const sorted = Object.entries(countByTag).sort((a, b) => b[1] - a[1])
+    props.setTopTags(sorted)
     console.log(sorted)
     return (
         <div className={styles.cat_head_div}>

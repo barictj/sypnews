@@ -4,6 +4,7 @@ import { withRouter } from 'next/router'
 import ArticleList from '../components/articlelist'
 import {SearchBar} from '../components/searchBar'
 import Pagination from '../components/pagination/Pagination'
+import { useState, useEffect } from 'react'
 const Search = (props) => {
   const data = props.data
   const count = props.count
@@ -13,14 +14,19 @@ const Search = (props) => {
   const sortedArray = data.sort((a, b) => (b.score > a.score) ? 1 : -1)
   const source = props.router.query.searchText
 
+  //used for hydration error mismatch beteween server and client html
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    setHydrated(true);
+},[])
     return (
       <div className={styles.content_container}>
       <div style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
         <div>
           <SearchBar />
         </div>
-        <ArticleList props={sortedArray} />
-        {/* <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/> */}
+        {hydrated && <ArticleList props={sortedArray} />}
+        <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/>
 
       </div>
       </div>

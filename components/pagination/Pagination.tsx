@@ -60,12 +60,12 @@ export const Pagination = ({ props }) => {
     }
     return(
         <div className={styles.pagination_div}>
-            {pageNumber > 1 ? <div className={styles.button_div}><button onClick={goFirst}>1</button></div>:<div className={styles.button_div}></div>}
-            {pageNumber - 1 > 1 ? <div className={styles.button_div}><button onClick={goPrevPage}>Previous</button></div>:<div className={styles.button_div}></div>}
-            {pageNumber < totalPages ? <div className={styles.button_div}><button onClick={goNextPage1}>{pageNumber +1 === totalPages ? <>Last</>:<>Next</>}</button></div>:<div className={styles.button_div}></div>}
+            {pageNumber > 1 ? <div className={styles.button_div}><a onClick={goFirst} className={styles.button}>1</a></div>:<div className={styles.button_div}></div>}
+            {pageNumber - 1 > 1 ? <div className={styles.button_div}><a onClick={goPrevPage} className={styles.button}>{"<"} </a></div>:<div className={styles.button_div}><a className={styles.inactive}>{"<"} </a></div>}
+            {pageNumber < totalPages ? <div className={styles.button_div}><a onClick={goNextPage1} className={styles.button}>{pageNumber +1 === totalPages ? <>Last</>:<>{">"} </>}</a></div>:<div className={styles.button_div}><a className={styles.inactive}>{">"} </a></div>}
             {/* {nextPage1  < totalPages ? <div className={styles.button_div}><button onClick={goNextPage2}>{nextPage2}</button></div>:<div className={styles.button_div}></div>}
             {nextPage2  < totalPages ? <div className={styles.button_div}><button onClick={goNextPage3}>{nextPage3}</button></div>:<div className={styles.button_div}></div>} */}
-            {pageNumber + 1 < totalPages ? <div className={styles.button_div}><button onClick={goLast}>{totalPages}</button></div>:<div className={styles.button_div}></div>}
+            {pageNumber + 1 < totalPages ? <div className={styles.button_div}><a onClick={goLast} className={styles.button}>{totalPages}</a></div>:<div className={styles.button_div}></div>}
         </div>
     )
 }

@@ -1,11 +1,46 @@
 .pagination_div{
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 75%;
     margin-top: 1em;
     margin-bottom: 1em;
-    color: black
+    color: black;
+    align-self: center;
 }
 .styles.button_div{
     width: 25%
+}
+.button{
+    display: inline-block;
+    border-radius: 20%;
+    background-color: rgb(5, 5, 59);
+    color: white;
+    text-decoration: none;
+   display: inline-block;
+   padding: 15px;
+   font-size: 20px;
+   width: 30px;
+   cursor: pointer;
+   text-align: center;
+   margin-left: auto;
+    margin-right: auto;
+ }
+    .button:hover{
+        background-color: #4c5aed;
+        color: white;
+        text-decoration: none;
+    }   
+.inactive{
+    display: inline-block;
+    border-radius: 20%;
+    background-color: gray;
+    color: white;
+    text-decoration: none;
+   display: inline-block;
+   padding: 15px;
+   font-size: 20px;
+   width: 30px;
+   text-align: center;
+   margin-left: auto;
+    margin-right: auto;   
 }

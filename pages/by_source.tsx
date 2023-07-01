@@ -14,6 +14,13 @@ const BySource = (props) => {
   const pageNumber:Number = props.pageNumber
   let count:Number = props.count
   const url = `/by_source`
+
+  //used for hydration error mismatch beteween server and client html
+  const [hydrated, setHydrated] = useState(false);
+useEffect(() => {
+    setHydrated(true);
+},[])
+
   // const map = {};
   if(data.length > 0) {
     return (
@@ -21,8 +28,8 @@ const BySource = (props) => {
       <div className={styles.content_container}>
       <div style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
         <TitleCard title={source} />
-        <ArticleList props={data} />
-        {/* <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/> */}
+       {hydrated && <ArticleList props={data} />}
+        <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/>
       </div>
       </div>
     );}

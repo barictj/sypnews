@@ -104,7 +104,18 @@ ContentRoutes.get('/for_delete', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-
+ContentRoutes.get('/for_all', async (req, res) => {
+    try{
+        // const tagsData = await Tags.find()
+        const data = (await Content.find())
+        const sortedData = data
+        // sortedData = sortedData.limit(75)
+        res.json({data: sortedData, number: sortedData.length})
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
 //search function
 ContentRoutes.get('/search/:text/:pageNumber', async (req, res) => {
     try{

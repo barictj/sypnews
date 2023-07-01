@@ -56,7 +56,7 @@ export default function Page({
   const [shuffled, setShuffled] = useState([]);
   const [startData, setStartData] = useState([]);
   const [dataForShuffle, setDataForShuffle] = useState([]);
-  console.log(tags)
+  const [topTags, setTopTags] = useState([]);
   if (content.length > 0) {
     let final = []
       let contentCopy = [...content]
@@ -88,16 +88,17 @@ export default function Page({
           setShuffled(shuffle(spliced))
         }
   }, [spliced]);
+  console.log(shuffled.length, tags.length, readyData.length)
       return (
       <div className={styles.content_container}>
               {readyData.length > 0 && shuffled.length > 0  && tags.length > 0 ?
               <>
-              <CatHeader articles={contentCopy} tags={tags} />
+              <CatHeader articles={contentCopy} tags={tags} setTopTags={setTopTags}/>
               <TopStoryContainer data={readyData} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
               <PerTagContainer tag="Trump" articles={shuffled} />
-              <ArticleListMin props={shuffled} />
+              <ArticleListMin props={shuffled} />)
 
               <PerSourceContainer tag="cnn" articles={shuffled} />
               <ArticleListMin props={shuffled} />
