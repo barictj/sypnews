@@ -52,7 +52,7 @@ export default function ArticleListItem({ props }) {
      <div className={styles.no_pic_div}>
         <Link href={article.url} key={article.id}>
             <a className={styles.no_pic_link}>
-               <b>{article.source.toUpperCase()}</b>:{article.title}     
+               <b>{article.source.toUpperCase()}</b>:  {article.title}     
             </a>    
         </Link>
         <div className={styles.no_pic_description}>
