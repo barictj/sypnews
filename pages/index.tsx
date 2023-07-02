@@ -136,7 +136,7 @@ export default function Page({
               <ArticleListMin props={shuffled} />
               <PerSourceContainer tag="cnn" articles={shuffled} />
               <ArticleListMin props={shuffled} />
-              {/* {tagTwoCount > 12 ? <PerTagContainer tag={tagTwo} articles={shuffled} /> : <PerSixContainer articles={shuffled} />} */}
+              {tagTwoCount > 12 ? <PerTagContainer tag={tagTwo} articles={shuffled} /> : <PerSourceContainer tag='nbcnews' articles={shuffled} />}
               <ArticleListMin props={shuffled} />
               <PerSourceContainer tag="politico" articles={shuffled} />
               {/* <ArticleListMin props={shuffled} />
