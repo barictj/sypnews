@@ -29,8 +29,8 @@ useEffect(() => {
       <div className={styles.content_container}>
       <div style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
         <TitleCard title={source} />
-        {hydrated && <PerSixContainer articles={data} />}
-       {hydrated && <ArticleList props={data} />}
+        {hydrated ? <PerSixContainer articles={data} />:<LoadingComponent />}
+       {hydrated ? <ArticleList props={data} /> : <LoadingComponent />}
         <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/>
       </div>
       </div>
