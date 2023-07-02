@@ -20,11 +20,11 @@ $large: 801px;
 }
 .title_text{
     width: 100%;
-    padding-bottom: .5em;
-    padding-top: .5em;
-    padding-left: 1em;
+    padding-bottom: .75em;
+    padding-top: .75em;
+    padding-left:.75em;
     color: white;
-    font: 900 1.75em 'DejaVu Sans Mono', monospace;
+    font: 900 1.5em 'DejaVu Sans Mono', monospace;
     @media screen and (max-width: $small) {
         width: 100%;
     }
