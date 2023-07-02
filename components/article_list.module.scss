@@ -12,7 +12,6 @@ $large: 801px;
         width: 100%;
         margin-top: 0;    
         margin-bottom: 1em;
-
     }
   }
 
@@ -36,6 +35,7 @@ $large: 801px;
         text-decoration: none
 }
   }
+
     .two_pic:hover{
         text-decoration: underline;
     }
@@ -80,6 +80,8 @@ $large: 801px;
         height: auto;
     }
 }
+
+//for link in div that holds description and title but no pic
 .no_pic_link{
     color: #4c5aed;
     text-decoration: none;
