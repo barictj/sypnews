@@ -2,10 +2,10 @@ $small:800px;
 
 .cat_head_div{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: row;
-    padding-bottom: 1em;
+    padding-bottom: .25em;
     padding-left: 1em;
 }
 .cat_head_trend{
@@ -13,16 +13,23 @@ $small:800px;
     font-weight: 900;
     font-size: .8em;
     padding-right: .5em;
+    align-self: flex-start;
+    
 }
 .cat_head_item{
     // border-left: 1px solid rgb(110, 103, 103);
     padding-left: .5em;
     padding-right: .5em;
+    height: 30px;
+
     font-size: 1em;
     padding-bottom: .5em;
     font-weight: 900;
+    text-align: center;
     @media screen and (max-width: $small) {
         font-size: .8em;
         padding: .1em;
+        padding-right: .1em;
+        width: 20%;
     }
 }
