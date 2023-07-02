@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 import PerSixContainer from '../components/perSix/perSixContainer'
 import { Title } from '@mui/icons-material'
 import TitleCard from 'components/basic/titleCard'
-
+import LoadingComponent from '../components/basic/loading'
 
 const Search = (props) => {
   const data = props.data
@@ -31,7 +31,7 @@ const Search = (props) => {
           <SearchBar />
         </div>
         <TitleCard title={`Showing results for ${source}`} /> 
-        {hydrated && <PerSixContainer articles={sortedArray} />}
+        {hydrated ? <PerSixContainer articles={sortedArray} />: <LoadingComponent />}
         {hydrated && <ArticleList props={sortedArray} />}
 
         <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/>
