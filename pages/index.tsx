@@ -144,7 +144,7 @@ export default function Page({
 
               </>
               :
-              <div className={styles.content_container}><LoadingComponent /></div>
+              <div className={styles.content_container} style={{textAlign: 'center', alignContent:'center', alignItems:'center'}}><LoadingComponent /></div>
               }
               
       </div>
@@ -152,13 +152,4 @@ export default function Page({
           )
 }
 else {
-  return (<div style={{height: '500px', width: '100%'}}><LoadingComponent /></div>)
-}
-}
-Page.getLayout = function getLayout(page: React.ReactElement) {
-  return (
-    <Layout>
-      {page}
-    </Layout>
-  )
-}
+    return (<div className={styles.content_container} style={{textAlign: 'center', alignContent:'center', alignItems:'center'}}><LoadingComponent /></div>)}}

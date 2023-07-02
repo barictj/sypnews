@@ -14,7 +14,7 @@
     justify-content: center;
     color: red;
     font-size: 50px;
-}sf
+}
 .loading_image{
     animation: rotation 4s infinite linear;
 }
@@ -26,3 +26,22 @@
       transform: rotate(359deg);
     }
   }
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #202634;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 

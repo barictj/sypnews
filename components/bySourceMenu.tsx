@@ -7,14 +7,14 @@ import Image from 'next/image'
 //Create a navigagtion menu that includes a nextjs link to the about page
 export  const BySourceMenu = (props) => {
   return (
-      <div className={styles.by_source_div}>
+      <div className={styles.by_source_div} style={{justifyContent: 'space-evenly', paddingRight: '1em'}}>
         <div className={styles.per_source_link}> 
               <Link href={{ pathname: '/by_source', query: { searchText: 'cnn', pageNumber: 1 } }} >
                 <a className={styles.per_source_link_a} onClick={props.setToggle}>
                     <Image
                         src="/images/cnn.png"
-                        width={100}
-                        height={100}
+                        width={125}
+                        height={125}
                         alt="Picture of the author"
                         placeholder='blur'
                         blurDataURL="https://via.placeholder.com/500"
@@ -27,8 +27,8 @@ export  const BySourceMenu = (props) => {
                 <a className={styles.per_source_link_a} onClick={props.setToggle}>
               <Image
                 src="/images/nbcnews.png"
-                width={100}
-                height={100}
+                width={125}
+                height={125}
                 alt="Picture of the author"
                 placeholder='blur'
                 blurDataURL="https://via.placeholder.com/500"
@@ -41,8 +41,8 @@ export  const BySourceMenu = (props) => {
                 <a className={styles.per_source_link_a} onClick={props.setToggle}>
               <Image
                 src="/images/politico.png"
-                width={100}
-                height={100}
+                width={125}
+                height={125}
                 alt="Picture of the author"
                 placeholder='blur'
                 blurDataURL="https://via.placeholder.com/500"
@@ -50,13 +50,10 @@ export  const BySourceMenu = (props) => {
                 </a>  
               </Link>
           </div>
-          <div className={styles.per_source_link} style={{color: 'white'}}> 
-              {/* <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' } }} >
-                <a>
-                    More is coming                
-                </a>
-              </Link> */}
-              More coming soon           
-          </div>
+          <div className={styles.per_source_link}> 
+        <div className={styles.per_source_link_a} style={{width: '100px', color:'white'}}>
+              More coming soon 
+        </div>
+        </div>
         </div>
   )}

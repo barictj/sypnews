@@ -24,12 +24,8 @@ export const TopStoryContainer = (props) => {
                         <TopStory data={top} />
                         <ArticleListTwo props={topTwo} />
                     </div>
-                    <TopStoryRightTops props={topRight} />
-                    
+                    <TopStoryRightTops props={topRight} />                   
                 </div>
-                
-                
-                
             </>
         )}
     else{

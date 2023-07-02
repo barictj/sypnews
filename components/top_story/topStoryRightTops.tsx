@@ -9,8 +9,8 @@ export default function TopStoryRightTops({ props }) {
     const test = {}
     const data = props
     if(data.length > 0)  {
-        const splicedData = data.slice(2, 6)
-        const splicedDataTwo  = data.slice(6, 10)
+        const splicedData = data.slice(2, 7)
+        const splicedDataTwo  = data.slice(8, 13)
       return (
         <div className={styles.top_stories_right_tops} >
             <div className={styles.top_stories_right_container}>

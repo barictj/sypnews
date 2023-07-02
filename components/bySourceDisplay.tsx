@@ -13,8 +13,8 @@ export  const BySourceDisplay = (props) => {
                 <a className={styles.per_source_link_a}>
                     <Image
                       src="/images/cnn.png"
-                      width={200}
-                      height={200}
+                      width={175}
+                      height={175}
                       alt="Picture of the author"
                       placeholder='blur'
                       blurDataURL="https://via.placeholder.com/500"
@@ -27,8 +27,8 @@ export  const BySourceDisplay = (props) => {
             <a className={styles.per_source_link_a}>
               <Image
                 src="/images/nbcnews.png"
-                width={200}
-                height={200}
+                width={175}
+                height={175}
                 alt="Picture of the author"
                 placeholder='blur'
                 blurDataURL="https://via.placeholder.com/500"
@@ -41,8 +41,8 @@ export  const BySourceDisplay = (props) => {
             <a className={styles.per_source_link_a}>
               <Image
                 src="/images/politico.png"
-                width={200}
-                height={200}
+                width={175}
+                height={175}
                 alt="Picture of the author"
                 placeholder='blur'
                 blurDataURL="https://via.placeholder.com/500"
@@ -51,12 +51,9 @@ export  const BySourceDisplay = (props) => {
           </Link>
         </div>
         <div className={styles.per_source_link}> 
-              {/* <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' } }} >
-                <a>
-                    More is coming                
-                </a>
-              </Link> */}
-              More coming soon  
+        <div className={styles.per_source_link_a} style={{width: '175px'}}>
+              More coming soon 
+        </div>
         </div>
       </div>
   )
