@@ -65,7 +65,7 @@ export const Pagination = ({ props }) => {
             {pageNumber < totalPages ? <div className={styles.button_div}><a onClick={goNextPage1} className={styles.button}>{pageNumber +1 === totalPages ? <>{">"}</>:<>{">"} </>}</a></div>:<div className={styles.button_div}><a className={styles.inactive}>{">"} </a></div>}
             {/* {nextPage1  < totalPages ? <div className={styles.button_div}><button onClick={goNextPage2}>{nextPage2}</button></div>:<div className={styles.button_div}></div>}
             {nextPage2  < totalPages ? <div className={styles.button_div}><button onClick={goNextPage3}>{nextPage3}</button></div>:<div className={styles.button_div}></div>} */}
-            {pageNumber == totalPages ? <div className={styles.button_div}><a onClick={goLast} className={styles.button}>{totalPages}</a></div>:<div className={styles.button_div}><a className={styles.inactive}>{totalPages}</a></div>}
+            {pageNumber < totalPages ? <div className={styles.button_div}><a onClick={goLast} className={styles.button}>{totalPages}</a></div>:<div className={styles.button_div}><a className={styles.inactive}>{totalPages}</a></div>}
         </div>
     )
 }
