@@ -30,7 +30,7 @@ const Search = (props) => {
         <div>
           <SearchBar />
         </div>
-        <TitleCard title={`Show results for ${source}`} /> 
+        <TitleCard title={`Showing results for ${source}`} /> 
         {hydrated && <PerSixContainer articles={sortedArray} />}
         {hydrated && <ArticleList props={sortedArray} />}
 

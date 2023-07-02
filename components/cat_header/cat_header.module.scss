@@ -1,3 +1,5 @@
+$small:800px;
+
 .cat_head_div{
     display: flex;
     justify-content: space-around;
@@ -19,4 +21,8 @@
     font-size: 1em;
     padding-bottom: .5em;
     font-weight: 900;
+    @media screen and (max-width: $small) {
+        font-size: .8em;
+        padding: .1em;
+    }
 }
