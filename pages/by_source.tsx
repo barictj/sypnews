@@ -9,6 +9,7 @@ import LoadingComponent from '../components/basic/loading'
 import useVisibility from '../components/hooks/useVisibility'
 import Pagination from '../components/pagination/Pagination'
 import PerSixContainer from '../components/perSix/perSixContainer'
+import Head from 'next/head'
 const BySource = (props) => {
   const data = props.data
   const source = props.router.query.searchText
@@ -25,7 +26,12 @@ useEffect(() => {
   // const map = {};
   if(data.length > 0) {
     return (
-      
+      <>
+      <Head>
+        <title>Top {source.toUpperCase()} news from multiple sources | Policratic.com</title>
+        <meta name="description" content={`Top ${source.toUpperCase()} news from multiple sources | Policratic.com`} />
+        <meta property="og:title" content={`Top ${source.toUpperCase()} news from multiple sources | Policratic.com`}/>
+      </Head>
       <div className={styles.content_container}>
       <div style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
         <TitleCard title={source} />
@@ -34,6 +40,7 @@ useEffect(() => {
         <Pagination props={{count: count, pageNumber: pageNumber, url:url, source: source}}/>
       </div>
       </div>
+      </>
     );}
     else {
       return (

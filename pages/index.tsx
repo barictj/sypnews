@@ -14,6 +14,8 @@ import CatHeader from '../components/cat_header/catHeader';
 import dynamic from 'next/dynamic'
 import { TagTwoTone } from '@mui/icons-material';
 import PerSixContainer from '../components/perSix/perSixContainer';
+import Head from 'next/head'
+
 
 const BySourceDisplay = dynamic(() => import('../components/bySourceDisplay'), {
   loading: () => <><LoadingComponent /></>,
@@ -124,6 +126,12 @@ export default function Page({
   console.log(tagOne, tagTwo, tagOneCount, tagTwoCount)
   
       return (
+        <>
+        <Head>
+        <title>Policratic.com</title>
+        <meta property="og:title" content="policratic.com" key="title" />
+        <meta name="description" content="Daily source for all political news from a variety of news media." />
+      </Head>
       <div className={styles.content_container}>
               {readyData.length > 0 && shuffled.length > 0  && sorted.length > 0 ?
               <>
@@ -148,7 +156,7 @@ export default function Page({
               }
               
       </div>
-      
+      </>
           )
 }
 else {

@@ -24,7 +24,7 @@ export const PerTagContainer = (props) => {
     return (
         <>
         <div>
-            <TitleCard title={tag} />
+            <TitleCard title={`More ${tag} news`} />
         </div>
         <div className={styles.per_tag_div}>
             

@@ -9,19 +9,14 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <Head>
-        <title>SYP Politics</title>
-      </Head>
+      
       <main className={styles.home}>
           <div className={styles.logo_div}>
             < div className={styles.logo_left}>
               <Link href="/" >
                 <a className={styles.logo_left_a}>
                   <div>
-                    SYP
-                  </div>
-                  <div> 
-                    Politics 
+                    <span style={{fontSize:'1.8em'}}>p</span>olicratic
                   </div>
                 </a>
               </Link>

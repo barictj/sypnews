@@ -6,7 +6,7 @@ export const TitleCard = (props) => {
     return (
         <div className={styles.title_card}>
             <div className={styles.title_text}>
-                {props.title.toUpperCase()}
+                {props.title.toUpperCase()} 
             </div>
         </div>
     );

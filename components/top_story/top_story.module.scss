@@ -37,6 +37,17 @@ $large: 801px;
     padding-top: .5em;
     padding-bottom: 0%;
 }
+.header_one{
+    font-size: 1.4em;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: left;
+    align-self: self-start;
+    width: 100%;
+    &:visited{
+        text-decoration: none;
+    }
+}
 //A in top_story_title link
 .top_story_title_link{
     color: #4c5aed;

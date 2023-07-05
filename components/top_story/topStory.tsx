@@ -22,7 +22,7 @@ export const TopStory = (props) => {
                 <div className={styles.top_story_title}>
                     <Link  href={content.url}>
                         <a className={styles.top_story_title_link}>
-                            {content.source.toUpperCase()}: {content.title}
+                            <h1 className={styles.header_one}>{content.source.toUpperCase()}: {content.title}</h1>
                         </a>
                     </Link>
                 </div>
