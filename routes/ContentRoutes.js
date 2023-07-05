@@ -90,6 +90,14 @@ ContentRoutes.get('/source/:source/:pageNumber', async (req, res) => {
     const count = (await Content.find({source: sourceRequested}).count())
     res.json({data: data, pageNumber: pageNumber, count: count})
 })
+ContentRoutes.get('/topic/:tag/:pageNumber', async (req, res) => {
+    const tag = req.params.tag
+    let pageNumber = req.params.pageNumber
+    let itemSkip = pageNumber * 24 - 24
+    const data = (await Content.find({tags: { $elemMatch: {tag_name:tag} }}).sort({date_published: -1}).skip(itemSkip).limit(24))
+    const count = (await Content.find({tags: { $elemMatch: {tag_name:tag} }}).count())
+    res.json({data: data, pageNumber: pageNumber, count: count})
+})
 
 //for deletion gettin all the data
 ContentRoutes.get('/for_delete', async (req, res) => {
@@ -126,17 +134,14 @@ ContentRoutes.get('/search/:text/:pageNumber', async (req, res) => {
         let itemSkip = pageNumber * 24 - 24
         // Return only the `title` of each matched document
         const projection = {
-        //   id: 0,
-        _id: 3,
-          title: 1,
-          body: 2,
-          score: { $meta: "textScore" },
-          url: 4,
+            _id: 3,
+            title: 1,
+            body: 2,
+            score: { $meta: "textScore" },
+            url: 4,
             date_published: 5,
             image:5,
             source: 6,
-
-          
         };
 
         const data = (await Content.find(query, projection).sort({score: {$meta: "textScore"}}).skip(itemSkip).limit(24))

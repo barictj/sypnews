@@ -1,6 +1,7 @@
 // Require Mongoose
 const mongoose = require("mongoose");
 const Tags = require('./Tags');
+const Candidates = require('./Candidates');
 // Define a schema
 const Schema = mongoose.Schema;
 
@@ -20,6 +21,10 @@ let ContentSchema = new Schema({
     real_clicks: Number,
     tags: {
         type: [ Tags.schema ],
+        default: []
+    },
+    candidates: {
+        type: [ Candidates.schema ],
         default: []
     },
     matched: {type: Number, default: 0},

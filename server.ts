@@ -21,7 +21,7 @@ const ContentRoutes = require('./routes/ContentRoutes');
 const bodyParser = require('body-parser')
 const nocache = require('nocache');
 const Content = require('./models/Content');
-
+const CandidateRoutes = require('./routes/CandidateRoutes');
 
 
 // write a function to connect to the mongodb database using mongoose and check for errors
@@ -42,6 +42,7 @@ server.prepare().then(() => {
   console.log('server is running')
   app.use('/api/content-routes', ContentRoutes)
   app.use('/api/tag-routes', TagRoutes)
+  app.use('/api/candidate-routes', CandidateRoutes)
   app.all('*', (req: Request, res: Response) => {
    return handle(req, res)   
   })
