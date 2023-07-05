@@ -2,6 +2,7 @@ const express = require('express');
 const Content = require('../models/Content');
 const ContentRoutes = express.Router()
 const Tags = require('../models/Tags');
+const Candidates = require('../models/Candidates');
 
 
 ContentRoutes.get('/', async (req, res) => {
@@ -30,7 +31,7 @@ ContentRoutes.get('/', async (req, res) => {
 ContentRoutes.post('/post-content', async (req, res) => {
     const data = new Content(req.body)
     try{
-    const candidateData = await Content.find()
+    const candidateData = await Candidates.find()
     const tagsData = await Tags.find()
     // checking to see if tag is in the title or body
     tagsData.filter(tag => {
@@ -38,6 +39,7 @@ ContentRoutes.post('/post-content', async (req, res) => {
             data.tags.push({tag_name: tag.tag_name})
         }})
     // checking to see if candidate is in the title or body
+
     candidateData.filter(candidate => {
         if (data.title.toLowerCase().includes(candidate.candidate_name.toLowerCase()) || data.body.toLocaleLowerCase().includes(candidate.candidate_name.toLowerCase()) ) {
             data.candidates.push({candidate_name: candidate.candidate_name})
@@ -145,7 +147,7 @@ ContentRoutes.get('/search/:text/:pageNumber', async (req, res) => {
             score: { $meta: "textScore" },
             url: 4,
             date_published: 5,
-            image:5,
+            image:7,
             source: 6,
         };
 
@@ -156,8 +158,9 @@ ContentRoutes.get('/search/:text/:pageNumber', async (req, res) => {
     catch(error){
         res.status(500).json({message: error.message})
     }
-
 })
+
+
 
 module.exports = ContentRoutes ;
 // export default ContentRoutes

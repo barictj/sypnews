@@ -5,7 +5,7 @@ export default function Document() {
   // console.log('doc page')
     return (
       <Html>
-        <Head />
+        <Head><link rel="shortcut icon" href="/images/favico.ico" /></Head>
         <body>
           <Main />
           <NextScript />
