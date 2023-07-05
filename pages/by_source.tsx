@@ -28,9 +28,9 @@ useEffect(() => {
     return (
       <>
       <Head>
-        <title>Top {source.toUpperCase()} news from multiple sources | Policratic.com</title>
-        <meta name="description" content={`Top ${source.toUpperCase()} news from multiple sources | Policratic.com`} />
-        <meta property="og:title" content={`Top ${source.toUpperCase()} news from multiple sources | Policratic.com`}/>
+        <title>Top {source.toUpperCase()} political news from CNN  | Policratic.com</title>
+        <meta name="description" content={`Top ${source.toUpperCase()} political news from including Donald Tump and President Biden | Policratic`} />
+        <meta property="og:title" content={`Top ${source.toUpperCase()} political news | Policratic`}/>
       </Head>
       <div className={styles.content_container}>
       <div style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
