@@ -17,12 +17,13 @@ export const TopRightRankings = (props) => {
                 {readyRankings.map((rank) => {
                     return(
                         <>
-                        <div className={styles.ranking_item}>
-                            {rank.candidate_party[0].toUpperCase()}:  {rank.candidate}
-                        </div>
                         <div className={styles.ranking_item_count}>
                             {rank.count}
                         </div>
+                        <div className={styles.ranking_item}>
+                            {rank.party[0].toUpperCase()}  :   <span style={{marginLeft:'.5em'}}></span>  {rank.candidate}
+                        </div>
+                        
                         </>
                     
                     )
