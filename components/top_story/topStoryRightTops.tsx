@@ -20,7 +20,7 @@ export const TopStoryRightTops = ( props ) => {
                 <TopRightRankings rankings={weeklyRankings}  type={'Weekly'} />
             </div>
             <div className={styles.top_stories_right_container}>
-                <TopStoryPhoto props={data[0]} />
+                <TopStoryPhoto props={data[14]} />
                 <ListOfFour articles={splicedData} />
             </div>
         </div>

@@ -21,6 +21,7 @@ export const ArticleListTwo = ({ props }) => {
                         objectFit: 'cover',
                         overflow: 'hidden',
                         width: '50%',
+                        height: '327px',
                         }}
                         >   
                             <div  style={{padding: '.25em'}}>
