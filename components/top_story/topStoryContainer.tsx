@@ -10,7 +10,10 @@ import ArticleListTwo from '../articlelisttwo';
 import LoadingComponent from '../basic/loading';
 import TopRightRankings from './topRightRanks';
 export const TopStoryContainer = (props) => {
+    const weeklyRankings = props.weeklyRankings;
+    console.log(weeklyRankings)
     const rankings = props.rankings;
+    
     const content = props.data;
     const testObj ={}
     const [toggle, setToggle] = useState(false);
@@ -26,7 +29,7 @@ export const TopStoryContainer = (props) => {
                         <TopStory data={top} />
                         <ArticleListTwo props={topTwo} />
                     </div>
-                    <TopStoryRightTops data={content} rankings={rankings} />                   
+                    <TopStoryRightTops data={content} rankings={rankings} weeklyRankings={weeklyRankings}/>                   
                 </div>
             </>
         )}

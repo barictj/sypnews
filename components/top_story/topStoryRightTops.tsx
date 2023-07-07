@@ -9,19 +9,19 @@ import TopRightRankings from './topRightRanks';
 export const TopStoryRightTops = ( props ) => {
     const data = props.data
     const rankings = props.rankings
-    console.log(rankings)
+    const weeklyRankings = props.weeklyRankings
     if(data.length > 0)  {
         const splicedData = data.slice(2, 7)
         const splicedDataTwo  = data.slice(8, 13)
       return (
         <div className={styles.top_stories_right_tops} >
             <div className={styles.top_stories_right_container}>
-                <TopStoryPhoto props={data[0]} />
-                <ListOfFour articles={splicedData} />
+                <TopRightRankings rankings={rankings}  type={'Daily'} />
+                <TopRightRankings rankings={weeklyRankings}  type={'Weekly'} />
             </div>
             <div className={styles.top_stories_right_container}>
-                <TopRightRankings rankings={rankings} />
-                <ListOfFour articles={splicedDataTwo} />
+                <TopStoryPhoto props={data[0]} />
+                <ListOfFour articles={splicedData} />
             </div>
         </div>
       )

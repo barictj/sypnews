@@ -37,15 +37,18 @@ export async function getServerSideProps() {
   const res = await fetch(`https://policratic.com/api/content-routes`);
     // const res = await fetch('http://localhost:3000/api/content-routes/');
   const resTwo = await fetch(`https://policratic.com/api/content-routes/candidate-count/1`);
+  const resThree = await fetch(`https://policratic.com/api/content-routes/candidate-count/7`);
+
   const data = await res.json();
   const rankings = await resTwo.json();
+  const weeklyRankings = await resThree.json();
   const tags = data.tags
   const content = data.data
   // Pass data to the page via propsrs
-    return { props: { content, tags, rankings } };
+    return { props: { content, tags, rankings, weeklyRankings } };
 }
 export default function Page({
-  content, tags, rankings
+  content, tags, rankings, weeklyRankings
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
   const [shuffled, setShuffled] = useState([]);
   const [startData, setStartData] = useState([]);
@@ -112,7 +115,7 @@ export default function Page({
   const tagTwo = sorted[1][0]
   const tagOneCount = sorted[0][1]
   const tagTwoCount = sorted[1][1]
-  console.log(tagOne, tagTwo, tagOneCount, tagTwoCount)
+  console.log(weeklyRankings)
   
       return (
         <>
@@ -125,7 +128,7 @@ export default function Page({
               {readyData.length > 0 && shuffled.length > 0  && sorted.length > 0 ?
               <>
               <CatHeader articles={readyData} tags={sorted} />
-              <TopStoryContainer data={readyData} rankings={rankings} />
+              <TopStoryContainer data={readyData} rankings={rankings} weeklyRankings={weeklyRankings} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
               <PerTagContainer tag={tagOne} articles={shuffled} />
