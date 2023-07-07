@@ -6,7 +6,7 @@ const Candidates = require('../models/Candidates');
 
 
 ContentRoutes.get('/', async (req, res) => {
-
+    console.log('hello')
     //var to gather all the data
     let readyData = []
     try{
