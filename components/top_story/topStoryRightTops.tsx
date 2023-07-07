@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react';
 import TopStoryPhoto from './topStoryPhoto';
 import { ListOfFour } from '../basic/listOfFour';
 import LoadingComponent from '../basic/loading';
+import TopRightRankings from './topRightRanks';
 // create react component with typescript and props from parent component called data
-export default function TopStoryRightTops({ props }) {
-    const test = {}
-    const data = props
+export const TopStoryRightTops = ( props ) => {
+    const data = props.data
+    const rankings = props.rankings
+    console.log(rankings)
     if(data.length > 0)  {
         const splicedData = data.slice(2, 7)
         const splicedDataTwo  = data.slice(8, 13)
@@ -18,7 +20,7 @@ export default function TopStoryRightTops({ props }) {
                 <ListOfFour articles={splicedData} />
             </div>
             <div className={styles.top_stories_right_container}>
-                <TopStoryPhoto props={data[1]} />
+                <TopRightRankings rankings={rankings} />
                 <ListOfFour articles={splicedDataTwo} />
             </div>
         </div>
@@ -32,3 +34,4 @@ export default function TopStoryRightTops({ props }) {
         )   
     }
 }
+export default TopStoryRightTops;

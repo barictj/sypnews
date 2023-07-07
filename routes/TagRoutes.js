@@ -12,7 +12,7 @@ TagRoutes.get('/get-all-tags', async (req, res) => {
     }
 })
 
-TagRoutes.post('/post-tags', async (req, res) => {
+TagRoutes.post('/post-tag', async (req, res) => {
     const data = new Tags(req.body)   
     try {
         const dataToSave = await data.save();

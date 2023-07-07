@@ -32,31 +32,20 @@ type Content = {
   image: string;
   date_published: string;
 };
- 
-// export const getStaticProps: GetStaticProps<{
-//   content: [Content];
-// }> = async () => {
-//   const res = await fetch('http://content-base.herokuapp.com/api/content-routes');
-//   // const res = await fetch('http://localhost:3000/api/content-routes/');
-//   const data = await res.json();
-//   const content = data.data
-//   return { props: { content } ,
-//   revalidate: 10, // In seconds
-// }
-// };
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`https://content-base.herokuapp.com/api/content-routes`);
+  const res = await fetch(`https://policratic.com/api/content-routes`);
     // const res = await fetch('http://localhost:3000/api/content-routes/');
-
+  const resTwo = await fetch(`https://policratic.com/api/content-routes/candidate-count/1`);
   const data = await res.json();
+  const rankings = await resTwo.json();
   const tags = data.tags
   const content = data.data
   // Pass data to the page via propsrs
-    return { props: { content, tags } };
+    return { props: { content, tags, rankings } };
 }
 export default function Page({
-  content, tags
+  content, tags, rankings
 }: InferGetStaticPropsType<typeof getServerSideProps>)  {
   const [shuffled, setShuffled] = useState([]);
   const [startData, setStartData] = useState([]);
@@ -97,6 +86,7 @@ export default function Page({
        
   }, [spliced]);
   const topTags = []
+  const topCandidates = []
   contentCopy.map((article) => {
               tags.map((tag) => {
                   if (article.title.toLowerCase().includes(tag.tag_name.toLowerCase())) {
@@ -105,7 +95,6 @@ export default function Page({
               }
           )})
 
-  
   const count = function (ary, classifier) {
       classifier = classifier || String;
       return ary.reduce(function (counter, item) {
@@ -136,7 +125,7 @@ export default function Page({
               {readyData.length > 0 && shuffled.length > 0  && sorted.length > 0 ?
               <>
               <CatHeader articles={readyData} tags={sorted} />
-              <TopStoryContainer data={readyData} />
+              <TopStoryContainer data={readyData} rankings={rankings} />
               <TitleCard title='Political Articles by Source' />
               <BySourceDisplay/>
               <PerTagContainer tag={tagOne} articles={shuffled} />

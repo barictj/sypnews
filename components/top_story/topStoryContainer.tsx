@@ -8,7 +8,9 @@ import TopStory from './topStory';
 import TopStoryRightTops from './topStoryRightTops';
 import ArticleListTwo from '../articlelisttwo';
 import LoadingComponent from '../basic/loading';
+import TopRightRankings from './topRightRanks';
 export const TopStoryContainer = (props) => {
+    const rankings = props.rankings;
     const content = props.data;
     const testObj ={}
     const [toggle, setToggle] = useState(false);
@@ -24,7 +26,7 @@ export const TopStoryContainer = (props) => {
                         <TopStory data={top} />
                         <ArticleListTwo props={topTwo} />
                     </div>
-                    <TopStoryRightTops props={topRight} />                   
+                    <TopStoryRightTops data={content} rankings={rankings} />                   
                 </div>
             </>
         )}

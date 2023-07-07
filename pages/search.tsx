@@ -46,7 +46,7 @@ const Search = (props) => {
  
       const pageNumber = props.query.pageNumber
       // const url = `http://localhost:3000/api/content-routes/search/${search}/${pageNumber}`
-      const url = `https://stackyourprops.com/api/content-routes/search/${search}/${pageNumber}`
+      const url = `https://policratic.com/api/content-routes/search/${search}/${pageNumber}`
       const res = await fetch(url);
       const query = await res.json();
       const data = query.data

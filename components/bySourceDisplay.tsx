@@ -9,7 +9,7 @@ export  const BySourceDisplay = (props) => {
   return (
       <div className={styles.by_source_div}>
         <div className={styles.per_source_link}> 
-              <Link href={{ pathname: '/by_source', query: { searchText: 'cnn', pageNumber: 1 } }} >
+              <Link href={{ pathname: '/by_source', query: { searchText: 'cnn', pageNumber: 1, duration: 100 } }} >
                 <a className={styles.per_source_link_a}>
                     <Image
                       src="/images/cnn.png"
@@ -23,7 +23,7 @@ export  const BySourceDisplay = (props) => {
               </Link>
         </div>
         <div className={styles.per_source_link}> 
-          <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' , pageNumber: 1} }} >
+          <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews' , pageNumber: 1, duration: 100} }} >
             <a className={styles.per_source_link_a}>
               <Image
                 src="/images/nbcnews.png"
@@ -37,7 +37,7 @@ export  const BySourceDisplay = (props) => {
           </Link>         
         </div>
         <div className={styles.per_source_link}> 
-          <Link href={{ pathname: '/by_source', query: { searchText: 'politico', pageNumber: 1 } }} >
+          <Link href={{ pathname: '/by_source', query: { searchText: 'politico', pageNumber: 1, duration: 100 } }} >
             <a className={styles.per_source_link_a}>
               <Image
                 src="/images/politico.png"

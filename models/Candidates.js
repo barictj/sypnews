@@ -9,6 +9,7 @@ const CandidateSchema = new Schema({
         },
     candidate_party: String,
     candidate_name_pretty: String,
+    candidate_title: String,
     
     })
 

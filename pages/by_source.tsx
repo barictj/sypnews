@@ -28,7 +28,7 @@ useEffect(() => {
     return (
       <>
       <Head>
-        <title>Top {source.toUpperCase()} political news   | Policratic.com</title>
+        <title>Top political news {source.toUpperCase()} | Policratic.com</title>
         <meta name="description" content={`Top ${source.toUpperCase()} political news including Donald Tump and President Biden | Policratic`} />
         <meta property="og:title" content={`Top ${source.toUpperCase()} political news | Policratic`}/>
       </Head>
@@ -51,9 +51,11 @@ useEffect(() => {
   export async function getServerSideProps(props) {
       const pageNumber = props.query.pageNumber
       const search = props.query.searchText
+      const duration = props.query.duration
+      console.log(duration)
     // Fetch data from external API
-      const url = `https://stackyourprops.com/api/content-routes/source/${search}/${pageNumber}`
-      // const url = `http://localhost:3000/api/content-routes/source/${search}/${pageNumber}`
+      const url = `https://policratic.com/api/content-routes/source/${search}/${pageNumber}/${duration}`
+      // const url = `http://localhost:3000/api/content-routes/source/${search}/${pageNumber}/${duration}`
       const res = await fetch(url);
       const query = await res.json();
       const data = query.data

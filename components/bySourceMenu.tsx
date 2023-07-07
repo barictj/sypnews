@@ -9,7 +9,7 @@ export  const BySourceMenu = (props) => {
   return (
       <div className={styles.by_source_div} style={{justifyContent: 'space-evenly', paddingRight: '1em'}}>
         <div className={styles.per_source_link}> 
-              <Link href={{ pathname: '/by_source', query: { searchText: 'cnn', pageNumber: 1 } }} >
+              <Link href={{ pathname: '/by_source', query: { searchText: 'cnn', pageNumber: 1, duration: 100 } }} >
                 <a className={styles.per_source_link_a} onClick={props.setToggle}>
                     <Image
                         src="/images/cnn.png"
@@ -23,7 +23,7 @@ export  const BySourceMenu = (props) => {
               </Link>
         </div>
         <div className={styles.per_source_link}> 
-              <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews', pageNumber: 1 } }} >
+              <Link href={{ pathname: '/by_source', query: { searchText: 'nbcnews', pageNumber: 1, duration: 100 } }} >
                 <a className={styles.per_source_link_a} onClick={props.setToggle}>
               <Image
                 src="/images/nbcnews.png"
@@ -37,7 +37,7 @@ export  const BySourceMenu = (props) => {
               </Link>
           </div>
           <div className={styles.per_source_link}> 
-              <Link href={{ pathname: '/by_source', query: { searchText: 'politico' , pageNumber: 1 } }} >
+              <Link href={{ pathname: '/by_source', query: { searchText: 'politico' , pageNumber: 1, duration: 100 } }} >
                 <a className={styles.per_source_link_a} onClick={props.setToggle}>
               <Image
                 src="/images/politico.png"

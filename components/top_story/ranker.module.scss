@@ -1,0 +1,49 @@
+.top_right_rankings_div{
+    width: 100%;
+    text-align: left;
+    margin-left: .25em;
+    background-image: linear-gradient(to bottom right, #202634, rgb(5, 5, 59));
+    color: white;
+    border-radius: 15px;
+    padding-bottom: 1em;
+    padding-top: .5em;
+}
+.header{
+    font-size: .9em;
+    font-weight: 600;
+    text-align: left;
+    margin:0;
+    padding-left: .15em;
+    margin-bottom: .25em;
+
+}
+.rankings_items{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: 200px;
+    font-size: .5em;
+    padding-top: 1em;
+    margin-bottom: .25em;
+    padding-left: .5em;
+    
+}
+.ranking_item{
+    font-weight: 600;
+    text-align: left;
+    align-self: flex-end;
+    margin:0;
+    width: 80%;
+    padding-bottom: .25em;
+    border-bottom: 1px solid #4c5aed;
+}
+.ranking_item_count{
+    align-self: flex-end;
+    font-weight: 600;
+    text-align: left;
+    margin:0;
+    width: 5%;
+    padding-bottom: .25em;
+}

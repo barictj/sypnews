@@ -89,13 +89,34 @@ ContentRoutes.get('/get-more/:number', async (req, res) => {
 })
 
 //by_source with itemskip
-ContentRoutes.get('/source/:source/:pageNumber', async (req, res) => {
+ContentRoutes.get('/source/:source/:pageNumber/:duration', async (req, res) => {
+    const duration = req.params.duration
+    console.log(duration)
+    let durationRequested = new Date(new Date().setDate(new Date().getDate()-duration))
+    durationRequested.setHours(durationRequested.getHours() - 5);
+    durationRequested = durationRequested.toISOString()
+    console.log(durationRequested)
     const sourceRequested = req.params.source
     let pageNumber = req.params.pageNumber
     let itemSkip = pageNumber * 24 - 24
-    const data = (await Content.find({source: sourceRequested}).sort({date_published: -1}).skip(itemSkip).limit(24))
-    const count = (await Content.find({source: sourceRequested}).count())
+    const data = (await Content.find({source: sourceRequested, date_published: {$gte: durationRequested} }).sort({date_published: -1}).skip(itemSkip).limit(24))
+    const count = (await Content.find({source: sourceRequested, date_published: {$gte: durationRequested} }).count())
     res.json({data: data, pageNumber: pageNumber, count: count})
+})
+ContentRoutes.get('/candidate-count/:duration', async (req, res) => {
+    const duration = req.params.duration
+    let durationRequested = new Date(new Date().setDate(new Date().getDate()-duration))
+    durationRequested.setHours(durationRequested.getHours() - 5);
+    durationRequested = durationRequested.toISOString()
+    const candidates = await Candidates.find()
+    console.log(candidates)
+    let list =[]
+    await Promise.all(candidates.map(async(candidate) => {
+        let count = await Content.find({candidates: { $elemMatch: {candidate_name:candidate.candidate_name}}, date_published: {$gte: durationRequested} }).count()
+        console.log(count)
+        await list.push({candidate: candidate.candidate_name_pretty, count: count})
+    }))
+    res.json({count: list, duration: durationRequested})
 })
 ContentRoutes.get('/topic/:tag/:pageNumber', async (req, res) => {
     const tag = req.params.tag
@@ -133,8 +154,7 @@ ContentRoutes.get('/for_all', async (req, res) => {
 })
 //search function
 ContentRoutes.get('/search/:text/:pageNumber', async (req, res) => {
-    try{
-        
+    try{        
         const text = req.params.text
         let pageNumber = req.params.pageNumber
         const query = { $text: { $search: `${text}` } };
