@@ -18,7 +18,7 @@ export const TopRightRankings = (props) => {
                     return(
                         <>
                         <div className={styles.ranking_item}>
-                            {rank.candidate}
+                            {rank.candidate_party[0].toUpperCase()}:  {rank.candidate}
                         </div>
                         <div className={styles.ranking_item_count}>
                             {rank.count}

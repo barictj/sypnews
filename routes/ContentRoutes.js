@@ -114,7 +114,7 @@ ContentRoutes.get('/candidate-count/:duration', async (req, res) => {
     await Promise.all(candidates.map(async(candidate) => {
         let count = await Content.find({candidates: { $elemMatch: {candidate_name:candidate.candidate_name}}, date_published: {$gte: durationRequested} }).count()
         console.log(count)
-        await list.push({candidate: candidate.candidate_name_pretty, count: count})
+        await list.push({candidate: candidate.candidate_name_pretty, count: count, party: candidate_party})
     }))
     res.json({count: list, duration: durationRequested})
 })
